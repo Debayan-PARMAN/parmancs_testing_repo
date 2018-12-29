@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {AppRegistry, Text, View } from 'react-native';
-import MainStyles from './styelsheets/MainStyle';
+import {MainStyles} from './styelsheets/MainStyle';
 
 export default class MainApp extends Component {
   render() {
