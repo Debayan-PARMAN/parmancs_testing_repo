@@ -1,21 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+// import configureStore from './store';
+// import { Provider } from 'react-redux';
 
-export default class App extends React.Component {
+import MainApp from './src/MainApp';
+
+// const initialState = {};
+// const store = configureStore(initialState);
+
+//  <Provider store={store}>
+//     <IntlProvider locale={localeData.locale} messages={localeData.messages}>
+//       <MainApp />
+//     </IntlProvider>
+//   </Provider>
+
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+     <MainApp />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

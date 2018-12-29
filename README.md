@@ -1,5 +1,4 @@
-# parmancs_testing_repo
-# Med-E-Pal App
+# parmancs_testing_repo - Med-E-Pal App
   Code base for mobile application
 
 # Pre-requiste:
