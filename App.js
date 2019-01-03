@@ -4,7 +4,6 @@ import store from './src/store/index';
 import {Provider} from 'react-redux';
 import MainApp from './src/MainApp';
 
-
 // const initialState = {};
 // const store = configureStore(initialState);
 
@@ -21,3 +20,4 @@ export default class App extends Component {
     );
   }
 }
+
