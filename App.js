@@ -1,21 +1,23 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
-import Flash_Screen from './FlashScreen';
-import Footer_Component from './Footer';
-import Header_Component from './Header';
-import Log_In from './Login';
+// import configureStore from './store';
+import store from './src/store/index';
+import {Provider} from 'react-redux';
+import MainApp from './src/MainApp';
+
+// const initialState = {};
+// const store = configureStore(initialState);
+
+ <Provider store={store}>
+    {/* <IntlProvider locale={localeData.locale} messages={localeData.messages}> */}
+      <MainApp />
+    {/* </IntlProvider> */}
+  </Provider>
+
 export default class App extends Component {
-  
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Header_Component/>
-        
-        <Log_In/>        
-        <Footer_Component/>
-      </View>
+     <MainApp />
     );
   }
 }
-
 
