@@ -1,7 +1,18 @@
-import { createReducer, getTableState } from './utils';
+import { createReducer } from './utils';
 
-const initialState = {};
+const initialState = {
+  userDetails: {
+    userId: '',
+    userFirstName: '',
+    userLastName: '',
+    userEmail: '',
+    userMobile: '',
+  },
 
-const handlers = {};
+};
+
+const handlers = {
+  
+};
 
 export default createReducer(initialState, handlers);
