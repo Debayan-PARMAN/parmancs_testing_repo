@@ -1,11 +1,11 @@
-
+import ROUTES from './route';
 
 export const Constants = {
-
+  
 };
 
-const domainName = 'http://localhost:80/';
+export const URI = {
+  login: '',
+  registration: '',
 
-export const URI={
-  
 }
