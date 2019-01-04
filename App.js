@@ -7,16 +7,16 @@ import MainApp from './src/MainApp';
 // const initialState = {};
 // const store = configureStore(initialState);
 
- <Provider store={store}>
-    {/* <IntlProvider locale={localeData.locale} messages={localeData.messages}> */}
-      <MainApp />
-    {/* </IntlProvider> */}
-  </Provider>
-
+  {/* <IntlProvider locale={localeData.locale} messages={localeData.messages}> */}
+    <MainApp />
+  {/* </IntlProvider> */}
+    
 export default class App extends Component {
   render() {
     return (
-     <MainApp />
+      <Provider store={store}>
+        <MainApp />
+      </Provider>
     );
   }
 }

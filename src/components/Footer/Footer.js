@@ -3,11 +3,11 @@
         //AppRegistry,
         View,
         } from 'react-native';
-    import Footer_Component_Home from './assets/components/Footer/Footer_Home';
-    import Footer_Component_MyAccount from './assets/components/Footer/Footer_MyAccount';
-    import Footer_Component_Notification from './assets/components/Footer/Footer_Notification';
-    import Footer_Component_Cart from './assets/components/Footer/Footer_Cart';
-    import Footer_Component_Help from './assets/components/Footer/Footer_Help';
+    import Footer_Component_Home from './Footer_Home';
+    import Footer_Component_MyAccount from './Footer_MyAccount';
+    import Footer_Component_Notification from './Footer_Notification';
+    import Footer_Component_Cart from './Footer_Cart';
+    import Footer_Component_Help from './Footer_Help';
  
     export default class Footer_Component extends Component {
         render() {
