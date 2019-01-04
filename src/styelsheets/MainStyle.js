@@ -72,23 +72,29 @@
       flexDirection: 'row',
     },
     checkBox_Secondary_Container_Row1:{
-      flex: 0.3, 
+      flex: 0.2, 
       paddingTop: 3, 
+      
     },
     checkBox_Secondary_Container_Row2:{
-      flex: 1, 
+      flex: 0.8, 
       paddingTop: 9,
+      
     },
     toggleButton_Main_Container:{
-      flex: 0.5, 
+      flex: 1, 
       paddingLeft: 10, 
       paddingRight: 10,
+      
     },
     toggleButton_Sub_Container:{
-      flex: 1, 
+      flex: 2, 
       paddingTop: 8, 
-      paddingBottom: 10, 
-      flexDirection: 'row',
+      paddingBottom: 10,
+      paddingLeft:70,
+      //flexDirection: 'row',
+      
+      
     },
     toggleButton_Sub_Container_Row1: {
       flex: 1, 
@@ -96,7 +102,7 @@
       alignItems: 'center',
     },
     toggleButton_Sub_Container_Row2: {
-      flex: 0.5, 
+      flex: 0.7, 
       backgroundColor: 'white', 
       alignItems: 'center',
     },
