@@ -20,7 +20,7 @@ export default class Header_Component_SearchButton extends Component {
                     <TouchableOpacity onPress={() => console.log('Search')}>
                         <View style={{ paddingLeft: 0 }}>
                             <Image style={{ alignItems: 'center', width: 20, height: 20, marginTop: 12 }}
-                                source={require('../../images/search.png')}
+                                source={require('../../../assets/images/search.png')}
                             />
                         </View>
                     </TouchableOpacity>
