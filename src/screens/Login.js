@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
 import {LoginStyles} from '../styelsheets/MainStyle';
+import ToggleSwitch from 'toggle-switch-react-native';
 //import { ScrollView } from 'react-native-gesture-handler';
 
 export default class LogIn extends Component {    
@@ -9,10 +10,11 @@ export default class LogIn extends Component {
         this.state = { 
             username: '',
             password: '',
-            opt:'',
+            otp:'',
             successMessage:'',
             failureMessage:'',
             alertTrigger: false,
+            showPassword: true,
         };
     }
 
@@ -33,23 +35,58 @@ export default class LogIn extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                // "userName": 'debayan.sen@parmancs.com1',
                 "userName": username,
+                // "password": 'mystrio7',
                 "password": password,
                 "registrationProvider": "SBIS",
                 "roleName": "INDIVIDUAL"
             }),
         })
+        .then(function (response){
+            return response.json();
+        })
         .then((response) => { 
-            console.log(response); 
-            this.setState({successMessage: 'You are successfully logged in'});
+            console.log(response.token); 
+            if (response.token) {
+                this.setState({ successMessage: `User ${response.username} has successfully logged in.` });
+                Alert.alert(this.state.successMessage);
+            } else {
+                this.setState({ failureMessage: 'Invalid username or password!' });
+                Alert.alert(this.state.failureMessage);
+            }
         })
         .catch((error) => { 
-            console.error(error);
-            this.setState({ failureMessage: 'Invalid username or password!' });
+            console.log(error);
         });
     }
 
     render() {
+        const {username, password, otp, showPassword } = this.state;
+
+        const passwordSection = (
+            <View style={LoginStyles.textInput}>
+                <Text>Password</Text>
+                <TextInput
+                    style={{ height: 25, borderBottomColor: 'black', borderBottomWidth: 1, }}
+                    placeholder="Type your Password"
+                    secureTextEntry={true}
+                    value={password}
+                    onChangeText={(e) => this.onValueChange(e, 'password')} />
+            </View>
+        );
+        const otpSection = (
+            <View style={LoginStyles.textInput}>
+                <Text>OTP</Text>
+                <TextInput
+                    style={{ height: 25, borderBottomColor: 'black', borderBottomWidth: 1, }}
+                    placeholder="Type your OTP"
+                    value={otp}
+                    onChangeText={(e) => this.onValueChange(e, 'otp')} />
+            </View>
+        );
+
+
         return (
             <View style={LoginStyles.mainWrapper}>
                 <ScrollView>
@@ -75,26 +112,11 @@ export default class LogIn extends Component {
                         <TextInput
                             style={{ height: 25, borderBottomColor: 'black', borderBottomWidth: 1, }}
                             placeholder="Type your Email/Mobile"
-                            value={this.state.username}
+                            value={username}
                             onChangeText={(e) => this.onValueChange(e, 'username')} />
                     </View>
-                    <View style={LoginStyles.textInput}>
-                        <Text>Password</Text>
-                        <TextInput
-                            style={{ height: 25, borderBottomColor: 'black', borderBottomWidth: 1, }}
-                            placeholder="Type your Password"
-                            secureTextEntry={true}
-                            value={this.state.password}
-                            onChangeText={(e) => this.onValueChange(e, 'password')} />
-                    </View>
-                    <View style={LoginStyles.textInput}>
-                        <Text>OTP</Text>
-                        <TextInput
-                            style={{ height: 25, borderBottomColor: 'black', borderBottomWidth: 1, }}
-                            placeholder="Type your OTP"
-                            value={this.state.otp}
-                            onChangeText={(e) => this.onValueChange(e, 'otp')} />
-                    </View>
+                    
+                    {showPassword ? passwordSection : otpSection}
                     
                     <View style={LoginStyles.checkBox_Main_Container1}>
                         <View style={LoginStyles.checkBox_Secondary_Container1}>
@@ -108,22 +130,17 @@ export default class LogIn extends Component {
                             </View>
                    </View>
                     <View style={LoginStyles.toggleButton_Main_Container}>
-                            <View style={LoginStyles.toggleButton_Sub_Container}>
-                                <View style={{ flex: 1, backgroundColor: '#616264', alignItems: 'center', }}>
-                                    <TouchableOpacity onPress={() => console.log('Password')}>
-                                        <Text>
-                                            Password
-                                </Text>
-                                    </TouchableOpacity>
-                                </View>
-                                <View style={{ flex: 0.5, backgroundColor: 'white', alignItems: 'center', }}>
-                                    <TouchableOpacity onPress={() => console.log('OTP')}>
-                                        <Text>
-                                            OTP
-                                </Text>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
+                        <View style={LoginStyles.toggleButton_Sub_Container}>
+                            <ToggleSwitch
+                                isOn={showPassword}
+                                onColor='#32CD32'
+                                offColor='#616264'
+                                labelStyle={{ color: 'black', fontWeight: '900' }}
+                                size='medium'
+                                onToggle={(isOn) => this.onValueChange(isOn, 'showPassword')}
+                            />
+                            <Text>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
+                        </View>
                         </View>
                     </View>
                     <View style={LoginStyles.button}>
@@ -141,10 +158,13 @@ export default class LogIn extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 1, }}>
+                        
                         </View>
 
                     </View>
-                    <View style={{ flex: 1 }}></View>
+                    <View style={{ flex: 1 }}>
+                        
+                    </View>
                 </ScrollView>
             </View>
             );

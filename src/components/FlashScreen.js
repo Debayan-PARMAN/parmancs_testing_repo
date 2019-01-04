@@ -5,14 +5,12 @@ export default class Flash_Screen extends Component {
         return (
             
             <View style={{ flex: 1, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center',}}>
-                <Image style={{ alignItems: 'center', width: 200, height: 100 }}
-                    source={require('./assets/images/hand.gif')}
-                />
                 <View>
-                    <Image style={{ alignItems: 'center', width: 120, height: 20 }}
-                        source={require('./assets/images/logo1.png')}
+                <Image style={{ alignItems: 'center', width: 120, height: 20 }}
+                    source={require('../../assets/images/logo1.png')}
                     />
                 </View>
+                <ActivityIndicator size="large" color="#7f439e" />
             </View>
         );
     }
