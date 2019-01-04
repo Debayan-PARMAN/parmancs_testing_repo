@@ -14,11 +14,12 @@ import {
     TouchableOpacity
 
 } from 'react-native';
+import { HeaderStyles } from '../../styelsheets/MainStyle';
 
 export default class Header_Component extends Component {
     render() {
         return (
-            <View Container='Footer' style={{ flex: 0.09, backgroundColor: '#e1e8ee', flexDirection: 'row', paddingTop:25, paddingBottom: 3 }}>
+            <View Container='Header' style={HeaderStyles.container}>
                 <Header_Component_Menu/>
                 <Header_Component_Search/>
                 <Header_Component_SearchButton/>

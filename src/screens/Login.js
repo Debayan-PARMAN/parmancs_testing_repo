@@ -18,6 +18,17 @@ export default class LogIn extends Component {
         };
     }
 
+    static navigationOptions = {
+        title: 'MED-e-Pal',
+        headerStyle: {
+            backgroundColor: '#AA8CC5',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        }
+    };
+
     onValueChange = (value, id) => {
         console.log(id,value);
         this.setState({ [id]:value });
@@ -87,22 +98,24 @@ export default class LogIn extends Component {
         );
 
 
+        // <View style={LoginStyles.bannerArea}>
+        //                 <View style={LoginStyles.bannerArea_Button}>
+        //                     <TouchableOpacity onPress={() => console.log('back')}>
+        //                         <Image style={{ width: 20, height: 20, }}
+        //                             source={require('../../assets/images/back.png')}
+        //                         />
+        //                     </TouchableOpacity>
+        //                 </View>
+
+        //                 <View style={LoginStyles.bannerArea_Text}>
+        //                     <Text style={{ fontSize: 24, color: '#616264', }}> MEDePAL</Text>
+        //                 </View>
+        //             </View>
+
         return (
             <View style={LoginStyles.mainWrapper}>
                 <ScrollView>
-                    <View style={LoginStyles.bannerArea}>
-                        <View style={LoginStyles.bannerArea_Button}>
-                            <TouchableOpacity onPress={() => console.log('back')}>
-                                <Image style={{ width: 20, height: 20, }}
-                                    source={require('../../assets/images/back.png')}
-                                />
-                            </TouchableOpacity>
-                        </View>
-
-                        <View style={LoginStyles.bannerArea_Text}>
-                            <Text style={{ fontSize: 24, color: '#616264', }}> MEDePAL</Text>
-                        </View>
-                    </View>
+                    
                     <View style={LoginStyles.bannerArea2_Text}>
                         <Text>Member Sign IN</Text>
                     </View>
