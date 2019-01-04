@@ -11,7 +11,6 @@ export default class MainApp extends Component {
     return (
       <View style={LayoutStyles.container}>
         <Header />
-        <Text>This is MainApp file</Text>
         <LogIn />
         <Footer />
       </View>
