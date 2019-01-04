@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 //import { Icon, SearchBar } from 'react-native-elements';
-import Header_Component_Menu from './assets/components/Header/Header_Menu';
-import Header_Component_Search from './assets/components/Header/Header_Search';
-import Header_Component_SearchButton from './assets/components/Header/Header_SearchButton'; 
+import Header_Component_Menu from './Header_Menu';
+import Header_Component_Search from './Header_Search';
+import Header_Component_SearchButton from './Header_SearchButton'; 
 import {
     //AppRegistry,
     Text,

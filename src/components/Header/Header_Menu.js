@@ -20,7 +20,7 @@ export default class Header_Component_Menu extends Component {
                     <TouchableOpacity onPress={() => console.log('Navigation')}>
                         <View style={{ paddingLeft: 0 }}>
                             <Image style={{ alignItems: 'center', width: 25, height: 25, marginTop: 10 }}
-                            source={require('../../images/menu.png')}
+                            source={require('../../../assets/images/menu.png')}
                             />
                         </View>
                     </TouchableOpacity>
