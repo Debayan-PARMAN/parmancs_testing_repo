@@ -8,7 +8,7 @@ import MainApp from './src/MainApp';
 // const store = configureStore(initialState);
 
   {/* <IntlProvider locale={localeData.locale} messages={localeData.messages}> */}
-    <MainApp />
+    // <MainApp />
   {/* </IntlProvider> */}
     
 export default class App extends Component {

@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 //import { Icon, SearchBar } from 'react-native-elements';
 import {
-    //AppRegistry,
-    Text,
     Image,
     View,
-    Button,
     Alert,
     TouchableOpacity
 
@@ -15,17 +12,14 @@ import {
 export default class Header_Component_Menu extends Component {
     render() {
         return (
-            
-                <View style={{ flex: 0.4, alignItems: 'center',}}>
-                    <TouchableOpacity onPress={() => console.log('Navigation')}>
-                        <View style={{ paddingLeft: 0 }}>
-                            <Image style={{ alignItems: 'center', width: 25, height: 25, marginTop: 10 }}
-                            source={require('../../../assets/images/menu.png')}
-                            />
-                        </View>
-                    </TouchableOpacity>
+            <View style={{ alignItems: 'center',}}>
+                <TouchableOpacity onPress={() =>  Alert.alert('Clicked on Menu Button')}>
+                    <View>
+                        <Image style={{ paddingLeft: 10, alignItems: 'center', width: 25, height: 25}}
+                        source={require('../../../assets/images/menu.png')} />
                     </View>
-                
+                </TouchableOpacity>
+            </View>               
         );
     }
 }

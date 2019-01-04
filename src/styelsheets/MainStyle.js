@@ -7,11 +7,23 @@
   });
 
   export const HeaderStyles = StyleSheet.create({
-
+    container:{
+      flex: 0.09, 
+      flexDirection: 'row', 
+      paddingTop: 25, 
+      paddingBottom: 3,
+      backgroundColor: '#e1e8ee', 
+    }
   });
 
   export const FooterStyles = StyleSheet.create({
-
+    container: {
+      flex: 0.07,
+      flexDirection: 'row',
+      backgroundColor: '#AA8CC5',
+      justifyContent: 'space-between',
+      paddingTop: 7
+    }
   });
 
   export const MainStyles = StyleSheet.create({
