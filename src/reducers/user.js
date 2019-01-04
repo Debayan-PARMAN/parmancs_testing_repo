@@ -1,10 +1,17 @@
 import { createReducer } from './utils';
 
 const initialState = {
+  loginDetails:{
+      userName: "dsa",
+      password: "dsa",
+      registrationProvider: "SBIS",
+      roleName: "INDIVIDUAL"
+  },
   userDetails: {
     userId: '',
-    userFirstName: '',
-    userLastName: '',
+    username: '',
+    token:'',
+    roleName:'',
     userEmail: '',
     userMobile: '',
   },
