@@ -10,6 +10,9 @@ export default class LogIn extends Component {
             username: '',
             password: '',
             opt:'',
+            successMessage:'',
+            failureMessage:'',
+            alertTrigger: false,
         };
     }
 
@@ -20,6 +23,30 @@ export default class LogIn extends Component {
 
     onSubmit = () => {
 
+        console.log('Submit Button triggered');
+        const path = `http://206.189.150.18:9090/rest/v1/users/login`;
+        const { username, password } = this.state;
+        fetch(path, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "userName": username,
+                "password": password,
+                "registrationProvider": "SBIS",
+                "roleName": "INDIVIDUAL"
+            }),
+        })
+        .then((response) => { 
+            console.log(response); 
+            this.setState({successMessage: 'You are successfully logged in'});
+        })
+        .catch((error) => { 
+            console.error(error);
+            this.setState({ failureMessage: 'Invalid username or password!' });
+        });
     }
 
     render() {
@@ -42,6 +69,7 @@ export default class LogIn extends Component {
                     <View style={LoginStyles.bannerArea2_Text}>
                         <Text>Member Sign IN</Text>
                     </View>
+                    
                     <View style={LoginStyles.textInput}>
                         <Text>Email/Mobile number</Text>
                         <TextInput
@@ -103,7 +131,7 @@ export default class LogIn extends Component {
                         </View>
                         <View style={{ flex: 1 }}>
                             <Button
-                                onPress={() => console.log('Sign In Button')}
+                                onPress={this.onSubmit}
                                 title="Sign In"
                                 color="#616264"
                                 width="10"
