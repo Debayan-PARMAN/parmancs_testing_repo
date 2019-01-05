@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text } from 'native-base';
 
-// import Header from '../components/Footer/Footer';
-// import Footer from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 export default class Registration extends Component{
   static navigationOptions = {
@@ -20,6 +19,7 @@ export default class Registration extends Component{
     return (
       <View>
         <Text>Registration Here</Text>
+        <Footer />
       </View>
     );
   }
