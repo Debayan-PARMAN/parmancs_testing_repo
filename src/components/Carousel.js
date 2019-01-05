@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, StyleSheet, Dimensions } from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Dimensions, Text } from 'react-native';
 import { Constants } from 'expo';
 
 const { width } = Dimensions.get('window');
-const height = width * 0.8
+const height = width * 0.7
 
 class Carousel extends Component {
   render() {

@@ -9,11 +9,10 @@ export default class Flash_Screen extends Component {
                     source={require('../../assets/images/hand.gif')}
                 /> */}
                 <View>
-                    {/* <Image style={{ alignItems: 'center', width: 120, height: 20 }}
-                        source={require('../../assets/images/logo1.png')}
-                    /> */}
-                     <ActivityIndicator
+                    <Image style={{ alignItems: 'center', width: 150, height: 200,backgroundColor: '#fff' }}
+                        source={require('../../assets/images/logo2.png')}
                     />
+                 <ActivityIndicator size="large" color="#7f439e" />
                 </View>
                 
             </View>
