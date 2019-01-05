@@ -23,6 +23,7 @@ export default class Header_Component_Search extends Component {
                         borderTopWidth: 0,
                         borderBottomWidth: 0,
                         marginTop: 0,
+                        
                     }}
                         //lightTheme
                         round
