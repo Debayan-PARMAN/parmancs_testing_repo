@@ -17,6 +17,9 @@ export default class HomeScreen extends PureComponent{
     headerTintColor: '#fff',
     headerTitleStyle: {
       fontWeight: 'bold',
+      paddingLeft: 50,
+      //alignItems:'center',
+    
     },
     headerLeft: ( <Header_Component_Menu/> ),
     headerRight: ( <Header_SearchButton /> )

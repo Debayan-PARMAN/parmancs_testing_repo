@@ -12,9 +12,9 @@ import {
 export default class Header_Component_Menu extends Component {
     render() {
         return (
-            <View style={{ alignItems: 'center',}}>
+            <View style={{ alignItems: 'center',paddingLeft:10}}>
                 <TouchableOpacity onPress={() =>  Alert.alert('Clicked on Menu Button')}>
-                    <View>
+                    <View >
                         <Image style={{ paddingLeft: 10, alignItems: 'center', width: 25, height: 25}}
                         source={require('../../../assets/images/menu.png')} />
                     </View>

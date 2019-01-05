@@ -26,6 +26,7 @@ export default class LogIn extends Component {
         headerTintColor: '#fff',
         headerTitleStyle: {
             fontWeight: 'bold',
+            paddingLeft: 50,
         }
     };
 
