@@ -1,22 +1,23 @@
 import React, {Component} from 'react';
-// import configureStore from './store';
-import store from './src/store/index';
-import {Provider} from 'react-redux';
-import MainApp from './src/MainApp';
+import Carousel from './src/components/Carousel';
+import { View, ScrollView, Image, StyleSheet, Dimensions } from 'react-native';
+import Flash_Screen from './src/components/FlashScreen';
 
-// const initialState = {};
-// const store = configureStore(initialState);
-
-  {/* <IntlProvider locale={localeData.locale} messages={localeData.messages}> */}
-    // <MainApp />
-  {/* </IntlProvider> */}
-    
 export default class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <MainApp />
-      </Provider>
+
+      <View  style={{ flex: 1, backgroundColor:'#red', alignItems:'center', justifyContent:'center', }}>
+         <Carousel/>
+      </View>
+      // <View>
+      // <Flash_Screen/>
+      // </View>
+
+
+
+
+     
     );
   }
 }
