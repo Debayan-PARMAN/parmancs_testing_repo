@@ -23,10 +23,10 @@ export default class Footer_Component extends Component {
         return (
             <View Container='Footer' style={FooterStyles.container}>
             <Footer_Icons iconLabel={HomeIcon.label} iconSrc={HomeIcon.src} iconLink='Home' />
-            <Footer_Icons iconLabel={MyAccountIcon.label} iconSrc={MyAccountIcon.src} />
-            <Footer_Icons iconLabel={MyCartIcon.label} iconSrc={MyCartIcon.src} />
-            <Footer_Icons iconLabel={NotificationsIcon.label} iconSrc={NotificationsIcon.src} />
-            <Footer_Icons iconLabel={HelpIcon.label} iconSrc={HelpIcon.src} />
+                <Footer_Icons iconLabel={MyAccountIcon.label} iconSrc={MyAccountIcon.src} iconLink='My Account' />
+                <Footer_Icons iconLabel={MyCartIcon.label} iconSrc={MyCartIcon.src} iconLink='Cart' />
+                <Footer_Icons iconLabel={NotificationsIcon.label} iconSrc={NotificationsIcon.src} iconLink='Notifications' />
+                <Footer_Icons iconLabel={HelpIcon.label} iconSrc={HelpIcon.src} iconLink='Icon' />
             </View>
         );
     }

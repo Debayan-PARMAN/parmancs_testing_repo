@@ -9,12 +9,16 @@ import Login from './screens/Login';
 import Registration from './screens/Registration';
 import Home from './screens/Home';
 import FlashScreen from './screens/FlashScreen';
+import CreateAccount_Btn from './components/Button/CreateAccount_Button';
 
 const RootStack = createStackNavigator({
   Home: Home,
   Loading: FlashScreen,
   Login: Login,
-  Registration: Registration
+  Registration: Registration,
+  Registration: CreateAccount_Btn,
+
+
 },
 {
   initialRouteName: 'Home',

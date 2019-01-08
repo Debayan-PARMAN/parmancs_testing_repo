@@ -1,5 +1,12 @@
   import {StyleSheet} from 'react-native';
 
+  export const FontStyles = StyleSheet.create({
+  font: {
+      fontFamily: 'Roboto', 
+      fontSize: 14,
+  },
+  });
+
   export const LayoutStyles = StyleSheet.create({
     container:{
       flex: 1,

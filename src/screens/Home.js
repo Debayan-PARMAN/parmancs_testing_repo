@@ -45,7 +45,7 @@ export default class HomeScreen extends PureComponent{
               title = "Flash Screen" />
           </View>
         </View>
-        {<Footer />}
+      
       </View>
     );
   }

@@ -19,7 +19,6 @@ export default class Registration extends Component{
     return (
       <View>
         <Text>Registration Here</Text>
-        <Footer />
       </View>
     );
   }
