@@ -7,7 +7,7 @@ export default class Registration extends Component{
   static navigationOptions = {
     title: 'Registration',
     headerStyle: {
-      backgroundColor: '#AA8CC5',
+      backgroundColor: '#daadd6',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {

@@ -20,7 +20,7 @@ export default class CreateAccount_Btn extends Component {
     static navigationOptions = {
         title: 'MED-e-Pal',
         headerStyle: {
-            backgroundColor: '#AA8CC5',
+            backgroundColor: '#daadd6',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {

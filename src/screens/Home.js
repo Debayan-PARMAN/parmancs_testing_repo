@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import { View, Text, Button } from 'react-native';
-
 // import Footer from '../components/Header/Header';
 // import Footer from '../components/Header/Header';
 import {MainStyles} from '../styelsheets/MainStyle';
@@ -12,7 +11,7 @@ export default class HomeScreen extends PureComponent{
   static navigationOptions = {
     title: 'MED-e-Pal',
     headerStyle: {
-      backgroundColor: '#AA8CC5',
+      backgroundColor: '#daadd6',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
