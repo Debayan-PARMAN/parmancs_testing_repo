@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Button } from 'react-native';
 
 // import Footer from '../components/Header/Header';
 // import Footer from '../components/Header/Header';
@@ -34,15 +34,22 @@ export default class HomeScreen extends PureComponent{
             {
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'space-between'
+              justifyContent: 'space-between',
+              marginTop:10
             }
           } >
-            <Button onPress = {() => this.props.navigation.navigate('Login')}
-              title = "Sign In" />
+            <Button onPress = {() => this.props.navigation.navigate('Home')}
+              title = "Home" />
+            <Button onPress={() => this.props.navigation.navigate('Login')}
+              title="Sign In" />
             <Button onPress = {() => this.props.navigation.navigate('Registration')}
               title = "Sign Up" />
             <Button onPress = {() => this.props.navigation.navigate('Loading')}
               title = "Flash Screen" />
+            <Button onPress={() => this.props.navigation.navigate('Testing')}
+              title="Testing Screen" />
+            <Button onPress={() => this.props.navigation.navigate('HomePage')}
+              title="Home Page" />
           </View>
         </View>
         {/* <Footer /> */}

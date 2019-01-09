@@ -6,6 +6,29 @@
     },
   });
 
+
+
+export const HomeStyles = StyleSheet.create({
+  btn: {
+    width: 150,
+    height: 35,
+    justifyContent: 'center',
+    borderColor:'#000000',
+    borderRadius: 4,
+    borderWidth: 1, borderColor: '#000',
+    borderHeight: 1,
+   
+    
+  },
+
+  caro: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
   export const HeaderStyles = StyleSheet.create({
     container:{
       flex: 0.09, 

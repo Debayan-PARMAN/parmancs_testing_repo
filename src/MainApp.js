@@ -17,12 +17,16 @@ import Login from './screens/Login';
 import Registration from './screens/Registration';
 import Home from './screens/Home';
 import FlashScreen from './screens/FlashScreen';
+import Testing from './screens/Testing';
+import Home_Page from './screens/HomePage';
 
 const RootStack = createStackNavigator({
   Home: Home,
   Loading: FlashScreen,
   Login: Login,
-  Registration: Registration
+  Registration: Registration,
+  Testing: Testing,
+  HomePage: Home_Page,
 },
 {
   initialRouteName: 'Home',
