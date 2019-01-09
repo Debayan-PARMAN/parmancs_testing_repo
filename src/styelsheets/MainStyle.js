@@ -1,8 +1,9 @@
   import {StyleSheet} from 'react-native';
+  import styleConstants from '../constants';
 
   export const FontStyles = StyleSheet.create({
   font: {
-      fontFamily: 'Roboto', 
+      fontFamily: styleConstants.fontStyles.fontFamily,
       fontSize: 14,
   },
   });
