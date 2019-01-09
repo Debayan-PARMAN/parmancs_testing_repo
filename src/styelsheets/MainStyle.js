@@ -1,5 +1,12 @@
   import {StyleSheet} from 'react-native';
 
+  export const FontStyles = StyleSheet.create({
+  font: {
+      fontFamily: 'Roboto', 
+      fontSize: 14,
+  },
+  });
+
   export const LayoutStyles = StyleSheet.create({
     container:{
       flex: 1,
@@ -22,7 +29,27 @@
       flexDirection: 'row',
       backgroundColor: '#AA8CC5',
       justifyContent: 'space-between',
-      paddingTop: 7
+      paddingTop: 7,
+    },
+    icons:{
+      flex: 1, 
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingTop: 2,
+    },
+    wrapper:{
+      alignItems:'center',
+      justifyContent:'center',
+    },
+    imageStyles :{
+      alignItems: 'center',
+      width: 20, 
+      height: 20,
+    },
+    textStyles:{
+      alignItems: 'center',
+      fontSize: 10,
+      color: 'white',
     }
   });
 

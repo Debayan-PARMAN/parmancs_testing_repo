@@ -6,7 +6,7 @@ import { View, Text, Button } from 'react-native';
 import {MainStyles} from '../styelsheets/MainStyle';
 import Header_Component_Menu from '../components/Header/Header_Menu';
 import Header_SearchButton from '../components/Header/Header_SearchButton';
-// import Footer from '../components/Footer/Footer';
+import Footer from '../components/Footer/Footer';
 
 export default class HomeScreen extends PureComponent{
   static navigationOptions = {
@@ -45,7 +45,7 @@ export default class HomeScreen extends PureComponent{
               title = "Flash Screen" />
           </View>
         </View>
-        {/* <Footer /> */}
+      
       </View>
     );
   }
