@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
-import {LoginStyles, FontStyles} from '../styelsheets/MainStyle';
+import { LoginStyles, FontStyles, Button_fb_google} from '../styelsheets/MainStyle';
 import ToggleSwitch from 'toggle-switch-react-native';
 import SignIn_Btn from '../../src/components/Button/SignIn_Button';
 import CreateAccount_Btn from '../../src/components/Button/CreateAccount_Button';
@@ -80,9 +80,9 @@ export default class LogIn extends Component {
 
         const passwordSection = (
             <View style={LoginStyles.textInput}>
-                <Text style={{ fontFamily:'Roboto'}}>Password</Text>
+                <Text style={FontStyles.font}>Password</Text>
                 <TextInput
-                    style={{ height: 25, borderBottomColor: 'black', borderBottomWidth: 1, }}
+                    style={LoginStyles.textInput_pass_email}
                     placeholder="Type your Password"
                     secureTextEntry={true}
                     value={password}
@@ -91,9 +91,9 @@ export default class LogIn extends Component {
         );
         const otpSection = (
             <View style={LoginStyles.textInput}>
-                <Text>OTP</Text>
+                <Text style={FontStyles.font}>OTP</Text>
                 <TextInput
-                    style={{ height: 25, borderBottomColor: 'black', borderBottomWidth: 1, }}
+                    style={LoginStyles.textInput_pass_email}
                     placeholder="Type your OTP"
                     value={otp}
                     onChangeText={(e) => this.onValueChange(e, 'otp')} />
@@ -126,7 +126,7 @@ export default class LogIn extends Component {
                     <View style={LoginStyles.textInput}>
                         <Text style={FontStyles.font}>Email/Mobile number</Text>
                         <TextInput
-                            style={{ height: 25, borderBottomColor: 'black', borderBottomWidth: 1, }}
+                            style={LoginStyles.textInput_pass_email}
                             placeholder="Type your Email/Mobile"
                             value={username}
                             onChangeText={(e) => this.onValueChange(e, 'username')} />
@@ -151,8 +151,7 @@ export default class LogIn extends Component {
                                 isOn={showPassword}
                                 onColor='#32CD32'
                                 offColor='#616264'
-                                labelStyle={{ color: 'black', fontWeight: '900' }}
-                                size='medium'
+                                size='small'
                                 onToggle={(isOn) => this.onValueChange(isOn, 'showPassword')}
                             />
                                 <Text style={FontStyles.font}>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
@@ -160,37 +159,37 @@ export default class LogIn extends Component {
                         </View>
                     </View>
                     <SignIn_Btn/>
-                    <View style={{ paddingTop: 15, alignItems: 'center', }}>
+                    <View style={LoginStyles.forget_pass_view}>
                         <TouchableOpacity onPress={() => console.log('Forgot Password')}>
-                            <Text style={FontStyles.font} style={{ textDecorationLine: 'underline' }}>Forgot password ?</Text>
+                            <Text style={FontStyles.font} style={LoginStyles.text_underline}>Forgot password ?</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={{ flex: 1, alignItems:'center',paddingTop:15 }}>
+                    <View style={LoginStyles.bannerArea2_Text}>
                         <Text style={FontStyles.font}>------------------------------------- OR -------------------------------------</Text>
                     </View>
-                    <View style={{ flex: 1, alignItems: 'center', paddingTop:3, height:45  }}>
+                    <View style={Button_fb_google.first_container}>
                         <TouchableOpacity onPress={() => console.log('Login with facebook')}>
-                            <View style={{ width: 250, height: 40, backgroundColor: '#AA8CC5', flexDirection:'row', paddingLeft:10, paddingRight:10, paddingTop:2,paddingBottom:2,}}>
-                                <View style={{ flex: 0.5,alignItems: 'center', justifyContent: 'center',}}>
+                            <View style={Button_fb_google.second_container}>
+                                <View style={Button_fb_google.third_container}>
                             <Image style={{width: 30, height: 30 }}
                             source={require('../../assets/images/facebook.png')}
                             />
                             </View>
-                                <View style={{flex:1, alignItems:'center', justifyContent:'center',}}>
+                                <View style={LoginStyles.toggleButton_Sub_Container_Row1}>
                                     <Text style={FontStyles.font} style={{color:'white'}}>Connect With Facebook</Text>
                                 </View>
                         </View>
                         </TouchableOpacity>
                     </View>
-                    <View style={{ flex: 1, alignItems: 'center', paddingTop: 3, height: 45 }}>
+                    <View style={Button_fb_google.first_container}>
                         <TouchableOpacity onPress={() => console.log('Login with google')}>
-                            <View style={{ width: 250, height: 40, backgroundColor: '#AA8CC5', flexDirection: 'row', paddingLeft: 10, paddingRight: 10, paddingTop: 2, paddingBottom: 2, }}>
-                                <View style={{ flex: 0.5, alignItems: 'center', justifyContent: 'center', }}>
+                            <View style={Button_fb_google.second_container}>
+                                <View style={Button_fb_google.third_container}>
                                     <Image style={{ width: 30, height: 30 }}
                                         source={require('../../assets/images/google.png')}
                                     />
                                 </View>
-                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', }}>
+                                <View style={LoginStyles.toggleButton_Sub_Container_Row1}>
                                     <Text style={FontStyles.font} style={{ color: 'white' }}>Connect With Google</Text>
                                 </View>
                             </View>

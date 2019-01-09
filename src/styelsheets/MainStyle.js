@@ -86,12 +86,14 @@
     },
     bannerArea_Text:{
       flex: 0.5, 
-      paddingLeft: 100
+      paddingLeft: 100,
+      justifyContent:'center',
     },
     bannerArea2_Text:{
       flex: 0.2, 
       alignItems: 'center', 
       paddingTop: 7, 
+      justifyContent:'center',
     },
     textInput:{
       flex: 0.5, 
@@ -137,8 +139,9 @@
     },
     toggleButton_Sub_Container_Row1: {
       flex: 1, 
-      backgroundColor: '#616264', 
+      //backgroundColor: '#616264', 
       alignItems: 'center',
+      justifyContent:'center',
     },
     toggleButton_Sub_Container_Row2: {
       flex: 0.7, 
@@ -150,6 +153,43 @@
       justifyContent: 'center',
       flexDirection: 'row',
     },
+    textInput_pass_email: {
+      height: 25,
+      borderBottomColor: 'black', 
+      borderBottomWidth: 1,
+    },
+    forget_pass_view: {
+      paddingTop: 15, 
+      alignItems: 'center',
+    },
+    text_underline: {
+      textDecorationLine: 'underline',
+    },
+  });
+
+  export const Button_fb_google = StyleSheet.create({
+
+    first_container: {
+      flex: 1, 
+      alignItems: 'center', 
+      paddingTop: 3, height: 45,
+    },
+    second_container: {
+      width: 250, 
+      height: 40, 
+      backgroundColor: '#AA8CC5', 
+      flexDirection: 'row', 
+      paddingLeft: 10, 
+      paddingRight: 10, 
+      paddingTop: 2, 
+      paddingBottom: 2,
+    },
+    third_container: {
+      flex: 0.5, 
+      alignItems: 'center', 
+      justifyContent: 'center',
+    },
+
   });
 
   export const SignIn = StyleSheet.create({
