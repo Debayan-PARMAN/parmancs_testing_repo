@@ -8,7 +8,10 @@ export default class Flash_Screen extends Component {
                     <Image style={{ alignItems: 'center', width: 120, height: 20 }}
                     source={require('../../assets/images/logo1.png')} />
                 </View>
-                <ActivityIndicator size="large" color="#7f439e" />
+                <View>
+                    <Image style={{ alignItems: 'center', width: 80, height: 50 }}
+                        source={require('../../assets/images/loading.gif')} />
+                </View>
             </View>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, StyleSheet, Dimensions } from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Dimensions,Text } from 'react-native';
 import { Constants } from 'expo';
 
 const { width } = Dimensions.get('window');
@@ -16,10 +16,12 @@ class Carousel extends Component {
                     <ScrollView
                         horizontal
                         pagingEnabled
-                        showsHorizontalScrollIndicator={false}
+                        showsHorizontalScrollIndicator={true}
                     >
                         {images.map(image => (
-                            <Image style={styles.image} source={image.source} />
+                            <Image style={styles.image} source={image.source} >
+                            
+                            </Image>
                         ))}
                     </ScrollView>
                 </View>
@@ -35,22 +37,22 @@ export default class App extends Component {
         const images = [
             {
                 source: {
-                    uri: 'https://cdn.pixabay.com/photo/2017/05/19/07/34/teacup-2325722__340.jpg',
+                    uri: 'http://www.jicjo.com/Portals/Portal1/Upload/Block/Image/medical-2.jpg',
                 },
             },
             {
                 source: {
-                    uri: 'https://cdn.pixabay.com/photo/2017/05/02/22/43/mushroom-2279558__340.jpg',
+                    uri: 'https://www.smiths-medical.com/~/media/M/Smiths-medical_com/Images/Hero%20Backgrounds/Acapella-Home-Test-Hero.jpg',
                 },
             },
             {
                 source: {
-                    uri: 'https://cdn.pixabay.com/photo/2017/05/18/21/54/tower-bridge-2324875__340.jpg',
+                    uri: 'https://www.mathworks.com/content/mathworks/www/en/solutions/medical-devices/_jcr_content/mainParsys/column_0/1/feature_0/items/item_1.adapt.full.high.jpg/1515585842889.jpg',
                 },
             },
             {
                 source: {
-                    uri: 'https://cdn.pixabay.com/photo/2017/05/16/21/24/gorilla-2318998__340.jpg',
+                    uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu9cXRHBftAjSTtcUDJvDdHJ38ztybxUlDBR2H8UZmoupW4TIxzg',
                 },
             },
 
@@ -69,7 +71,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: Constants.statusBarHeight,
+        paddingTop: Constants.statusBarHeight0*0.35,
     },
     scrollContainer: {
         height,

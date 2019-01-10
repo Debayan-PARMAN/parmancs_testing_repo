@@ -6,29 +6,85 @@
     },
   });
 
-
+  {/*------Start Homepage Styles Hare-------*/ }
 
 export const HomeStyles = StyleSheet.create({
+  signin: {
+    flex: 1, flexDirection: 'row',
+    alignItems: 'center',
+     justifyContent: 'center',
+      marginTop: 15,
+       marginBottom: 15 
+  },
+
+  
   btn: {
     width: 150,
-    height: 35,
+    height: 37,
     justifyContent: 'center',
-    borderColor:'#000000',
-    borderRadius: 4,
-    borderWidth: 1, borderColor: '#000',
+    borderWidth: 1,
+    radius:10,
+    borderColor: '#ccc',
     borderHeight: 1,
-   
-    
-  },
+    },
 
   caro: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+   
+  },
+
+  offers: {
+    flex: 1, 
+    flexDirection: 'row', 
+    alignItems: 'center',
+     justifyContent: 'center'
+  },
+  off_txt_h: {
+    fontFamily: 'roboto',
+     fontSize: 16, 
+     fontWeight: 'bold', 
+     color: '#212529', 
+     marginLeft: 10,
+      marginTop: 1,
+  },
+  off_txt_p: {
+    fontFamily: 'roboto',
+     fontSize: 14, 
+     color: '#212529',
+      marginLeft: 10, 
+      marginTop: 1
+  },
+  ser_parent: {
+    width: 166,
+    height: 80,
+    marginBottom: 10, 
+    borderWidth: 1,
+    borderColor: '#ccc', 
+    backgroundColor: '#fff' 
+  },
+  ser_text: {
+    fontSize: 15,
+    fontFamily: 'roboto',
+    color: '#212529',
+    textAlign: 'center',
+    justifyContent: 'center',
+    marginTop: 5 
+  },
+  ser_icon: {
+   width: 30,
+   height: 30,
+   color: '#ccc',
+   marginLeft: 65,
+   marginTop: 17,
+   alignItems: 'center',
+   justifyContent: 'center' 
   },
 });
 
+{/*------End Homepage Styles hare-------*/ }
   export const HeaderStyles = StyleSheet.create({
     container:{
       flex: 0.09, 
