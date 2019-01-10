@@ -169,6 +169,16 @@ export const LoginStyles = StyleSheet.create({
   },
 });
 
+export const SigninStyles = StyleSheet.create({
+  mainWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    alignItems:'center',
+  },
+
+});
+
 export const Button_fb_google = StyleSheet.create({
 
   first_container: {

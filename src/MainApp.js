@@ -8,15 +8,15 @@ import Footer from './components/Footer/Footer';
 import Login from './screens/Login';
 import Registration from './screens/Registration';
 import Home from './screens/Home';
-import FlashScreen from './screens/FlashScreen';
+import Loading_Screen from './screens/LoadingScreen';
 import CreateAccount_Btn from './components/Button/CreateAccount_Button';
 
 const RootStack = createStackNavigator({
   Home: Home,
-  Loading: FlashScreen,
+  Loading: Loading_Screen,
   Login: Login,
   Registration: Registration,
-  Registration: CreateAccount_Btn,
+  //Registration: CreateAccount_Btn,
 
 
 },

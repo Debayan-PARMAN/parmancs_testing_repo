@@ -29,7 +29,7 @@ export default class HomeScreen extends PureComponent{
     return (
       <View style={MainStyles.container }>
         <View>
-          < View style = {
+          <View style = {
             {
               flexDirection: 'column',
               alignItems: 'center',
@@ -41,7 +41,7 @@ export default class HomeScreen extends PureComponent{
             <Button onPress = {() => this.props.navigation.navigate('Registration')}
               title = "Sign Up" />
             <Button onPress = {() => this.props.navigation.navigate('Loading')}
-              title = "Flash Screen" />
+              title = "Loading Screen" />
           </View>
         </View>
       

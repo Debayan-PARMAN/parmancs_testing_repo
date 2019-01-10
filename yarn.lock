@@ -4371,7 +4371,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   integrity sha512-3pboPvLiWD7dkI3qf3KbUe6hKFKa52w+AE0VCqECtf+QHAKgOL37tTaNCnuX1nAAQ4ZhyP+kYVKf8rLmJ/feDQ==
@@ -4504,6 +4504,14 @@ react-native-gesture-handler@^1.0.0, react-native-gesture-handler@^1.0.12:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-hide-show-password-input@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-native-hide-show-password-input/-/react-native-hide-show-password-input-1.0.7.tgz#9b2b28b9d611acaca9023a3369df51437ed9372f"
+  integrity sha512-ijvkg535q23Xo/Z6c3AMXHUNTVqSJbt7EJSHIlkjVPqYSZQ0++6EUk8G8EMZ6G9k+cbEmaJcjdj0W7bDI1KfpA==
+  dependencies:
+    react-native-material-textfield "^0.8.4"
+    react-native-vector-icons "^4.3.0"
+
 react-native-iphone-x-helper@^1.0.3:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.0.tgz#9f8a376eb00bc712115abff4420318a0063fa796"
@@ -4520,6 +4528,13 @@ react-native-keyboard-aware-scroll-view@0.8.0:
 react-native-maps@expo/react-native-maps#v0.22.1-exp.0:
   version "0.22.1"
   resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/e6f98ff7272e5d0a7fe974a41f28593af2d77bb2"
+
+react-native-material-textfield@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/react-native-material-textfield/-/react-native-material-textfield-0.8.4.tgz#267f3a46e9257a25a6b719ebaf34131019f901a0"
+  integrity sha1-Jn86RukleiWmtxnrrzQTEBn5AaA=
+  dependencies:
+    prop-types "^15.5.9"
 
 react-native-reanimated@1.0.0-alpha.10:
   version "1.0.0-alpha.10"
@@ -4582,6 +4597,15 @@ react-native-vector-icons@6.1.0, react-native-vector-icons@^6.1.0:
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.6.2"
+    yargs "^8.0.2"
+
+react-native-vector-icons@^4.3.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#e4014311ffa6de397d914ffc31b7097a874cc8d5"
+  integrity sha512-rpfhfPiXCK2PX1nrNhdxSMrEGB/Gw/SvKoPM0G2wAkSoqynnes19K0VYI+Up7DqR1rFIpE4hP2erpT1tNx2tfg==
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.5.10"
     yargs "^8.0.2"
 
 react-native-view-shot@2.5.0:
