@@ -12,7 +12,7 @@ export default class Footer_Component_Home extends Component {
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', paddingTop: 2 }}>
-                <TouchableOpacity onPress={() => console.log('Home')}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('HomePage')}>
                     <View style={{ paddingLeft: 4 }}>
                         <Image style={{ alignItems: 'center', width: 20, height: 20 }}
                             source={require('../../../assets/images/home.png')}

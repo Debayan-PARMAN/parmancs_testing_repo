@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Carousel from '../components/Carousel';
-import { View, ScrollView, Image, StyleSheet, Dimensions, Text, Button,TouchableOpacity } from 'react-native';
+import Auto_Carousel from '../components/AutoCarousel';
+import { View, ScrollView, Image, StyleSheet, Dimensions, Text, Button, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { HomeStyles } from '../styelsheets/MainStyle';
 import { bold } from 'ansi-colors';
 // import Flash_Screen from './src/components/FlashScreen';
@@ -11,38 +12,46 @@ export default class Home_Page extends Component {
             <ScrollView>
                 {/*--- Carousel Start ---*/}
                 <View style={HomeStyles.caro}>
-                        <Carousel />
+                        <Auto_Carousel />
                 </View>
                 {/*--- Carousel End ---*/}
 
             {/*--- SignIn/CreateAccount Start ---*/}
                 <View style={HomeStyles.signin}>
-                    <View style={HomeStyles.btn}>
-                            <Button onPress={() => this.props.navigation.navigate()}
-                            title="Sign In" color='#AA8CC5'  />
-                    </View>
+                   
+                        <TouchableHighlight
+                            style={HomeStyles.signinbtn}
+                            onPress={() => this.props.navigation.navigate('Loading')}
+                            underlayColor='#fff'>
+                            <Text style={[HomeStyles.signinbtnText]}>Sign In</Text>
+                        </TouchableHighlight>
+                   
                      <View style={{width: 10,}}>
                      </View>
-                    <View style={HomeStyles.btn} >
-                        <Button onPress={() => this.props.navigation.navigate()}
-                                title="Create Account" color='#ccc'/>
-                    </View>
+                   
+                        <TouchableHighlight
+                            style={HomeStyles.createaccountbtn}
+                            onPress={() => this.props.navigation.navigate('Registration')}
+                            underlayColor='#fff'>
+                        <Text style={[HomeStyles.createaccountbtnText]}>Create Account</Text>
+                        </TouchableHighlight>
+                    
                 </View>
             {/*--- SignIn/CreateAccount End ---*/}
 
             {/*--- Offers & Discount Start ---*/}
                 <View>
                     <View style={HomeStyles.offers}>
-                        <View style={{ width: 320, height: 20, backgroundColor: '#fff' }} >
+                        <View style={HomeStyles.off_h} >
                             <Text style={HomeStyles.off_txt_h}>Offers and Discounts (3 available)</Text>
                         </View>
-                        <View style={{ width: 40, height: 25, backgroundColor: '#fff' }} >
-                            <Image style={{ width: 15, height: 15, marginTop: 5, marginLeft: 15 }} 
+                        <View style={HomeStyles.off_h_r} >
+                            <Image style={HomeStyles.off_h_r_i} 
                          source={require('../../assets/images/right-arrow.png')} />
                         </View>                
                                     
                    </View>
-                    <View style={{ width: 370, height: 40, backgroundColor: '#fff' }} >
+                    <View style={HomeStyles.off_f} >
                         <Text style={HomeStyles.off_txt_p}>
                             Ceratosaurus was a predator with deep jaws supporting
                             long, blade-like teeth. It had a prominent...
@@ -51,15 +60,15 @@ export default class Home_Page extends Component {
                 </View>
             {/*--- Offers & Discount End ---*/}
 
-            {/*--- Menu Start ---*/}
+            {/*--- Services Start ---*/}
                <ScrollView
                     horizontal
                     pagingEnabled
                     showsHorizontalScrollIndicator={false}>
-                    <View style={{ flex: 1, margin: (10) }}>
+                    <View style={{ flex: 1, margin: (15) }}>
                        
                         <View style={HomeStyles.ser_parent} >
-                            <TouchableOpacity onPress={() => console.log('Search Doctor')} >
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} >
                                 <Image style={HomeStyles.ser_icon}
                                 source={require('../../assets/images/search_doctor.png')} />
                             </TouchableOpacity>
@@ -137,7 +146,7 @@ export default class Home_Page extends Component {
                         <View style={HomeStyles.ser_parent} />
                     </View>
                </ScrollView>
-            {/*--- Menu End ---*/} 
+            {/*--- Services End ---*/} 
 
             </ScrollView>
         );

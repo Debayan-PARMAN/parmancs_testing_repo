@@ -5,7 +5,7 @@ export default RouterConfig = createStackNavigator({
   Home: HomeScreen,
   Details: DetailsScreen,
 }, {
-  initialRouteName: 'Home',
+  initialRouteName: 'HomePage',
 });
 
 const RouterContainer = createAppContainer(RouterConfig)
