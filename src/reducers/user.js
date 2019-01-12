@@ -28,12 +28,12 @@ const initialState = {
 };
 
 const handlers = {
-  [USER_TYPE.LOGIN_USER]:{
-
-  },
-  [USER_TYPE.LOGIN_USER_SUCCESS]:{
-
-  },
+//   [USER_TYPE.LOGIN_USER]:() => {
+//     return dis;
+//   },
+//   [USER_TYPE.LOGIN_USER_SUCCESS]: () => {
+//     return true;
+//   },
 };
 
 export default createReducer(initialState, handlers);
