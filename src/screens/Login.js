@@ -4,7 +4,7 @@ import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainSt
 import ToggleSwitch from 'toggle-switch-react-native';
 import SignIn_Btn from '../../src/components/Button/SignIn_Button';
 import CreateAccount_Btn from '../../src/components/Button/CreateAccount_Button';
-import PasswordInputText from 'react-native-hide-show-password-input'
+import PasswordInputText from 'react-native-hide-show-password-input';
 //import { ScrollView } from 'react-native-gesture-handler';
 
 export default class LogIn extends Component {
@@ -202,7 +202,24 @@ export default class LogIn extends Component {
                             <Text style={FontStyles.font}>Do not have an account ?</Text>
                         </View>
                     
-                    <CreateAccount_Btn />
+                    <View style={LoginStyles.button}>
+                        <View style={{ flex: 0.7, }}>
+                        </View>
+                        <View style={{ flex: 1, }}>
+                            <Button onPress={() => this.props.navigation.navigate('Registration')}
+                                style={FontStyles.font}
+                                //onPress={this.onSubmit}
+                                title="Create Account"
+                                color="#AA8CC5"
+                                width="10"
+                            />
+                        </View>
+                        <View style={{ flex: 0.7, }}>
+                        </View>
+                    </View>
+                    <View style={{height:20}}>
+                        
+                    </View>
                     </ScrollView>
             </View>
         );

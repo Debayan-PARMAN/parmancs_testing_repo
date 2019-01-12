@@ -4,18 +4,23 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import {LayoutStyles} from './styelsheets/MainStyle';
 import Footer from './components/Footer/Footer';
-
 import Login from './screens/Login';
 import Registration from './screens/Registration';
 import Home from './screens/Home';
 import Loading_Screen from './screens/LoadingScreen';
-import CreateAccount_Btn from './components/Button/CreateAccount_Button';
+import Home_Page from './screens/HomePage';
+import Test_Page from './screens/Testing';
+import Verify_Mobile_Number from './screens/VerifyMobileNumber';
+//import CreateAccount_Btn from './components/Button/CreateAccount_Button';
 
 const RootStack = createStackNavigator({
   Home: Home,
+  HomePage: Home_Page,
   Loading: Loading_Screen,
   Login: Login,
   Registration: Registration,
+  Testing: Test_Page,
+  VerifyMobileMumber: Verify_Mobile_Number,
   //Registration: CreateAccount_Btn,
 
 
@@ -31,7 +36,7 @@ export default class MainApp extends Component {
     return (
       <View style={LayoutStyles.container}>
         <AppContainer />
-        <Footer />
+      <Footer />
       </View>
     );
   }

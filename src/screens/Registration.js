@@ -20,7 +20,7 @@ export default class Registration extends Component{
   }
 
   static navigationOptions = {
-    title: 'Registration',
+    title: 'MED-e-Pal',
     headerStyle: {
       backgroundColor: '#daadd6',
     },
@@ -28,8 +28,8 @@ export default class Registration extends Component{
     headerTitleStyle: {
       fontWeight: 'bold',
       paddingLeft: 50,
-      //justifyContent: 'center',
-      //alignItems: 'center',
+      //alignItems:'center',
+
     },
   };
 
@@ -108,6 +108,8 @@ export default class Registration extends Component{
           </View>
           <View style={LoginStyles.textInput}>
             <Text style={FontStyles.font}>Email/Mobile number</Text>
+            <View style={{height:10}}>
+            </View>
             <TextInput
               style={LoginStyles.textInput_pass_email}
               placeholder="Type your Email/Mobile"
@@ -116,7 +118,22 @@ export default class Registration extends Component{
           </View>
           <View style={{height:30}}>
           </View>
-          <Next_Btn/>
+          <View style={LoginStyles.button}>
+            <View style={{ flex: 0.7, }}>
+            </View>
+            <View style={{ flex: 1, }}>
+              <Button onPress={() => this.props.navigation.navigate('VerifyMobileMumber')}
+                style={FontStyles.font}
+                //onPress={this.onSubmit}
+                title="Next"
+                color="#AA8CC5"
+                width="10"
+                
+              />
+            </View>
+            <View style={{ flex: 0.7, }}>
+            </View>
+          </View>
           <View style={{height:50}}>
           </View>
           <View style={LoginStyles.bannerArea2_Text}>
@@ -155,7 +172,21 @@ export default class Registration extends Component{
           <View style={LoginStyles.forget_pass_view}>
             <Text style={FontStyles.font}>Do not have an account ?</Text>
           </View>
-          <SignIn_Btn/>
+          <View style={LoginStyles.button}>
+            <View style={{ flex: 0.7, }}>
+            </View>
+            <View style={{ flex: 1, }}>
+              <Button onPress={() => this.props.navigation.navigate('Login')}
+                style={FontStyles.font}
+                //onPress={this.onSubmit}
+                title="Sign In"
+                color="#AA8CC5"
+                width="10"
+              />
+            </View>
+            <View style={{ flex: 0.7, }}>
+            </View>
+          </View>
         </ScrollView>
       </View>
     );
