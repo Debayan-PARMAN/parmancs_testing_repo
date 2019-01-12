@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
-import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
+
+import { LoginStyles, FontStyles, Button_fb_google} from '../styelsheets/MainStyle';
 import ToggleSwitch from 'toggle-switch-react-native';
 import SignIn_Btn from '../../src/components/Button/SignIn_Button';
 import CreateAccount_Btn from '../../src/components/Button/CreateAccount_Button';
@@ -81,10 +82,9 @@ export default class LogIn extends Component {
 
         const passwordSection = (
             <View style={LoginStyles.textInput}>
-                
-                <PasswordInputText
-                    //style={LoginStyles.textInput_pass_email}
-                    //color="black"
+                <Text style={FontStyles.font}>Password</Text>
+                <TextInput
+                    style={LoginStyles.textInput_pass_email}
                     placeholder="Type your Password"
                     secureTextEntry={true}
                     value={password}
@@ -146,6 +146,17 @@ export default class LogIn extends Component {
                             <View style={LoginStyles.checkBox_Secondary_Container_Row2}>
                                 <Text style={FontStyles.font}>Remember me</Text>
                             </View>
+                   </View>
+                    <View style={LoginStyles.toggleButton_Main_Container}>
+                        <View style={LoginStyles.toggleButton_Sub_Container}>
+                            <ToggleSwitch
+                                isOn={showPassword}
+                                onColor='#32CD32'
+                                offColor='#616264'
+                                size='small'
+                                onToggle={(isOn) => this.onValueChange(isOn, 'showPassword')}
+                            />
+                                <Text style={FontStyles.font}>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
                         </View>
                         <View style={LoginStyles.toggleButton_Main_Container}>
                             <View style={LoginStyles.toggleButton_Sub_Container}>
@@ -160,7 +171,8 @@ export default class LogIn extends Component {
                             </View>
                         </View>
                     </View>
-                    <SignIn_Btn />
+                    <SignIn_Btn/>
+
                     <View style={LoginStyles.forget_pass_view}>
                         <TouchableOpacity onPress={() => console.log('Forgot Password')}>
                             <Text style={FontStyles.font} style={LoginStyles.text_underline}>Forgot password ?</Text>
@@ -173,9 +185,12 @@ export default class LogIn extends Component {
                         <TouchableOpacity onPress={() => console.log('Login with facebook')}>
                             <View style={Button_fb_google.second_container}>
                                 <View style={Button_fb_google.third_container}>
-                                    <Image style={{ width: 30, height: 30 }}
-                                        source={require('../../assets/images/facebook.png')}
-                                    />
+                            <Image style={{width: 30, height: 30 }}
+                            source={require('../../assets/images/facebook.png')}
+                            />
+                            </View>
+                                <View style={LoginStyles.toggleButton_Sub_Container_Row1}>
+                                    <Text style={FontStyles.font} style={{color:'white'}}>Connect With Facebook</Text>
                                 </View>
                                 <View style={LoginStyles.toggleButton_Sub_Container_Row1}>
                                     <Text style={FontStyles.font} style={{ color: 'white' }}>Connect With Facebook</Text>
