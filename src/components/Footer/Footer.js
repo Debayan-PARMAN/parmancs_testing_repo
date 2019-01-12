@@ -22,7 +22,7 @@ export default class Footer_Component extends Component {
         // <Footer_Component_Help/>
         return (
             <View Container='Footer' style={FooterStyles.container}>
-            <Footer_Icons iconLabel={HomeIcon.label} iconSrc={HomeIcon.src} iconLink='Home' />
+                <Footer_Icons iconLabel={HomeIcon.label} iconSrc={HomeIcon.src} iconLink='Home' />
                 <Footer_Icons iconLabel={MyAccountIcon.label} iconSrc={MyAccountIcon.src} iconLink='My Account' />
                 <Footer_Icons iconLabel={MyCartIcon.label} iconSrc={MyCartIcon.src} iconLink='Cart' />
                 <Footer_Icons iconLabel={NotificationsIcon.label} iconSrc={NotificationsIcon.src} iconLink='Notifications' />

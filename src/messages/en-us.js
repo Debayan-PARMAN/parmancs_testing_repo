@@ -3,5 +3,10 @@ export default en = {
   appDescription: '',
   footerLabels: {
     HomeLabel: 'Home',
+  },
+  loginLabels:{
+    UserNameLabel: 'Username',
+    PasswordLabel: 'Password',
+    OTPLabel: 'OTP'
   }
 };

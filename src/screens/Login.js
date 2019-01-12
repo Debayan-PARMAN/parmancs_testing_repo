@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
+
 import { LoginStyles, FontStyles, Button_fb_google} from '../styelsheets/MainStyle';
 import ToggleSwitch from 'toggle-switch-react-native';
 import SignIn_Btn from '../../src/components/Button/SignIn_Button';
 import CreateAccount_Btn from '../../src/components/Button/CreateAccount_Button';
+import PasswordInputText from 'react-native-hide-show-password-input';
 //import { ScrollView } from 'react-native-gesture-handler';
 
-export default class LogIn extends Component {    
+export default class LogIn extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             username: '',
             password: '',
-            otp:'',
-            successMessage:'',
-            failureMessage:'',
+            otp: '',
+            successMessage: '',
+            failureMessage: '',
             alertTrigger: false,
             showPassword: true,
         };
@@ -23,7 +25,7 @@ export default class LogIn extends Component {
     static navigationOptions = {
         title: 'MED-e-Pal',
         headerStyle: {
-            backgroundColor: '#AA8CC5',
+            backgroundColor: '#daadd6',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -33,8 +35,8 @@ export default class LogIn extends Component {
     };
 
     onValueChange = (value, id) => {
-        console.log(id,value);
-        this.setState({ [id]:value });
+        console.log(id, value);
+        this.setState({ [id]: value });
     }
 
     onSubmit = () => {
@@ -49,34 +51,34 @@ export default class LogIn extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                // "userName": 'debayan.sen@parmancs.com1',
+                //"userName": 'debayan.sen@parmancs.com1',
                 "userName": username,
-                // "password": 'mystrio7',
+                //"password": 'mystrio7',
                 "password": password,
                 "registrationProvider": "SBIS",
                 "roleName": "INDIVIDUAL"
             }),
         })
-        .then(function (response){
-            return response.json();
-        })
-        .then((response) => { 
-            console.log(response.token); 
-            if (response.token) {
-                this.setState({ successMessage: `User ${response.username} has successfully logged in.` });
-                Alert.alert(this.state.successMessage);
-            } else {
-                this.setState({ failureMessage: 'Invalid username or password!' });
-                Alert.alert(this.state.failureMessage);
-            }
-        })
-        .catch((error) => { 
-            console.log(error);
-        });
+            .then(function (response) {
+                return response.json();
+            })
+            .then((response) => {
+                console.log(response.token);
+                if (response.token) {
+                    this.setState({ successMessage: `User ${response.username} has successfully logged in.` });
+                    Alert.alert(this.state.successMessage);
+                } else {
+                    this.setState({ failureMessage: 'Invalid username or password!' });
+                    Alert.alert(this.state.failureMessage);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     render() {
-        const {username, password, otp, showPassword } = this.state;
+        const { username, password, otp, showPassword } = this.state;
 
         const passwordSection = (
             <View style={LoginStyles.textInput}>
@@ -118,11 +120,11 @@ export default class LogIn extends Component {
         return (
             <View style={LoginStyles.mainWrapper}>
                 <ScrollView>
-                    
+
                     <View style={LoginStyles.bannerArea2_Text}>
                         <Text style={FontStyles.font}>Member Sign IN</Text>
                     </View>
-                    
+
                     <View style={LoginStyles.textInput}>
                         <Text style={FontStyles.font}>Email/Mobile number</Text>
                         <TextInput
@@ -131,9 +133,9 @@ export default class LogIn extends Component {
                             value={username}
                             onChangeText={(e) => this.onValueChange(e, 'username')} />
                     </View>
-                    
+
                     {showPassword ? passwordSection : otpSection}
-                    
+
                     <View style={LoginStyles.checkBox_Main_Container1}>
                         <View style={LoginStyles.checkBox_Secondary_Container1}>
                             <View style={LoginStyles.checkBox_Secondary_Container_Row1}>
@@ -156,9 +158,21 @@ export default class LogIn extends Component {
                             />
                                 <Text style={FontStyles.font}>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
                         </View>
+                        <View style={LoginStyles.toggleButton_Main_Container}>
+                            <View style={LoginStyles.toggleButton_Sub_Container}>
+                                <ToggleSwitch
+                                    isOn={showPassword}
+                                    onColor='#32CD32'
+                                    offColor='#616264'
+                                    size='small'
+                                    onToggle={(isOn) => this.onValueChange(isOn, 'showPassword')}
+                                />
+                                <Text style={FontStyles.font}>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
+                            </View>
                         </View>
                     </View>
                     <SignIn_Btn/>
+
                     <View style={LoginStyles.forget_pass_view}>
                         <TouchableOpacity onPress={() => console.log('Forgot Password')}>
                             <Text style={FontStyles.font} style={LoginStyles.text_underline}>Forgot password ?</Text>
@@ -178,7 +192,10 @@ export default class LogIn extends Component {
                                 <View style={LoginStyles.toggleButton_Sub_Container_Row1}>
                                     <Text style={FontStyles.font} style={{color:'white'}}>Connect With Facebook</Text>
                                 </View>
-                        </View>
+                                <View style={LoginStyles.toggleButton_Sub_Container_Row1}>
+                                    <Text style={FontStyles.font} style={{ color: 'white' }}>Connect With Facebook</Text>
+                                </View>
+                            </View>
                         </TouchableOpacity>
                     </View>
                     <View style={Button_fb_google.first_container}>
@@ -195,16 +212,31 @@ export default class LogIn extends Component {
                             </View>
                         </TouchableOpacity>
                     </View>
-                    <View style={{flex:1,}}>
-                        <View style={{ paddingTop: 7, alignItems: 'center', paddingBottom: 7, }}>
-                        <Text style={FontStyles.font}>Do not have an account ?</Text>
+                    
+                    <View style={LoginStyles.forget_pass_view}>
+                            <Text style={FontStyles.font}>Do not have an account ?</Text>
+                        </View>
+                    
+                    <View style={LoginStyles.button}>
+                        <View style={{ flex: 0.7, }}>
+                        </View>
+                        <View style={{ flex: 1, }}>
+                            <Button onPress={() => this.props.navigation.navigate('Registration')}
+                                style={FontStyles.font}
+                                //onPress={this.onSubmit}
+                                title="Create Account"
+                                color="#AA8CC5"
+                                width="10"
+                            />
+                        </View>
+                        <View style={{ flex: 0.7, }}>
                         </View>
                     </View>
-                    <CreateAccount_Btn/>
-
-                </ScrollView>
+                    <View style={{height:20}}>
+                        
+                    </View>
+                    </ScrollView>
             </View>
-            );
-        }
+        );
     }
-
+}
