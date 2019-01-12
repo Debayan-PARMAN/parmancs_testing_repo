@@ -21,7 +21,7 @@ export default class Home_Page extends Component {
                    
                         <TouchableHighlight
                             style={HomeStyles.signinbtn}
-                            onPress={() => this.props.navigation.navigate('Loading')}
+                            onPress={() => this.props.navigation.navigate('Login')}
                             underlayColor='#fff'>
                             <Text style={[HomeStyles.signinbtnText]}>Sign In</Text>
                         </TouchableHighlight>
@@ -65,7 +65,7 @@ export default class Home_Page extends Component {
                     horizontal
                     pagingEnabled
                     showsHorizontalScrollIndicator={false}>
-                    <View style={{ flex: 1, margin: (15) }}>
+                    <View style={{ flex: 1, margin: (10) }}>
                        
                         <View style={HomeStyles.ser_parent} >
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} >
