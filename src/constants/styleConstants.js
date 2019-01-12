@@ -2,6 +2,7 @@ export default styleConstants = {
   fontStyles: {
     fontFamily: 'Roboto',
     bodyFontSize: '14px';
+
     fontColor: '#212529',
     headerGroup: {
       headerColor: '#972493',

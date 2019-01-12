@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+  import {StyleSheet} from 'react-native';
+  import styleConstants from '../constants';
 
 export const FontStyles = StyleSheet.create({
   font: {
@@ -332,3 +333,4 @@ export const SignIn = StyleSheet.create({
   },
 
 });
+
