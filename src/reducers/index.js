@@ -6,7 +6,7 @@ import { combineReducers } from 'redux';
 // import activity from './activity';
 // import configuration from './configuration';
 // import common from './common';
-import user from './user';
+import userState from './user';
 
 export default combineReducers({
   // nav,
@@ -15,5 +15,5 @@ export default combineReducers({
   // activity,
   // configuration,
   // common,
-  user,
+  userState,
 });

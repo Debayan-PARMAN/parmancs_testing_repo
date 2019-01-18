@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
-import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
+import { View, Text, TextInput, Button, ScrollView } from 'react-native';
+// import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
 
 export default class Verify_Mobile_Number extends Component {
 

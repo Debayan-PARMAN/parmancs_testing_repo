@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import {userLogin, updateState} from '../actions/user';
+
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
 import ToggleSwitch from 'toggle-switch-react-native';
 import SignIn_Btn from '../../src/components/Button/SignIn_Button';
-import CreateAccount_Btn from '../../src/components/Button/CreateAccount_Button';
 import PasswordInputText from 'react-native-hide-show-password-input';
+
 //import { ScrollView } from 'react-native-gesture-handler';
 
-export default class LogIn extends Component {
+class LogIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            password: '',
-            otp: '',
-            successMessage: '',
-            failureMessage: '',
             alertTrigger: false,
-            showPassword: true,
         };
     }
 
@@ -34,50 +34,30 @@ export default class LogIn extends Component {
     };
 
     onValueChange = (value, id) => {
-        console.log(id, value);
-        this.setState({ [id]: value });
+        const {userDetails} = this.props.userState;
+        userDetails[id]= value;
+        this.props.updateState({ userDetails });
+    }
+
+    onToggle = () => {
+        const showPassword = !this.props.userState.showPassword;
+        this.props.updateState({showPassword})
     }
 
     onSubmit = () => {
+        this.props.userLogin();
+    }
 
-        console.log('Submit Button triggered');
-        const path = `http://206.189.150.18:9090/rest/v1/users/login`;
-        const { username, password } = this.state;
-        fetch(path, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                //"userName": 'debayan.sen@parmancs.com1',
-                "userName": username,
-                //"password": 'mystrio7',
-                "password": password,
-                "registrationProvider": "SBIS",
-                "roleName": "INDIVIDUAL"
-            }),
-        })
-            .then(function (response) {
-                return response.json();
-            })
-            .then((response) => {
-                console.log(response.token);
-                if (response.token) {
-                    this.setState({ successMessage: `User ${response.username} has successfully logged in.` });
-                    Alert.alert(this.state.successMessage);
-                } else {
-                    this.setState({ failureMessage: 'Invalid username or password!' });
-                    Alert.alert(this.state.failureMessage);
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+    onCancelAlert = () => {
+        this.props.updateState({responseTriggerred: false});
     }
 
     render() {
-        const { username, password, otp, showPassword } = this.state;
+        const { //username, password, otp, showPassword
+         } = this.state;
+
+        const { userDetails, showPassword, responseTriggerred, successMessage, failureMessage } = this.props.userState;
+        // console.log(userDetails);
 
         const passwordSection = (
             <View style={LoginStyles.textInput}>
@@ -87,7 +67,7 @@ export default class LogIn extends Component {
                     //color="black"
                     placeholder="Type your Password"
                     secureTextEntry={true}
-                    value={password}
+                    value={userDetails.password}
                     onChangeText={(e) => this.onValueChange(e, 'password')} />
             </View>
         );
@@ -97,25 +77,26 @@ export default class LogIn extends Component {
                 <TextInput
                     style={LoginStyles.textInput_pass_email}
                     placeholder="Type your OTP"
-                    value={otp}
+                    value={userDetails.otp}
                     onChangeText={(e) => this.onValueChange(e, 'otp')} />
             </View>
         );
 
-
-        // <View style={LoginStyles.bannerArea}>
-        //                 <View style={LoginStyles.bannerArea_Button}>
-        //                     <TouchableOpacity onPress={() => console.log('back')}>
-        //                         <Image style={{ width: 20, height: 20, }}
-        //                             source={require('../../assets/images/back.png')}
-        //                         />
-        //                     </TouchableOpacity>
-        //                 </View>
-
-        //                 <View style={LoginStyles.bannerArea_Text}>
-        //                     <Text style={{ fontSize: 24, color: '#616264', }}> MEDePAL</Text>
-        //                 </View>
-        //             </View>
+        if (responseTriggerred) {
+            // Alert.alert(successMessage.message);
+            const message = userDetails.token ? successMessage : failureMessage;
+            Alert.alert(
+                '',
+                message,
+                [{
+                    text: 'Cancel',
+                    onPress: this.onCancelAlert,
+                    style: 'cancel'
+                }], {
+                    cancelable: false
+                }
+            )
+        }
 
         return (
             <View style={LoginStyles.mainWrapper}>
@@ -130,11 +111,11 @@ export default class LogIn extends Component {
                         <TextInput
                             style={LoginStyles.textInput_pass_email}
                             placeholder="Type your Email/Mobile"
-                            value={username}
+                            value={userDetails.username}
                             onChangeText={(e) => this.onValueChange(e, 'username')} />
                     </View>
 
-                    {showPassword ? passwordSection : otpSection}
+                    { showPassword ? passwordSection : otpSection }
 
                     <View style={LoginStyles.checkBox_Main_Container1}>
                         <View style={LoginStyles.checkBox_Secondary_Container1}>
@@ -154,13 +135,13 @@ export default class LogIn extends Component {
                                     onColor='#32CD32'
                                     offColor='#616264'
                                     size='small'
-                                    onToggle={(isOn) => this.onValueChange(isOn, 'showPassword')}
+                                    onToggle = {this.onToggle}
                                 />
                                 <Text style={FontStyles.font}>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
                             </View>
                         </View>
                     </View>
-                    <SignIn_Btn />
+                    <SignIn_Btn onSubmit={this.onSubmit}/>
                     <View style={LoginStyles.forget_pass_view}>
                         <TouchableOpacity onPress={() => console.log('Forgot Password')}>
                             <Text style={FontStyles.font} style={LoginStyles.text_underline}>Forgot password ?</Text>
@@ -218,10 +199,24 @@ export default class LogIn extends Component {
                         </View>
                     </View>
                     <View style={{ height: 20 }}>
-
+                        {/* <Text>{this.props.userState.successMessage.message}</Text> */}
                     </View>
+
                 </ScrollView>
             </View>
         );
     }
 }
+
+LogIn.propTypes = {
+    userDetails: PropTypes.object,
+}
+
+const mapStateToProps = state => ({
+    userState: state.userState
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    ...bindActionCreators({ userLogin, updateState}, dispatch)});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
