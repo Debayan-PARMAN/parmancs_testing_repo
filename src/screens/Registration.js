@@ -1,28 +1,27 @@
-import React, {Component} from 'react';
-import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
+import React, { Component } from 'react';
+import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView, AsyncStorage } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
-import Next_Btn from '../../src/components/Button/Next_Button';
-import SignIn_Btn from '../../src/components/Button/SignIn_Button';
-import Footer from '../components/Footer/Footer';
+import { URI } from '../constants';
 
-export default class Registration extends Component{
+
+export default class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
-      otp: '',
-      successMessage: '',
-      failureMessage: '',
-      alertTrigger: false,
-      showPassword: true,
+      contactNo: "",
+      emailAddress: "",
+      commonData: "",
+      name: "",
+      password: "",
+      registrationProvider: "SBIS",
+      roleName: "INDIVIDUAL"
     };
   }
 
   static navigationOptions = {
     title: 'MED-e-Pal',
     headerStyle: {
-      backgroundColor: '#daadd6',
+      backgroundColor: '#572a6f',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -38,11 +37,21 @@ export default class Registration extends Component{
     this.setState({ [id]: value });
   }
 
-  onSubmit = () => {
+  // checkData = (commonData) => {
+  //   if (commonData.length === 10 && commonData.test(/d/g)){
+  //     this.setState({ contactNo: commonData });
+  //     return true;
+  //   } else {
+  //     this.setState({ emailAddress: commonData });
+  //     return false;
+  //   }
+  // }
 
-    console.log('Submit Button triggered');
-    const path = `http://206.189.150.18:9090/rest/v1/users/login`;
-    const { username, password } = this.state;
+  onSubmit = () => {
+    console.log('Registration Button triggered');
+    const path = URI.otp;
+    const { name, password, contactNo, emailAddress, commonData } = this.state;
+
     fetch(path, {
       method: 'POST',
       headers: {
@@ -50,25 +59,36 @@ export default class Registration extends Component{
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        //"userName": 'debayan.sen@parmancs.com1',
-        "userName": username,
-        //"password": 'mystrio7',
-        "password": password,
-        "registrationProvider": "SBIS",
-        "roleName": "INDIVIDUAL"
+        "contactNo": contactNo,
+        "smsActionType": "OTPSEND"
+
+        //"emailAddress": emailAddress,
+        //"password": password,
+        //"registrationProvider": "SBIS",
+        //"roleName": "INDIVIDUAL",
+        //"contactNo": "79080180",
+        //"inUserType": "NRM",
+        //"name": "string",
+        //"registrationProvider": "FACEBOOK"
       }),
     })
       .then(function (response) {
         return response.json();
       })
       .then((response) => {
-        console.log(response.token);
-        if (response.token) {
-          this.setState({ successMessage: `User ${response.username} has successfully logged in.` });
+        console.log(response);
+        if (response.status === 5051) {
+          this.setState({ exitsMessage: `User already exits` });
+          Alert.alert(this.state.exitsMessage);
+        }
+        else if (response.status === 5001) {
+          this.setState({ noInputMessage: `Input field blank` });
+          Alert.alert(this.state.noInputMessage);
+        }
+        else {
+          this.setState({ successMessage: `OTP send ${response.message}` });
           Alert.alert(this.state.successMessage);
-        } else {
-          this.setState({ failureMessage: 'Invalid username or password!' });
-          Alert.alert(this.state.failureMessage);
+          this.props.navigation.navigate('VerifyMobileMumber');
         }
       })
       .catch((error) => {
@@ -76,65 +96,42 @@ export default class Registration extends Component{
       });
   }
   render() {
-    const { username, password, otp, showPassword } = this.state;
-
-    const passwordSection = (
-      <View style={LoginStyles.textInput}>
-        <Text style={FontStyles.font}>Password</Text>
-        <TextInput
-          style={LoginStyles.textInput_pass_email}
-          placeholder="Type your Password"
-          secureTextEntry={true}
-          value={password}
-          onChangeText={(e) => this.onValueChange(e, 'password')} />
-      </View>
-    );
-    const otpSection = (
-      <View style={LoginStyles.textInput}>
-        <Text style={FontStyles.font}>OTP</Text>
-        <TextInput
-          style={LoginStyles.textInput_pass_email}
-          placeholder="Type your OTP"
-          value={otp}
-          onChangeText={(e) => this.onValueChange(e, 'otp')} />
-      </View>
-    );
-
+    const { commonData, contactNo } = this.state;
     return (
       <View style={LoginStyles.mainWrapper}>
-      <ScrollView>
+        <ScrollView>
           <View style={LoginStyles.bannerArea2_Text}>
             <Text style={FontStyles.font}>Create Account</Text>
           </View>
           <View style={LoginStyles.textInput}>
-            <Text style={FontStyles.font}>Email/Mobile number</Text>
-            <View style={{height:10}}>
+            <Text style={FontStyles.font}>Mobile number</Text>
+            <View style={{ height: 10 }}>
             </View>
             <TextInput
               style={LoginStyles.textInput_pass_email}
               placeholder="Type your Email/Mobile"
-              value={username}
-              onChangeText={(e) => this.onValueChange(e, 'username')} />
+              value={contactNo}
+              onChangeText={(e) => this.onValueChange(e, 'contactNo')} />
           </View>
-          <View style={{height:30}}>
+          <View style={{ height: 30 }}>
           </View>
           <View style={LoginStyles.button}>
             <View style={{ flex: 0.7, }}>
             </View>
             <View style={{ flex: 1, }}>
-              <Button onPress={() => this.props.navigation.navigate('VerifyMobileMumber')}
+              <Button
                 style={FontStyles.font}
-                //onPress={this.onSubmit}
+                onPress={this.onSubmit}
                 title="Next"
                 color="#AA8CC5"
                 width="10"
-                
+
               />
             </View>
             <View style={{ flex: 0.7, }}>
             </View>
           </View>
-          <View style={{height:50}}>
+          <View style={{ height: 50 }}>
           </View>
           <View style={LoginStyles.bannerArea2_Text}>
             <Text style={FontStyles.font}>------------------------------------- OR -------------------------------------</Text>

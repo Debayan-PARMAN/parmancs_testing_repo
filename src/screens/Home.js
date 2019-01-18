@@ -13,7 +13,7 @@ export default class Home_Screen extends Component {
   static navigationOptions = {
     title: 'MED-e-Pal',
     headerStyle: {
-      backgroundColor: '#daadd6',
+      backgroundColor: '#572a6f',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
