@@ -74,7 +74,14 @@ export default class Doctor_Appoinment extends Component {
                         </View>
                         <Doctor_Address />
                         <GetDirection_Btn/>
-                        
+                        <View style={{flex:1,flexDirection:'row'}}>
+                        <View style={{flex:1,}}>
+                        <Text>Morning</Text>
+                        </View>
+                        <View style={{ flex: 1, }}>
+                        <Text>3slots availability</Text>
+                        </View>
+                        </View>
 
                    </KeyboardAvoidingView> 
                 </ScrollView>

@@ -10,17 +10,11 @@ import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainSt
 import ToggleSwitch from 'toggle-switch-react-native';
 import SignIn_Btn from '../../src/components/Button/SignIn_Button';
 import PasswordInputText from 'react-native-hide-show-password-input';
+// import AlertMessage from '../components/AlertMessage';
 
 //import { ScrollView } from 'react-native-gesture-handler';
 
 class LogIn extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            alertTrigger: false,
-        };
-    }
-
     static navigationOptions = {
         title: 'MED-e-Pal',
         headerStyle: {
@@ -50,15 +44,13 @@ class LogIn extends Component {
 
     onCancelAlert = () => {
         this.props.updateState({responseTriggerred: false});
-        this.props.navigation.navigate('Home');
+        if(this.props.userState.userDetails.token){
+            this.props.navigation.navigate('Home');
+        }
     }
 
     render() {
-        const { //username, password, otp, showPassword
-         } = this.state;
-
         const { userDetails, showPassword, responseTriggerred, successMessage, failureMessage } = this.props.userState;
-        // console.log(userDetails);
 
         const passwordSection = (
             <View style={LoginStyles.textInput}>
@@ -84,19 +76,18 @@ class LogIn extends Component {
         );
 
         if (responseTriggerred) {
-            // Alert.alert(successMessage.message);
             const message = userDetails.token ? successMessage : failureMessage;
             Alert.alert(
                 '',
                 message,
                 [{
-                    text: 'Cancel',
+                    text: 'Ok',
                     onPress: this.onCancelAlert,
                     style: 'cancel'
                 }], {
                     cancelable: false
                 }
-            )
+            );
         }
 
         return (

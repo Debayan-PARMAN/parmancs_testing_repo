@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { requestOTP, updateState } from '../actions/user';
+
+
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView, AsyncStorage } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
 import { URI } from '../constants';
 
-
-export default class Registration extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      contactNo: "",
-      emailAddress: "",
-      commonData: "",
-      name: "",
-      password: "",
-      registrationProvider: "SBIS",
-      roleName: "INDIVIDUAL"
-    };
-  }
+class Registration extends Component {
 
   static navigationOptions = {
     title: 'MED-e-Pal',
@@ -33,8 +27,9 @@ export default class Registration extends Component {
   };
 
   onValueChange = (value, id) => {
-    console.log(id, value);
-    this.setState({ [id]: value });
+    const { userDetails } = this.props.userState;
+    userDetails[id] = value;
+    this.props.updateState({ userDetails });
   }
 
   // checkData = (commonData) => {
@@ -47,56 +42,36 @@ export default class Registration extends Component {
   //   }
   // }
 
+  onCancelAlert = () => {
+    this.props.updateState({ responseTriggerred: false });
+    // this.props.navigation.navigate('Home');
+  }
+
   onSubmit = () => {
     console.log('Registration Button triggered');
-    const path = URI.otp;
-    const { name, password, contactNo, emailAddress, commonData } = this.state;
-
-    fetch(path, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "contactNo": contactNo,
-        "smsActionType": "OTPSEND"
-
-        //"emailAddress": emailAddress,
-        //"password": password,
-        //"registrationProvider": "SBIS",
-        //"roleName": "INDIVIDUAL",
-        //"contactNo": "79080180",
-        //"inUserType": "NRM",
-        //"name": "string",
-        //"registrationProvider": "FACEBOOK"
-      }),
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then((response) => {
-        console.log(response);
-        if (response.status === 5051) {
-          this.setState({ exitsMessage: `User already exits` });
-          Alert.alert(this.state.exitsMessage);
+    const {userDetails} = this.props.userState;
+    const regex = /[0-9]/g;
+    if (regex.test(userDetails.contactNo) && userDetails.contactNo.length === 10){
+      this.props.requestOTP();
+      this.props.navigation.navigate('VerifyMobileMumber');
+    }
+    else {
+      Alert.alert(
+        '',
+        message='Provide a valid number',
+        [{
+          text: 'Cancel',
+          onPress: this.onCancelAlert,
+          style: 'cancel'
+        }], {
+          cancelable: false
         }
-        else if (response.status === 5001) {
-          this.setState({ noInputMessage: `Input field blank` });
-          Alert.alert(this.state.noInputMessage);
-        }
-        else {
-          this.setState({ successMessage: `OTP send ${response.message}` });
-          Alert.alert(this.state.successMessage);
-          this.props.navigation.navigate('VerifyMobileMumber');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      );
+    }
   }
   render() {
-    const { commonData, contactNo } = this.state;
+    const { userDetails } = this.props.userState;
+    const { contactNo } = this.props.userState;
     return (
       <View style={LoginStyles.mainWrapper}>
         <ScrollView>
@@ -110,7 +85,7 @@ export default class Registration extends Component {
             <TextInput
               style={LoginStyles.textInput_pass_email}
               placeholder="Type your Email/Mobile"
-              value={contactNo}
+              value={userDetails.contactNo}
               onChangeText={(e) => this.onValueChange(e, 'contactNo')} />
           </View>
           <View style={{ height: 30 }}>
@@ -189,3 +164,17 @@ export default class Registration extends Component {
     );
   }
 };
+
+Registration.propTypes = {
+  userDetails: PropTypes.object,
+}
+
+const mapStateToProps = state => ({
+  userState: state.userState
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators({ requestOTP, updateState }, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registration);
