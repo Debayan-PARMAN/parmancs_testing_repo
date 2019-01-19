@@ -22,7 +22,7 @@ export default class LogIn extends Component {
     }
 
     static navigationOptions = {
-        title: 'MED-e-Pal',
+        title: 'MED-e-PAL',
         headerStyle: {
             backgroundColor: '#daadd6',
         },
@@ -54,7 +54,7 @@ export default class LogIn extends Component {
                 "userName": username,
                 //"password": 'mystrio7',
                 "password": password,
-                "registrationProvider": "SBIS",
+                // "registrationProvider": "SBIS",
                 "roleName": "INDIVIDUAL"
             }),
         })

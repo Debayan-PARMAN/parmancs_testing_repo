@@ -1,5 +1,5 @@
-import ROUTES from './route';
-import styleConstants from './styleConstants';
+// import ROUTES from './route';
+// import styleConstants from './styleConstants';
 
 export const Constants = {
   
@@ -12,5 +12,8 @@ export const URI_PREFIX = `${HOST_NAME}:${PORT}`;
 export const URI = {
   login: `${URI_PREFIX}/rest/v1/users/login`, // For Login Api
   registration: '',
+
+
+  
 
 }

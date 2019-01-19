@@ -8,8 +8,10 @@ const RootStack = createStackNavigator({
   Login: ROUTES.LOGIN,
   Registration: ROUTES.REGISTRATION,
   Testing: ROUTES.TEST_PAGE,
+  UserProfile: ROUTES.USER_PROFILE,
+  UpdateUserProfile: ROUTES.UPDATE_USER_PROFILE,
   VerifyMobileMumber: ROUTES.VERIFY_NUMBER,
-
+  AddAddress: ROUTES.ADDADDRESS,
 },
   {
     initialRouteName: 'Home',
