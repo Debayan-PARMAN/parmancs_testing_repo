@@ -14,6 +14,7 @@ import PasswordInputText from 'react-native-hide-show-password-input';
 
 //import { ScrollView } from 'react-native-gesture-handler';
 
+
 class LogIn extends Component {
     static navigationOptions = {
         title: 'MED-e-Pal',
@@ -28,14 +29,16 @@ class LogIn extends Component {
     };
 
     onValueChange = (value, id) => {
+
         const { userDetails } = this.props.userState;
         userDetails[id] = value;
+
         this.props.updateState({ userDetails });
     }
 
     onToggle = () => {
         const showPassword = !this.props.userState.showPassword;
-        this.props.updateState({ showPassword })
+        this.props.updateState({showPassword})
     }
 
     onSubmit = () => {
@@ -51,6 +54,7 @@ class LogIn extends Component {
 
     render() {
         const { userDetails, showPassword, responseTriggerred, successMessage, failureMessage } = this.props.userState;
+
 
         const passwordSection = (
             <View style={LoginStyles.textInput}>
@@ -76,6 +80,7 @@ class LogIn extends Component {
         );
 
         if (responseTriggerred) {
+
             const message = userDetails.token ? successMessage : failureMessage;
             Alert.alert(
                 '',
@@ -88,6 +93,7 @@ class LogIn extends Component {
                     cancelable: false
                 }
             );
+
         }
 
         return (
@@ -107,7 +113,7 @@ class LogIn extends Component {
                             onChangeText={(e) => this.onValueChange(e, 'username')} />
                     </View>
 
-                    {showPassword ? passwordSection : otpSection}
+                    { showPassword ? passwordSection : otpSection }
 
                     <View style={LoginStyles.checkBox_Main_Container1}>
                         <View style={LoginStyles.checkBox_Secondary_Container1}>
@@ -211,5 +217,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators({ userLogin, updateState }, dispatch)
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

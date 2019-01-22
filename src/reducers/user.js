@@ -14,6 +14,7 @@ const initialState = {
     emailAddress: "",
     contactNo: '',
     medicalHistory: {},
+
     address: [],
     orders: [],
     userPicSrc: '',
@@ -55,6 +56,7 @@ const handlers = {
       successMessage: '',
       failureMessage: '',
       loading: true,
+
       responseTriggerred: false,
     };
   },
