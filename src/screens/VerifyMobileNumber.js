@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -7,6 +8,10 @@ import { verifyOTP, updateState } from '../actions/user';
 
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
+=======
+import { View, Text, TextInput, Button, ScrollView } from 'react-native';
+// import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
+>>>>>>> d587ef5c15271174548e66ef26eff7183c146120
 
 
 class Verify_Mobile_Number extends Component {

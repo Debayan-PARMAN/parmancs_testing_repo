@@ -11,7 +11,7 @@ export function updateState(payload) {
 }
 
 // ================ For Login ====================
-export function userLogin(){
+export function userLogin() {
   return (dispatch, getState) => {
     const { userDetails } = getState().userState;
     const loginParams = {
@@ -25,7 +25,7 @@ export function userLogin(){
       type: USER_TYPE.LOGIN_USER
     });
 
-    doPost(`${URI.login}`,loginParams, dispatch)
+    doPost(`${URI.login}`, loginParams, dispatch)
       .then(result => dispatch(userLoginSuccess(result)))
       .catch(error => dispatch(userLoginFailure(error)));
   };
@@ -46,7 +46,7 @@ export function userLoginFailure(error) {
 }
 
 // ================ For OTP ====================
-export function requestOTP(){
+export function requestOTP() {
   return (dispatch, getState) => {
     const { userDetails, otpActions } = getState().userState;
     const otpParams = {
@@ -62,7 +62,7 @@ export function requestOTP(){
       .catch(error => dispatch(requestOTPFailure(error)));
   };
 };
-  
+
 export function requestOTPSuccess(payload) {
   return {
     type: USER_TYPE.SEND_OTP_SUCCESS,

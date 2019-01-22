@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import {userLogin, updateState} from '../actions/user';
+import { userLogin, updateState } from '../actions/user';
 
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
@@ -28,14 +28,14 @@ class LogIn extends Component {
     };
 
     onValueChange = (value, id) => {
-        const {userDetails} = this.props.userState;
-        userDetails[id]= value;
+        const { userDetails } = this.props.userState;
+        userDetails[id] = value;
         this.props.updateState({ userDetails });
     }
 
     onToggle = () => {
         const showPassword = !this.props.userState.showPassword;
-        this.props.updateState({showPassword})
+        this.props.updateState({ showPassword })
     }
 
     onSubmit = () => {
@@ -43,8 +43,8 @@ class LogIn extends Component {
     }
 
     onCancelAlert = () => {
-        this.props.updateState({responseTriggerred: false});
-        if(this.props.userState.userDetails.token){
+        this.props.updateState({ responseTriggerred: false });
+        if (this.props.userState.userDetails.token) {
             this.props.navigation.navigate('Home');
         }
     }
@@ -107,7 +107,7 @@ class LogIn extends Component {
                             onChangeText={(e) => this.onValueChange(e, 'username')} />
                     </View>
 
-                    { showPassword ? passwordSection : otpSection }
+                    {showPassword ? passwordSection : otpSection}
 
                     <View style={LoginStyles.checkBox_Main_Container1}>
                         <View style={LoginStyles.checkBox_Secondary_Container1}>
@@ -127,13 +127,13 @@ class LogIn extends Component {
                                     onColor='#32CD32'
                                     offColor='#616264'
                                     size='small'
-                                    onToggle = {this.onToggle}
+                                    onToggle={this.onToggle}
                                 />
                                 <Text style={FontStyles.font}>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
                             </View>
                         </View>
                     </View>
-                    <SignIn_Btn onSubmit={this.onSubmit} /> 
+                    <SignIn_Btn onSubmit={this.onSubmit} />
                     <View style={LoginStyles.forget_pass_view}>
                         <TouchableOpacity onPress={() => console.log('Forgot Password')}>
                             <Text style={FontStyles.font} style={LoginStyles.text_underline}>Forgot password ?</Text>
@@ -209,6 +209,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators({ userLogin, updateState}, dispatch)});
+    ...bindActionCreators({ userLogin, updateState }, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
