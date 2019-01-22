@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Carousel from '../components/Carousel';
 import { View, ScrollView, Image, Text, Button, TouchableOpacity, TouchableHighlight } from 'react-native';
-import { HomeStyles, FontStyles, LoginStyles } from '../styelsheets/MainStyle';
+import HomeStyles from '../styelsheets/HomeStyle';
 import Header_Component_Menu from '../components/Header/Header_Menu';
 import Header_SearchButton from '../components/Header/Header_SearchButton';
 import Auto_Carousel from '../components/AutoCarousel';
@@ -11,15 +11,16 @@ import Auto_Carousel from '../components/AutoCarousel';
 
 export default class Home_Screen extends Component {
   static navigationOptions = {
-    title: 'MED-e-Pal',
+    title: 'MED-e-PAL',
     headerStyle: {
       backgroundColor: '#572a6f',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
-      fontWeight: 'bold',
+      // fontWeight: 'bold',
       paddingLeft: 50,
-      //alignItems:'center',
+      alignItems:'center',
+      justifyContent: 'center',
 
     },
     headerLeft: (<Header_Component_Menu />),
@@ -28,11 +29,11 @@ export default class Home_Screen extends Component {
   };
   render() {
     return (
-      <View style={LoginStyles.mainWrapper}>
-      <ScrollView>
+      <View style={HomeStyles.mainWrapper}>
+        <ScrollView>
         {/*--- Carousel Start ---*/}
         <View style={HomeStyles.caro}>
-            <Auto_Carousel />
+          <Auto_Carousel />
         </View>
         {/*--- Carousel End ---*/}
 
@@ -71,7 +72,7 @@ export default class Home_Screen extends Component {
             <Text style={HomeStyles.off_txt_p}>
               Ceratosaurus was a predator with deep jaws supporting
               long, blade-like teeth. It had a prominent...
-                           </Text>
+            </Text>
           </View>
         </View>
         {/*--- Offers & Discount End ---*/}
@@ -90,7 +91,7 @@ export default class Home_Screen extends Component {
               </TouchableOpacity>
               <Text style={HomeStyles.ser_text}>
                 Search Doctors
-                           </Text>
+              </Text>
             </View>
 
 
@@ -101,7 +102,7 @@ export default class Home_Screen extends Component {
               </TouchableOpacity>
               <Text style={HomeStyles.ser_text}>
                 Order Medicine
-                           </Text>
+             </Text>
             </View>
 
 
@@ -112,7 +113,7 @@ export default class Home_Screen extends Component {
               </TouchableOpacity>
               <Text style={HomeStyles.ser_text}>
                 Add Medical Records
-                           </Text>
+              </Text>
             </View>
 
           </View>
@@ -124,7 +125,7 @@ export default class Home_Screen extends Component {
               </TouchableOpacity>
               <Text style={HomeStyles.ser_text}>
                 Book Appointments
-                           </Text>
+              </Text>
             </View>
 
 
@@ -135,7 +136,7 @@ export default class Home_Screen extends Component {
               </TouchableOpacity>
               <Text style={HomeStyles.ser_text}>
                 Book Test, Checkups
-                           </Text>
+              </Text>
             </View>
 
 
@@ -146,7 +147,7 @@ export default class Home_Screen extends Component {
               </TouchableOpacity>
               <Text style={HomeStyles.ser_text}>
                 Medicine Reminders
-                           </Text>
+               </Text>
             </View>
 
           </View>
@@ -159,10 +160,28 @@ export default class Home_Screen extends Component {
               </TouchableOpacity>
               <Text style={HomeStyles.ser_text}>
                 Testing Purpose
-                           </Text>
+               </Text>
             </View>
-            <View style={HomeStyles.ser_parent} />
-            <View style={HomeStyles.ser_parent} />
+            <View style={HomeStyles.ser_parent} >
+                <View style={HomeStyles.ser_parent} >
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('UserProfile')} >
+                    <Image style={HomeStyles.ser_icon}
+                      source={require('../../assets/images/coding.png')} />
+                  </TouchableOpacity>
+                  <Text style={HomeStyles.ser_text}>
+                    UserProfile
+                  </Text>
+            </View>
+            </View>
+            <View style={HomeStyles.ser_parent} >
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('UpdateUserProfile')} >
+                  <Image style={HomeStyles.ser_icon}
+                    source={require('../../assets/images/coding.png')} />
+                </TouchableOpacity>
+                <Text style={HomeStyles.ser_text}>
+                  UpdateUserProfile
+                  </Text>
+            </View>
           </View>
           <View style={{ flex: 1, marginTop: (10), marginLeft: 10, marginRight: 10 }}>
             <View style={HomeStyles.ser_parent} />

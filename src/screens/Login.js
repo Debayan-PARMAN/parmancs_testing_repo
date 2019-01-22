@@ -17,7 +17,7 @@ import PasswordInputText from 'react-native-hide-show-password-input';
 
 class LogIn extends Component {
     static navigationOptions = {
-        title: 'MED-e-Pal',
+        title: 'MED-e-PAL',
         headerStyle: {
             backgroundColor: '#572a6f',
         },
@@ -50,6 +50,7 @@ class LogIn extends Component {
         if (this.props.userState.userDetails.token) {
             this.props.navigation.navigate('Home');
         }
+
     }
 
     render() {

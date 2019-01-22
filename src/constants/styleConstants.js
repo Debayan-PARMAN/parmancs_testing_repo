@@ -1,6 +1,7 @@
 export default styleConstants = {
   fontStyles: {
     fontFamily: 'Roboto',
+
     bodyFontSize: '14',
 
     fontColor: '#212529',
@@ -9,14 +10,17 @@ export default styleConstants = {
       h1FontSize: '20',
       h2FontSize: '18',
       h3FontSize: '16',
+
     }
   },
   colorStyles:{
-
+    fontColor: '#212529',
+    
 
   },
   backgroundStyles:{
     bgColor: '#fff',
+    
   },
 
   inputStyle:{
