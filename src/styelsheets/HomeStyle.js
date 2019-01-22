@@ -58,7 +58,7 @@ export default HomeStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.bodyFontSize,
+        //fontSize: styleConstants.fontStyles.bodyFontSize,
         fontWeight: 'bold',
         color: styleConstants.colorStyles.fontColor,
     },

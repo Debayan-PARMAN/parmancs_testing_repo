@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import { verifyOTP, updateState } from '../actions/user';
 
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
-import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
-// import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
+import { LoginStyles, FontStyles, Button_fb_google, Space } from '../styelsheets/MainStyle';
+
 
 class Verify_Mobile_Number extends Component {
     static navigationOptions = {
@@ -26,14 +26,14 @@ class Verify_Mobile_Number extends Component {
     onValueChange = (value, id) => {
         const { userDetails } = this.props.userState;
         userDetails[id] = value;
-        this.props.updateState({ userDetails, failureMessage:'' });
+        this.props.updateState({ userDetails, failureMessage: '' });
     }
 
     onCancelAlert = () => {
         console.log('Ok');
         this.props.updateState({ responseTriggerred: false });
-        if(this.props.userState.status === 2000){
-            this.props.updateState({ status: ''});
+        if (this.props.userState.status === 2000) {
+            this.props.updateState({ status: '' });
             this.props.navigation.navigate('CreateAccount');
         }
     }
@@ -43,7 +43,7 @@ class Verify_Mobile_Number extends Component {
     //     this.props.updateState({ responseTriggerred: false });
     //     // this.props.navigation.navigate('Home');
     // }
-    
+
     onSubmit = () => {
         console.log('Next Button triggered');
         this.props.verifyOTP();
@@ -51,8 +51,8 @@ class Verify_Mobile_Number extends Component {
 
     render() {
         const { userDetails, responseTriggerred, status, successMessage, failureMessage } = this.props.userState;
-        if(responseTriggerred){
-            const message =  status === 2000 ? successMessage : failureMessage;
+        if (responseTriggerred) {
+            const message = status === 2000 ? successMessage : failureMessage;
             Alert.alert(
                 '',
                 message,
@@ -64,7 +64,7 @@ class Verify_Mobile_Number extends Component {
                     cancelable: false
                 }
             );
-        } 
+        }
 
         return (
             <View style={LoginStyles.mainWrapper}>
@@ -72,24 +72,24 @@ class Verify_Mobile_Number extends Component {
                     <View style={LoginStyles.bannerArea2_Text}>
                         <Text style={FontStyles.font}>Verify mobile number</Text>
                     </View>
-                    <View style={{ height: 20 }}>
+                    <View style={Space.space_20}>
                     </View>
-                    
+
                     <View style={LoginStyles.textInput}>
                         <Text style={FontStyles.font}>Please Enter OTP sent to the mobile no {userDetails.contactNo} </Text>
                         <View>
                             <Text>{}</Text>
                         </View>
-                        <View style={{ height: 60 }}>
+                        <View style={Space.space_60}>
                         </View>
                         <TextInput
                             style={LoginStyles.textInput_pass_email}
                             placeholder="Type your OTP"
                             value={userDetails.userOTP}
-                            onChangeText={(e) => this.onValueChange(e, 'userOTP')} 
-                            />
+                            onChangeText={(e) => this.onValueChange(e, 'userOTP')}
+                        />
                     </View>
-                    <View style={{ height: 30 }}>
+                    <View style={Space.space_30}>
                     </View>
 
                     <View style={LoginStyles.button}>

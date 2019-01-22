@@ -13,18 +13,37 @@ export default class Test_Page extends Component {
     
     render() {
         return(
-            // <Picker
-            //     selectedValue={this.state.selected}
-            //     mode='dropdown'
-            //     onValueChange={(itemValue) => this.setState({ selected: itemValue })}>
-            //     {
-            //         this.state.options.map(option => <Picker.Item key={option.label} label={option.label} value={option.value} />)
-            //     }
-            // </Picker>
-
-
-            <View>
-              <Drop_Down/>
+            <View style={{ flex: 1, }}>
+                <View style={LoginStyles.button}>
+                    <View style={{ flex: 0.7, }}>
+                    </View>
+                    <View style={{ flex: 1, }}>
+                        <Button onPress={() => this.props.navigation.navigate('CreateAccount')}
+                            style={FontStyles.font}
+                            //onPress={this.onSubmit}
+                            title="Create Account"
+                            color="#AA8CC5"
+                            width="10"
+                        />
+                    </View>
+                    <View style={{ flex: 0.7, }}>
+                    </View>
+                </View>
+                <View style={LoginStyles.button}>
+                    <View style={{ flex: 0.7, }}>
+                    </View>
+                    <View style={{ flex: 1, }}>
+                        <Button onPress={() => this.props.navigation.navigate('DoctorAppoinment')}
+                            style={FontStyles.font}
+                            //onPress={this.onSubmit}
+                            title="Doctor Appoinment"
+                            color="#AA8CC5"
+                            width="10"
+                        />
+                    </View>
+                    <View style={{ flex: 0.7, }}>
+                    </View>
+                </View>
             </View>
         );
     }

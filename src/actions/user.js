@@ -119,7 +119,7 @@ export function userRegistration() {
       "name": userDetails.name,
       "password": userDetails.password,
       "registrationProvider": userDetails.registrationProvider,
-      "roleName": userDetails.roleName
+      "roleName": "INDIVIDUAL",
     }
     dispatch({
       type: USER_TYPE.REGISTER_USER
@@ -128,6 +128,7 @@ export function userRegistration() {
     doPost(`${URI.signup}`, signUpParams, dispatch)
       .then(result => dispatch(userRegistrationSuccess(result)))
       .catch(error => dispatch(userRegistrationFailure(error)));
+      console.log(signUpParams);
   };
 }
 

@@ -44,7 +44,7 @@ export default AddAddressStyle = StyleSheet.create({
     },
     ToServeText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.bodyFontSize,
+        //fontSize: styleConstants.fontStyles.bodyFontSize,
         color: styleConstants.colorStyles.fontColor,
         fontWeight: styleConstants.fontStyles.fontWeight,
         padding: 10,
@@ -61,7 +61,7 @@ export default AddAddressStyle = StyleSheet.create({
     },
     NameText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
+        //fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
         color: styleConstants.colorStyles.fontColor,
         // fontWeight: styleConstants.fontStyles.fontWeight,       
         // textAlign: 'center',
@@ -69,7 +69,7 @@ export default AddAddressStyle = StyleSheet.create({
     },
     AgeText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
+        //fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
         color: styleConstants.colorStyles.fontColor,
         marginTop: 20,
         // fontWeight: styleConstants.fontStyles.fontWeight,       

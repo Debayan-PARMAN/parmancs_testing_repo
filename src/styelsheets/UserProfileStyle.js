@@ -14,7 +14,7 @@ export default UserProfileStyle = StyleSheet.create({
     },
     welcomeText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
+        //fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
         color: styleConstants.fontStyles.headerGroup.headerColor,
         padding:30,
         textAlign: 'center',
@@ -29,7 +29,7 @@ export default UserProfileStyle = StyleSheet.create({
     },
     ToServeText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.bodyFontSize,
+        //fontSize: styleConstants.fontStyles.bodyFontSize,
         color: styleConstants.colorStyles.fontColor,
         fontWeight:styleConstants.fontStyles.fontWeight,
         padding: 10,
@@ -47,7 +47,7 @@ export default UserProfileStyle = StyleSheet.create({
     },
     EmailText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h3FontSize,
+        //fontSize: styleConstants.fontStyles.headerGroup.h3FontSize,
         color: styleConstants.colorStyles.fontColor,
         // fontWeight: styleConstants.fontStyles.fontWeight,       
         // textAlign: 'center',
