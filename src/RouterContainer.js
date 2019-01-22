@@ -12,6 +12,8 @@ const RootStack = createStackNavigator({
   UpdateUserProfile: ROUTES.UPDATE_USER_PROFILE,
   VerifyMobileMumber: ROUTES.VERIFY_NUMBER,
   AddAddress: ROUTES.ADDADDRESS,
+  CreateAccount: ROUTES.CREATE_ACCOUNT,
+  DoctorAppoinment: ROUTES.DOCTOR_APPOINMENT,
 },
   {
     initialRouteName: 'Home',

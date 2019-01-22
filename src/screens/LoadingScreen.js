@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, ActivityIndicator } from 'react-native';
-import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
+// import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
 export default class Loading_Screen extends Component {
     render() {
         return (

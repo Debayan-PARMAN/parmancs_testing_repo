@@ -1,14 +1,16 @@
 export default styleConstants = {
   fontStyles: {
     fontFamily: 'Roboto',
-    bodyFontSize: 14,
-    fontWeight: 'bold',
-    
+
+    bodyFontSize: '14',
+
+    fontColor: '#212529',
     headerGroup: {
       headerColor: '#972493',
-      h1FontSize: 20,
-      h2FontSize: 18,
-      h3FontSize: 16,
+      h1FontSize: '20',
+      h2FontSize: '18',
+      h3FontSize: '16',
+
     }
   },
   colorStyles:{
@@ -20,9 +22,10 @@ export default styleConstants = {
     bgColor: '#fff',
     
   },
-    inputStyle:{
+
+  inputStyle:{
     borderDefault: '1 solid #ccc,',
-    boderFocus: '1 solid #9658a6',
+    boderFocus: '1  solid #9658a6',
   }
 
 
