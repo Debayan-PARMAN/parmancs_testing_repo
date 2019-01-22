@@ -3,28 +3,23 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import {userLogin, updateState} from '../actions/user';
+import { userLogin, updateState } from '../actions/user';
 
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
 import ToggleSwitch from 'toggle-switch-react-native';
 import SignIn_Btn from '../../src/components/Button/SignIn_Button';
 import PasswordInputText from 'react-native-hide-show-password-input';
+// import AlertMessage from '../components/AlertMessage';
 
 //import { ScrollView } from 'react-native-gesture-handler';
 
-class LogIn extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            alertTrigger: false,
-        };
-    }
 
+class LogIn extends Component {
     static navigationOptions = {
         title: 'MED-e-Pal',
         headerStyle: {
-            backgroundColor: '#daadd6',
+            backgroundColor: '#572a6f',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -34,8 +29,10 @@ class LogIn extends Component {
     };
 
     onValueChange = (value, id) => {
-        const {userDetails} = this.props.userState;
-        userDetails[id]= value;
+
+        const { userDetails } = this.props.userState;
+        userDetails[id] = value;
+
         this.props.updateState({ userDetails });
     }
 
@@ -49,15 +46,15 @@ class LogIn extends Component {
     }
 
     onCancelAlert = () => {
-        this.props.updateState({responseTriggerred: false});
+        this.props.updateState({ responseTriggerred: false });
+        if (this.props.userState.userDetails.token) {
+            this.props.navigation.navigate('Home');
+        }
     }
 
     render() {
-        const { //username, password, otp, showPassword
-         } = this.state;
-
         const { userDetails, showPassword, responseTriggerred, successMessage, failureMessage } = this.props.userState;
-        // console.log(userDetails);
+
 
         const passwordSection = (
             <View style={LoginStyles.textInput}>
@@ -83,19 +80,20 @@ class LogIn extends Component {
         );
 
         if (responseTriggerred) {
-            // Alert.alert(successMessage.message);
+
             const message = userDetails.token ? successMessage : failureMessage;
             Alert.alert(
                 '',
                 message,
                 [{
-                    text: 'Cancel',
+                    text: 'Ok',
                     onPress: this.onCancelAlert,
                     style: 'cancel'
                 }], {
                     cancelable: false
                 }
-            )
+            );
+
         }
 
         return (
@@ -135,13 +133,13 @@ class LogIn extends Component {
                                     onColor='#32CD32'
                                     offColor='#616264'
                                     size='small'
-                                    onToggle = {this.onToggle}
+                                    onToggle={this.onToggle}
                                 />
                                 <Text style={FontStyles.font}>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
                             </View>
                         </View>
                     </View>
-                    <SignIn_Btn onSubmit={this.onSubmit}/>
+                    <SignIn_Btn onSubmit={this.onSubmit} />
                     <View style={LoginStyles.forget_pass_view}>
                         <TouchableOpacity onPress={() => console.log('Forgot Password')}>
                             <Text style={FontStyles.font} style={LoginStyles.text_underline}>Forgot password ?</Text>
@@ -217,6 +215,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators({ userLogin, updateState}, dispatch)});
+    ...bindActionCreators({ userLogin, updateState }, dispatch)
+});
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

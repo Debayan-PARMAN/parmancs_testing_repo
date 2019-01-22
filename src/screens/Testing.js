@@ -24,7 +24,51 @@ export default class Test_Page extends Component {
     render() {
         return (
             <View style={LoginStyles.mainWrapper}>
-            <ScrollView>
+            <ScrollView><View style={{height:10}}></View>
+                    <View style={LoginStyles.button}>
+                        <View style={{ flex: 0.7, }}>
+                        </View>
+                        <View style={{ flex: 1, }}>
+                            <Button onPress={() => this.props.navigation.navigate('VerifyMobileMumber')}
+                                style={FontStyles.font}
+                                title="VerifyMobileMumber"
+                                color="#AA8CC5"
+                                width="10"
+                            />
+                        </View>
+                        <View style={{ flex: 0.7, }}>
+                        </View>
+                    </View>
+                    <View style={{ height: 10 }}></View>
+                    <View style={LoginStyles.button}>
+                        <View style={{ flex: 0.7, }}>
+                    </View>
+                    <View style={{ flex: 1, }}>
+                        <Button onPress={() => this.props.navigation.navigate('CreateAccount')}
+                            style={FontStyles.font}
+                            title="Create Account"
+                            color="#AA8CC5"
+                            width="10"
+                        />
+                    </View>
+                    <View style={{ flex: 0.7, }}>
+                    </View>
+                    </View>
+                    <View style={{ height: 10 }}></View>
+                    <View style={LoginStyles.button}>
+                        <View style={{ flex: 0.7, }}>
+                        </View>
+                        <View style={{ flex: 1, }}>
+                            <Button onPress={() => this.props.navigation.navigate('DoctorAppoinment')}
+                                style={FontStyles.font}
+                                title="Doctor Appoinment"
+                                color="#AA8CC5"
+                                width="10"
+                            />
+                        </View>
+                        <View style={{ flex: 0.7, }}>
+                        </View>
+                    </View>
             </ScrollView>
            
             </View>

@@ -1,28 +1,21 @@
-import React, {Component} from 'react';
-import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
-import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
-import Next_Btn from '../../src/components/Button/Next_Button';
-import SignIn_Btn from '../../src/components/Button/SignIn_Button';
-import Footer from '../components/Footer/Footer';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class Registration extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: '',
-      otp: '',
-      successMessage: '',
-      failureMessage: '',
-      alertTrigger: false,
-      showPassword: true,
-    };
-  }
+import { requestOTP, updateState } from '../actions/user';
+
+
+import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView, AsyncStorage } from 'react-native';
+import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
+import { URI } from '../constants';
+
+class Registration extends Component {
 
   static navigationOptions = {
     title: 'MED-e-Pal',
     headerStyle: {
-      backgroundColor: '#daadd6',
+      backgroundColor: '#572a6f',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -34,107 +27,86 @@ export default class Registration extends Component{
   };
 
   onValueChange = (value, id) => {
-    console.log(id, value);
-    this.setState({ [id]: value });
+    const { userDetails } = this.props.userState;
+    userDetails[id] = value;
+    this.props.updateState({ userDetails });
+  }
+
+  // checkData = (commonData) => {
+  //   if (commonData.length === 10 && commonData.test(/d/g)){
+  //     this.setState({ contactNo: commonData });
+  //     return true;
+  //   } else {
+  //     this.setState({ emailAddress: commonData });
+  //     return false;
+  //   }
+  // }
+
+  onCancelAlert = () => {
+    this.props.updateState({ responseTriggerred: false });
+    // this.props.navigation.navigate('Home');
   }
 
   onSubmit = () => {
-
-    console.log('Submit Button triggered');
-    const path = `http://206.189.150.18:9090/rest/v1/users/login`;
-    const { username, password } = this.state;
-    fetch(path, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        //"userName": 'debayan.sen@parmancs.com1',
-        "userName": username,
-        //"password": 'mystrio7',
-        "password": password,
-        "registrationProvider": "SBIS",
-        "roleName": "INDIVIDUAL"
-      }),
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then((response) => {
-        console.log(response.token);
-        if (response.token) {
-          this.setState({ successMessage: `User ${response.username} has successfully logged in.` });
-          Alert.alert(this.state.successMessage);
-        } else {
-          this.setState({ failureMessage: 'Invalid username or password!' });
-          Alert.alert(this.state.failureMessage);
+    console.log('Registration Button triggered');
+    const {userDetails} = this.props.userState;
+    const regex = /[0-9]/g;
+    if (regex.test(userDetails.contactNo) && userDetails.contactNo.length === 10){
+      this.props.requestOTP();
+      this.props.navigation.navigate('VerifyMobileMumber');
+    }
+    else {
+      Alert.alert(
+        '',
+        message='Provide a valid number',
+        [{
+          text: 'Cancel',
+          onPress: this.onCancelAlert,
+          style: 'cancel'
+        }], {
+          cancelable: false
         }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      );
+    }
   }
   render() {
-    const { username, password, otp, showPassword } = this.state;
-
-    const passwordSection = (
-      <View style={LoginStyles.textInput}>
-        <Text style={FontStyles.font}>Password</Text>
-        <TextInput
-          style={LoginStyles.textInput_pass_email}
-          placeholder="Type your Password"
-          secureTextEntry={true}
-          value={password}
-          onChangeText={(e) => this.onValueChange(e, 'password')} />
-      </View>
-    );
-    const otpSection = (
-      <View style={LoginStyles.textInput}>
-        <Text style={FontStyles.font}>OTP</Text>
-        <TextInput
-          style={LoginStyles.textInput_pass_email}
-          placeholder="Type your OTP"
-          value={otp}
-          onChangeText={(e) => this.onValueChange(e, 'otp')} />
-      </View>
-    );
-
+    const { userDetails } = this.props.userState;
+    const { contactNo } = this.props.userState;
     return (
       <View style={LoginStyles.mainWrapper}>
-      <ScrollView>
+        <ScrollView>
           <View style={LoginStyles.bannerArea2_Text}>
             <Text style={FontStyles.font}>Create Account</Text>
           </View>
           <View style={LoginStyles.textInput}>
-            <Text style={FontStyles.font}>Email/Mobile number</Text>
-            <View style={{height:10}}>
+            <Text style={FontStyles.font}>Mobile number</Text>
+            <View style={{ height: 10 }}>
             </View>
             <TextInput
               style={LoginStyles.textInput_pass_email}
               placeholder="Type your Email/Mobile"
-              value={username}
-              onChangeText={(e) => this.onValueChange(e, 'username')} />
+              value={userDetails.contactNo}
+              onChangeText={(e) => this.onValueChange(e, 'contactNo')} />
           </View>
-          <View style={{height:30}}>
+          <View style={{ height: 30 }}>
           </View>
           <View style={LoginStyles.button}>
             <View style={{ flex: 0.7, }}>
             </View>
             <View style={{ flex: 1, }}>
-              <Button onPress={() => this.props.navigation.navigate('VerifyMobileMumber')}
+              <Button
                 style={FontStyles.font}
-                //onPress={this.onSubmit}
+                onPress={this.onSubmit}
                 title="Next"
                 color="#AA8CC5"
                 width="10"
-                
+
               />
             </View>
             <View style={{ flex: 0.7, }}>
             </View>
           </View>
-          <View style={{height:50}}>
+          <View style={{ height: 50 }}>
           </View>
           <View style={LoginStyles.bannerArea2_Text}>
             <Text style={FontStyles.font}>------------------------------------- OR -------------------------------------</Text>
@@ -192,3 +164,17 @@ export default class Registration extends Component{
     );
   }
 };
+
+Registration.propTypes = {
+  userDetails: PropTypes.object,
+}
+
+const mapStateToProps = state => ({
+  userState: state.userState
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators({ requestOTP, updateState }, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Registration);

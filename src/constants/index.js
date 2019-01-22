@@ -10,6 +10,8 @@ export const URI_PREFIX = `${HOST_NAME}:${PORT}`;
 
 export const URI = {
   login: `${URI_PREFIX}/gen/v1/users/login`, // For Login Api
-  registration: `${URI_PREFIX}/gen/v1/users/signup`, // For User registration
+  signup: `${URI_PREFIX}/gen/v1/users/signup`, // For User registration
+  otp: `${URI_PREFIX}/gen/v1/manage-otp`, // For Generate otp
+
 
 }

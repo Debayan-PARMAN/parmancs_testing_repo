@@ -20,7 +20,7 @@ export const FontStyles = StyleSheet.create({
       flexDirection: 'row', 
       paddingTop: 25, 
       paddingBottom: 3,
-      backgroundColor: '#e1e8ee', 
+      backgroundColor: '#572a6f', 
     }
   });
 
@@ -28,7 +28,7 @@ export const FontStyles = StyleSheet.create({
     container: {
       flex: 0.07,
       flexDirection: 'row',
-      backgroundColor: '#AA8CC5',
+      backgroundColor: '#572a6f',
       justifyContent: 'space-between',
       paddingTop: 7,
     },
