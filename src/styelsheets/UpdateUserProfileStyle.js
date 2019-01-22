@@ -15,7 +15,7 @@ export default UpdateUserProfileStyle = StyleSheet.create({
     },
     healthText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h3FontSize,
+        //fontSize: styleConstants.fontStyles.headerGroup.h3FontSize,
         color: styleConstants.fontStyles.headerGroup.headerColor,
         padding: 30,
         textAlign: 'center',
@@ -30,7 +30,7 @@ export default UpdateUserProfileStyle = StyleSheet.create({
     },
     ToServeText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.bodyFontSize,
+        //fontSize: styleConstants.fontStyles.bodyFontSize,
         color: styleConstants.colorStyles.fontColor,
         fontWeight: styleConstants.fontStyles.fontWeight,
         padding: 10,
@@ -47,7 +47,7 @@ export default UpdateUserProfileStyle = StyleSheet.create({
     },
     NameText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
+        //fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
         color: styleConstants.colorStyles.fontColor,
         // fontWeight: styleConstants.fontStyles.fontWeight,       
         // textAlign: 'center',
@@ -55,7 +55,7 @@ export default UpdateUserProfileStyle = StyleSheet.create({
     },
     AgeText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
+        //fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
         color: styleConstants.colorStyles.fontColor,
         marginTop: 20,
         // fontWeight: styleConstants.fontStyles.fontWeight,       
