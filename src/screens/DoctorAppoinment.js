@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, Text, Alert, TouchableOpacity, KeyboardAvoidingView, ScrollView, Button } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
 //import { URI } from '../constants';
-import DateTimePicker from 'react-native-modal-datetime-picker';
+// import DateTimePicker from 'react-native-modal-datetime-picker';
 import GetDirection_Btn from '../components/Button/GetDirection_Button';
 import Doctor_Address from '../components/DoctorAddress'; 
 
@@ -22,18 +22,18 @@ export default class Doctor_Appoinment extends Component {
         },
     };
     
-    state = {
-        isDateTimePickerVisible: false,
-    };
+    // state = {
+    //     isDateTimePickerVisible: false,
+    // };
 
-    _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+    // _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
 
-    _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+    // _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
-    _handleDatePicked = (date) => {
-        console.log('A date has been picked: ', date);
-        this._hideDateTimePicker();
-    };
+    // _handleDatePicked = (date) => {
+    //     console.log('A date has been picked: ', date);
+    //     this._hideDateTimePicker();
+    // };
     
     render() {
       
@@ -56,11 +56,11 @@ export default class Doctor_Appoinment extends Component {
                         </View>
                         </View>
                         </TouchableOpacity>
-                        <DateTimePicker
+                        {/* <DateTimePicker
                             isVisible={this.state.isDateTimePickerVisible}
                             onConfirm={this._handleDatePicked}
                             onCancel={this._hideDateTimePicker}
-                        />
+                        /> */}
                     </View>
                     <View style={{ height: 20 }}>
                     </View>

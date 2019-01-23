@@ -8,5 +8,9 @@ export default en = {
     UserNameLabel: 'Username',
     PasswordLabel: 'Password',
     OTPLabel: 'OTP'
+  },
+  userProfileMessages: {
+    welcomeMessageInfo: 'To Serve you better please share a Few Information with us',
+
   }
 };

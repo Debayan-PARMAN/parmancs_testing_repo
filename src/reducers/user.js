@@ -11,16 +11,79 @@ const initialState = {
     confirmpassword: "",
     token: '',
     roleName: '',
-    emailAddress: "",
-    contactNo: '',
+    emailAddress: "arup.roy@parmancs.com",
+    contactNo: '9547074718',
     medicalHistory: {},
 
-    address: [],
+    addresses: [],
+    addressDetail:{
+      type: 'HOME',
+
+    },
     orders: [],
     userPicSrc: '',
     commonData: "",
-    name: "",
+    name: "Arup Kumar Roy",
     userOTP: '',
+    //---User Details-----//
+    fieldsEditable: false, // for making input fields editable
+    dateofBirth:'',
+    bloodGroup: '',
+    bloodGroupOptions: [
+      {
+        attributePk: 0,
+        attributeValue: "",
+        displayValue: "Select Option"
+      },
+      {
+        attributePk: 1,
+        attributeValue: "O+",
+        displayValue: "O+"
+      },
+      {
+        attributePk: 2,
+        attributeValue: "O-",
+        displayValue: "O-"
+      },
+      {
+        attributePk: 3,
+        attributeValue: "A+",
+        displayValue: "A+"
+      },
+      {
+        attributePk: 4,
+        attributeValue: "A-",
+        displayValue: "A-"
+      },
+      {
+        attributePk: 5,
+        attributeValue: "B+",
+        displayValue: "B+"
+      },
+      {
+        attributePk: 6,
+        attributeValue: "B-",
+        displayValue: "B-"
+      },
+      {
+        attributePk: 6,
+        attributeValue: "AB-",
+        displayValue: "AB-"
+      },
+      {
+        attributePk: 6,
+        attributeValue: "AB-",
+        displayValue: "AB-"
+      }
+    ],
+    weight:'55',
+    height:'167',
+    gender: 'M',
+    age:'25',
+    maritalStatus:'single',
+
+    profileCompletion: '',
+
   },
 
   otpActions: {

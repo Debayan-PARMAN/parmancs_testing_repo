@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
-import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView,TouchableHighlight } from 'react-native';
-// import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { updateState } from '../actions/user';
+
+import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView,TouchableHighlight,Da } from 'react-native';
 import UserProfileStyle from '../styelsheets/UserProfileStyle';
-import FlipToggle from 'react-native-flip-toggle-button';
-//import Footer from './components/Footer/Footer';
-//import ImageSlider from 'react-native-image-slider';
-import Footer_Component from '../components/Footer/Footer';
-import { AsyncStorage } from "react-native";
-// import pic from "../screens/Testing";
 import Drop_Down from '../components/DropDown';
 import { KeyboardAvoidingView } from 'react-native';
+import en from '../messages/en-us';
 
-
-
-
-
-export default class User_Profile extends Component {
-
-    
+class User_Profile extends Component {
 
     static navigationOptions = {
         title: 'UserProfile',
@@ -32,117 +25,136 @@ export default class User_Profile extends Component {
             //alignItems: 'center',
         },
     };
-    constructor(props) {
-        super(props);
-        this.state = { text: ' ' };
+    
+    onSubmit = () => {
+        console.log('Next Button triggered');
+        this.props.User_Profile();
     }
-    render() {
+    
+    onValueChange = (value, id) => {
+        const { userDetails } = this.props.userState;
+        userDetails[id] = value;
+        this.props.updateState({ userDetails });
+    }
 
-         return (
+    render() {
+        
+        const {userDetails} = this.props.userState;
+        const withHover = {...UserProfileStyle.GenderButton, ...UserProfileStyle.hoverButton};
+        const withoutHover = {...UserProfileStyle.GenderButton};
+
+        const welcomeHeading = (<View style={UserProfileStyle.welcome}>
+            <Text style={UserProfileStyle.welcomeText}>
+                Welcome {userDetails.name} Account Successfully Created
+            </Text>
+        </View>);
+
+        const staticMessageArea = (<View style={UserProfileStyle.ToServe}>
+            <Text style={UserProfileStyle.ToServeText}>{en.userProfileMessages.welcomeMessageInfo}</Text>
+        </View>);
+
+        const emailArea = (<View style={UserProfileStyle.EmailAgeBloodWeight}>
+            <Text style={UserProfileStyle.EmailText}>Email</Text>
+            <TextInput
+                style={UserProfileStyle.EmailTextInput}
+                placeholder="Enter Email Hare!"
+                onChangeText={(e) => this.onValueChange(e, 'emailAddress')}
+                value={userDetails.emailAddress}
+            />
+        </View>);
+        
+        const DOBArea = (<View style={UserProfileStyle.EmailAgeBloodWeight}>
+            <Text style={UserProfileStyle.EmailText}>Date of Birth</Text>
+            <TextInput
+                style={UserProfileStyle.EmailTextInput}
+                placeholder="Enter Age Hare!"
+                onChangeText={(e) => this.onValueChange(e, 'age')}
+                value={userDetails.age}
+            /></View>);
+
+        const heightBloodGroupWeightArea = (<View style={UserProfileStyle.AgeBloodWeight}>
+            <View style={UserProfileStyle.AgeBloodWeightHorizontalAlignment} >
+                <Text style={UserProfileStyle.AgeText}>Height(cm)</Text>
+                <TextInput
+                    style={UserProfileStyle.AgeBloodWeightTextInput}
+                    placeholder="Height"
+                    onChangeText={(e) => this.onValueChange(e, 'height')}
+                    value={userDetails.height}
+                />
+            </View>
+            <View style={UserProfileStyle.AgeBloodWeightHorizontalAlignment}>
+                <Text style={UserProfileStyle.AgeText}>BloodGroup</Text>
+                <View style={UserProfileStyle.AgeBloodWeightTextInput} >
+                    <Drop_Down selectedValue={userDetails.bloodGroup} options={userDetails.bloodGroupOptions} onValueChange={this.onValueChange} />
+                </View>
+            </View>
+            <View style={UserProfileStyle.AgeBloodWeightHorizontalAlignment} >
+                <Text style={UserProfileStyle.AgeText}>Weight(Kg)</Text>
+                <KeyboardAvoidingView behavior="padding" enabled>
+                    <TextInput
+                        style={UserProfileStyle.AgeBloodWeightTextInput}
+                        placeholder="Weight!"
+                        onChangeText={(e) => this.onValueChange(e, 'weight')}
+                        value={userDetails.weight}
+                    />
+                </KeyboardAvoidingView>
+            </View>
+        </View>);
+
+        const genderArea = (<View style={UserProfileStyle.AgeBloodWeight}>
+                <Text style={UserProfileStyle.GenderIama}>I am a </Text>
+                <View style={UserProfileStyle.Gender}>
+                    <View style={userDetails.gender === 'M' ? withHover : withoutHover}>
+                        <TouchableOpacity onPress={() => this.onValueChange('M', 'gender')} >
+                            <Text style={UserProfileStyle.GenderText}>Man</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={userDetails.gender === 'W' ? withHover : withoutHover}>
+                        <TouchableOpacity onPress={() => this.onValueChange('W', 'gender')} >
+                            <Text style={UserProfileStyle.GenderText}>Woman</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={userDetails.gender === 'O' ? withHover : withoutHover}>
+                        <TouchableOpacity onPress={() => this.onValueChange('O', 'gender')} >
+                            <Text style={UserProfileStyle.GenderText}>Others</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+        </View>);
+        
+        return (
             <View style={UserProfileStyle.mainWrapper}>
             <View >
                 <ScrollView>
-                        <View style={UserProfileStyle.welcome}>
-                          
-                            <Text style={UserProfileStyle.welcomeText}>
-                                 Welcome ............ Account Successfully Created
-                            </Text>
-                        </View>
-                        <View style={UserProfileStyle.ToServe}>
-                            <Text style={UserProfileStyle.ToServeText}>
-                                To Serve you better please share a Few Information with us
-                            </Text>
-                        </View>
-                        <View style={UserProfileStyle.EmailAgeBloodWeight}>
-                            <Text style={UserProfileStyle.EmailText}>Email</Text>
-                            <TextInput
-                                 style={UserProfileStyle.EmailTextInput}
-                                  placeholder="Enter Email Hare!"
-                                  onChangeText={text => this.setState({ text })}
-                                 value={this.state.text}
-                            />
-                             <Text style={UserProfileStyle.EmailText}>Age(Years)</Text>
-                             <TextInput
-                                 style={UserProfileStyle.EmailTextInput}
-                                 placeholder="Enter Age Hare!"
-                                
-                             />
-                            
-                            {/* <Text style={UserProfileStyle.AgeText}>Age</Text>
-                            <TextInput
-                                style={{ height: 40, borderColor: 'gray', borderBottomWidth: 1, marginTop: 5,marginRight:200 }}
-                                /> */}
-
-                             <View style={UserProfileStyle.AgeBloodWeight}>
-                                 <View style={UserProfileStyle.AgeBloodWeightHorizontalAlignment} >
-                                     <Text style={UserProfileStyle.AgeText}>
-                                        Height(cm)
-                               </Text>
-                                    <TextInput
-                                         style={UserProfileStyle.AgeBloodWeightTextInput}
-                                        placeholder="Height"
-                                    />
+                        {welcomeHeading}
+                        {staticMessageArea}
+                        {emailArea}
+                        {DOBArea}
+                        {heightBloodGroupWeightArea}
+                        {genderArea}                        
+                        <View style={UserProfileStyle.Next}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('UpdateUserProfile')} >
+                                <View style={UserProfileStyle.Nextbutton}>
+                                    <Text style={UserProfileStyle.NextText}>Next</Text>                            
                                 </View>
-                                 <View style={UserProfileStyle.AgeBloodWeightHorizontalAlignment}>
-                                     <Text style={UserProfileStyle.AgeText}>
-                                        BloodGroup
-                               </Text><View style={UserProfileStyle.AgeBloodWeightTextInput} >
-                                     <Drop_Down  />
-                                     </View>
-                                    {/* <Dropdown style={{ height: 55, marginBottom:1  }}
-                                        label='Choose Blood group'
-                                        data={data}
-                                    /> */}
-                                    
-                                </View>
-                                 <View style={UserProfileStyle.AgeBloodWeightHorizontalAlignment} >
-                                     <Text style={UserProfileStyle.AgeText}>
-                                        Weight(Kg)
-                               </Text>
-                                    <KeyboardAvoidingView behavior="padding" enabled>
-                                    <TextInput
-                                             style={UserProfileStyle.AgeBloodWeightTextInput}
-                                        placeholder="Weight!"
-                                    />
-                                    </KeyboardAvoidingView>
-                                </View>
-
-                            </View>
-                                
-
-                            <Text style={UserProfileStyle.GenderIama}>I am a </Text>
-                             <View style={UserProfileStyle.Gender}>
-                                 <View style={UserProfileStyle.GenderMan}>
-                                <TouchableOpacity onPress={() => console.log('Men Botton Tiggered')} >
-                                         <Text style={UserProfileStyle.GenderText}>Man</Text>
-                                </TouchableOpacity>
-                            </View>
-                                 <View style={UserProfileStyle.GenderMan}>
-                                <TouchableOpacity onPress={() => console.log('Women Botton Tiggered')} >
-                                         <Text style={UserProfileStyle.GenderText}>Woman</Text>
-                                </TouchableOpacity>
-                            </View>
-                            
-                                 <View style={UserProfileStyle.GenderMan}>
-                                <TouchableOpacity onPress={() => console.log('Others Botton Tiggered')} >
-                                         <Text style={UserProfileStyle.GenderText}>Others</Text>
-                                </TouchableOpacity>
-                            </View>
-                            </View>
-                           
-                           </View>
-                         <View style={UserProfileStyle.Next}>
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('UpdateUserProfile', { text: this.state.text })} >
-                                 <Text style={UserProfileStyle.NextText}>Next</Text>
                             </TouchableOpacity>
-                        </View>
-                       
+                         </View>
                 </ScrollView>
-                   
             </View>
-               
          </View>
-
         );
     }
 };
+
+User_Profile.propTypes = {
+    userDetails: PropTypes.object,
+}
+const mapStateToProps = state => ({
+    userState: state.userState
+});
+const mapDispatchToProps = (dispatch) => ({
+    ...bindActionCreators({updateState }, dispatch)
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(User_Profile);

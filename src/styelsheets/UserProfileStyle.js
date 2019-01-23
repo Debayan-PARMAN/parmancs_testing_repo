@@ -13,9 +13,9 @@ export default UserProfileStyle = StyleSheet.create({
         height:80
     },
     welcomeText: {
-        fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
+        fontFamily: "Roboto",
         color: styleConstants.fontStyles.headerGroup.headerColor,
+        fontSize: 18,
         padding:30,
         textAlign: 'center',
         justifyContent: 'center',
@@ -29,9 +29,9 @@ export default UserProfileStyle = StyleSheet.create({
     },
     ToServeText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.bodyFontSize,
+        fontSize: 14,
         color: styleConstants.colorStyles.fontColor,
-        fontWeight:styleConstants.fontStyles.fontWeight,
+        fontWeight:'bold',
         padding: 10,
         // textAlign: 'center',
         justifyContent: 'center',
@@ -42,12 +42,12 @@ export default UserProfileStyle = StyleSheet.create({
         // justifyContent: 'center',
         padding: 10,
         marginTop:5,
-        height: 300,
+        height: 65,
         backgroundColor: '#fff',
     },
     EmailText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
-        fontSize: styleConstants.fontStyles.headerGroup.h3FontSize,
+        fontSize: 16,
         color: styleConstants.colorStyles.fontColor,
         // fontWeight: styleConstants.fontStyles.fontWeight,       
         // textAlign: 'center',
@@ -55,10 +55,11 @@ export default UserProfileStyle = StyleSheet.create({
         marginTop:5
     },
     EmailTextInput: {
-        height: 35, 
+        height: 30, 
         borderColor: 'gray',
         borderBottomWidth: 1,
-        marginTop: 5,
+        marginTop: 3,
+
     },
     
     AgeBloodWeight: {
@@ -98,39 +99,50 @@ export default UserProfileStyle = StyleSheet.create({
         justifyContent: 'center',
 
     },
-    GenderMan: {
-        width: 100,
-        height: 40,
+    GenderButton: {
+        width: 90,
+        height: 30,
         backgroundColor: '#ccc',
         marginTop: 5,
         borderWidth: 1,
+        borderRadius: 5,
         marginRight: 3
 
+    },
+    hoverButton: {
+        backgroundColor: '#972493',
     },
     GenderText: {
         textAlign: 'center', 
         alignItems: 'center', 
-        color: '#000', 
+        color: '#fff', 
         justifyContent: 'center',
-         marginTop: 10 
+         marginTop: 3
 
     },
     Next: {
+        flex: 1,
+        marginTop: 45,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+   
+    Nextbutton: {
         width: 120,
          height: 40,
         backgroundColor: '#972493',
-        marginTop: 45,
-        alignItems: 'center',
-        marginLeft: 120, 
+        justifyContent: 'center',
         borderWidth: 1,
+        borderRadius:5
 
     },
     NextText: {
         textAlign: 'center',
-        alignItems: 'center',
         color: '#fff',
         justifyContent: 'center',
-        marginTop: 10
+        
 
     },
+     
+    
 });

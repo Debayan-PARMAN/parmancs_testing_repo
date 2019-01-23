@@ -16,7 +16,7 @@ const RootStack = createStackNavigator({
   DoctorAppoinment: ROUTES.DOCTOR_APPOINMENT,
 },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'UserProfile',
   });
 
 export default AppContainer = createAppContainer(RootStack);
