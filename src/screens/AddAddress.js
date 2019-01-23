@@ -101,7 +101,7 @@ export default class Address extends Component {
                             <View style={AddAddressStyle.NameAgeSex}>
 
                                 <View style={{ height: 45, marginTop: 10, marginTop: 10, backgroundColor: '#fff', borderRadius: 3, borderWidth: 1 }}>
-                                    <Drop_Down /> 
+                                    {/* <Drop_Down />  */}
                                 </View>
                                 <View style={{ height: 45, marginTop: 10, marginTop: 5, backgroundColor: '#fff', }}>
                                     <TextInput
@@ -129,7 +129,7 @@ export default class Address extends Component {
                                 </View>
 
                                 <View style={{ height: 45, marginTop: 10, marginTop: 10, backgroundColor: '#fff', borderRadius: 3, borderWidth: 1 }}>
-                                    <Drop_Down />
+                                    {/* <Drop_Down /> */}
                                 </View>
                                     
 

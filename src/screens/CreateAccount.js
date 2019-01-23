@@ -42,7 +42,7 @@ class Create_Account extends Component {
 
     onCancelAlert = () => {
         this.props.updateState({ responseTriggerred: false });
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('UserProfile');
     }
 
     onSubmit = () => {

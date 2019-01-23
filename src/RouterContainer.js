@@ -17,7 +17,7 @@ const RootStack = createStackNavigator({
   BookAppoinment: ROUTES.BOOK_APPOINMENT,
 },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'UserProfile',
   });
 
 export default AppContainer = createAppContainer(RootStack);
