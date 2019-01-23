@@ -9,6 +9,7 @@ import UPDATE_USER_PROFILE from '../screens/UpdateUserProfile';
 import ADDADDRESS from '../screens/AddAddress';
 import CREATE_ACCOUNT from '../screens/CreateAccount';
 import DOCTOR_APPOINMENT from '../screens/DoctorAppoinment';
+import BOOK_APPOINMENT from '../screens/BookAppoinment';
 
 
 // import USER_ADDRESS from '../screens/UserAddress';
@@ -35,6 +36,7 @@ export default ROUTES = {
   ADDADDRESS,
   CREATE_ACCOUNT,
   DOCTOR_APPOINMENT,
+  BOOK_APPOINMENT,
   // USER_PROFILE,
   // USER_ADDRESS,
   // USER_MEDICAL_RECORDS,
