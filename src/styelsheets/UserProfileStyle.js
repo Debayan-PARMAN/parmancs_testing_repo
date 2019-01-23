@@ -13,7 +13,8 @@ export default UserProfileStyle = StyleSheet.create({
         height:80
     },
     welcomeText: {
-        fontFamily: "Roboto",
+        fontFamily: styleConstants.fontStyles.fontFamily,
+        //fontSize: styleConstants.fontStyles.headerGroup.h2FontSize,
         color: styleConstants.fontStyles.headerGroup.headerColor,
         fontSize: 18,
         padding:30,
@@ -30,6 +31,7 @@ export default UserProfileStyle = StyleSheet.create({
     ToServeText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
         fontSize: 14,
+        //fontSize: styleConstants.fontStyles.bodyFontSize,
         color: styleConstants.colorStyles.fontColor,
         fontWeight:'bold',
         padding: 10,
@@ -48,6 +50,7 @@ export default UserProfileStyle = StyleSheet.create({
     EmailText: {
         fontFamily: styleConstants.fontStyles.fontFamily,
         fontSize: 16,
+        //fontSize: styleConstants.fontStyles.headerGroup.h3FontSize,
         color: styleConstants.colorStyles.fontColor,
         // fontWeight: styleConstants.fontStyles.fontWeight,       
         // textAlign: 'center',

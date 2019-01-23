@@ -128,6 +128,7 @@ export function userRegistration() {
     doPost(`${URI.signup}`, signUpParams, dispatch)
       .then(result => dispatch(userRegistrationSuccess(result)))
       .catch(error => dispatch(userRegistrationFailure(error)));
+      console.log(signUpParams);
   };
 }
 

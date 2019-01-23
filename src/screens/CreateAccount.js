@@ -115,6 +115,12 @@ class Create_Account extends Component {
                             onChangeText={(e) => this.onValueChange(e, 'password')} 
                             />
                         </View>
+                        <Text style={FontStyles.font} style={{textAlign:'center', color:'#ccc'}}>
+                            {
+                                this.matchPassword(userDetails.password, userDetails.confirmpassword) ?
+                                    `Passwords match` : "Passwords don't match"
+                            }
+                        </Text>
                         <View style={LoginStyles.textInput}>
                             <PasswordInputText
                                 //style={LoginStyles.textInput_pass_email}
@@ -143,9 +149,9 @@ class Create_Account extends Component {
                                 Week
                         </Text></View>
                         </View>
-                        <View style={{ flex: 1, flexDirection: 'row', paddingTop: 15, }}>
+                        <View style={{ flex: 1, paddingTop: 15, }}>
                             <View style={{ flex: 0.6 }}>
-                                <Text style={FontStyles.font}>
+                                <Text style={FontStyles.font} style={{textAlign:'center', color:'#ccc'}}>
                                 {
                                     !this.validatePassword(userDetails.password) ?
                                     `Minimum eight charactes, at least one uppercase letter, one lowercase letter, one number and one special character`
@@ -153,12 +159,7 @@ class Create_Account extends Component {
                                 }
                                 </Text>
 
-                                <Text style={FontStyles.font}>
-                                    {
-                                        this.matchPassword(userDetails.password, userDetails.confirmpassword) ?
-                                            `Passwords match` : "Passwords don't match"
-                                    }
-                                </Text>
+                                
                             </View>
                         </View>
                     </View>

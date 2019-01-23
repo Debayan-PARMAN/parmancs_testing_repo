@@ -21,7 +21,22 @@ export default UpdateUserProfileStyle = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
     },
-   
+    ToServe: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        // backgroundColor: '#ccc',
+        height: 40
+    },
+    ToServeText: {
+        fontFamily: styleConstants.fontStyles.fontFamily,
+        //fontSize: styleConstants.fontStyles.bodyFontSize,
+        color: styleConstants.colorStyles.fontColor,
+        fontWeight: styleConstants.fontStyles.fontWeight,
+        padding: 10,
+        // textAlign: 'center',
+        justifyContent: 'center',
+    },
     NameAgeSex: {
         flex: 1,
         // alignItems: 'center',
