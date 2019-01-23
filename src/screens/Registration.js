@@ -117,7 +117,7 @@ class Registration extends Component {
             <TouchableOpacity onPress={() => console.log('Login with facebook')}>
               <View style={Button_fb_google.second_container}>
                 <View style={Button_fb_google.third_container}>
-                  <Image style={{ width: 30, height: 30 }}
+                  <Image style={Button_fb_google.image}
                     source={require('../../assets/images/facebook.png')}
                   />
                 </View>
@@ -131,7 +131,7 @@ class Registration extends Component {
             <TouchableOpacity onPress={() => console.log('Login with google')}>
               <View style={Button_fb_google.second_container}>
                 <View style={Button_fb_google.third_container}>
-                  <Image style={{ width: 30, height: 30 }}
+                  <Image style={Button_fb_google.image}
                     source={require('../../assets/images/google.png')}
                   />
                 </View>

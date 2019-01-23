@@ -5,7 +5,7 @@ import { Card, } from 'react-native-elements'
 //import { URI } from '../constants';
 import GetDirection_Btn from '../components/Button/GetDirection_Button';
 import Doctor_Address from '../components/DoctorAddress';
-//import { CardStyle } from '../styelsheets/CardStyle';
+import { CardStyle } from '../styelsheets/CardStyle';
 //import CalendarStrip from 'react-native-calendar-strip-slide-navigation';
 
 
@@ -14,35 +14,35 @@ export default class Doctor_Card extends Component {
 render() {
 
         return (
-             <Card containerStyle={{ padding: 0 }}>
+             <Card container style={CardStyle}>
 
-                            <View style={{ flex: 1, flexDirection: 'row', paddingLeft: 10, paddingRight: 10, marginTop:10, }}>
-                                <View style={{ flex: 1, }}>
-                                    <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Dr. Name</Text>
+                <View style={CardStyle.mainContainer}>
+                                <View style={CardStyle.flex}>
+                                    <Text style={CardStyle.name}>Dr. Name</Text>
                                 </View>
-                                <View style={{ flex: 1, }}>
-                                    <Text style={{ fontSize: 15, textAlign: 'right' }}>Specialization</Text>
+                                <View style={CardStyle.flex}>
+                                    <Text style={CardStyle.specialization}>Specialization</Text>
                                 </View>
                             </View>
                             <Doctor_Address />
                             <GetDirection_Btn />
-                            <View style={{ flex: 1, flexDirection: 'row', paddingLeft: 10, paddingRight: 10 }}>
-                                <View style={{ flex: 1, }}>
+                            <View style={CardStyle.secondContainer}>
+                                <View style={CardStyle.flex}>
                                     <Text>Morning</Text>
                                 </View>
-                                <View style={{ flex: 1, }}>
-                                    <Text style={{ textAlign: 'right' }}>3slots availability</Text>
+                                    <View style={CardStyle.flex}>
+                                    <Text style={CardStyle.slotStyle}>3slots availability</Text>
                                 </View>
                             </View>
                             <ScrollView horizontal>
-                            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', height: 30, marginBottom: 10, }}>
-                                <View style={{ flex: 0.5, backgroundColor: '#1BA529', justifyContent: 'center', marginLeft: 7, marginRight: 7, borderRadius: 5, paddingLeft:2, paddingRight:2, }}><TouchableOpacity><Text style={{ textAlign: 'center', color: 'white', }}>9.15 am</Text></TouchableOpacity></View>
-                                <View style={{ flex: 0.5, backgroundColor: '#1BA529', justifyContent: 'center', marginLeft: 7, marginRight: 7, borderRadius: 5, paddingLeft: 2, paddingRight: 2, }}><TouchableOpacity><Text style={{ textAlign: 'center', color: 'white', }}>9.15 am</Text></TouchableOpacity></View>
-                                <View style={{ flex: 0.5, backgroundColor: '#1BA529', justifyContent: 'center', marginLeft: 7, marginRight: 7, borderRadius: 5, paddingLeft: 2, paddingRight: 2, }}><TouchableOpacity><Text style={{ textAlign: 'center', color: 'white', }}>9.15 am</Text></TouchableOpacity></View>
-                                <View style={{ flex: 0.5, backgroundColor: '#1BA529', justifyContent: 'center', marginLeft: 7, marginRight: 7, borderRadius: 5, paddingLeft: 2, paddingRight: 2, }}><TouchableOpacity><Text style={{ textAlign: 'center', color: 'white', }}>9.15 am</Text></TouchableOpacity></View>
-                                <View style={{ flex: 0.5, backgroundColor: '#1BA529', justifyContent: 'center', marginLeft: 7, marginRight: 7, borderRadius: 5, paddingLeft: 2, paddingRight: 2, }}><TouchableOpacity><Text style={{ textAlign: 'center', color: 'white', }}>9.15 am</Text></TouchableOpacity></View>
-                                <View style={{ flex: 0.5, backgroundColor: '#1BA529', justifyContent: 'center', marginLeft: 7, marginRight: 7, borderRadius: 5, paddingLeft: 2, paddingRight: 2, }}><TouchableOpacity><Text style={{ textAlign: 'center', color: 'white', }}>9.15 am</Text></TouchableOpacity></View>
-                                <View style={{ flex: 0.5, backgroundColor: '#1BA529', justifyContent: 'center', marginLeft: 7, marginRight: 7, borderRadius: 5, paddingLeft: 2, paddingRight: 2, }}><TouchableOpacity><Text style={{ textAlign: 'center', color: 'white', }}>9.15 am</Text></TouchableOpacity></View>
+                            <View style={CardStyle.buttonContainer}>
+                                <View style={CardStyle.buttonStyle}><TouchableOpacity><Text style={CardStyle.buttonText}>9.15 am</Text></TouchableOpacity></View>
+                                <View style={CardStyle.buttonStyle}><TouchableOpacity><Text style={CardStyle.buttonText}>9.15 am</Text></TouchableOpacity></View>
+                                <View style={CardStyle.buttonStyle}><TouchableOpacity><Text style={CardStyle.buttonText}>9.15 am</Text></TouchableOpacity></View>
+                                <View style={CardStyle.buttonStyle}><TouchableOpacity><Text style={CardStyle.buttonText}>9.15 am</Text></TouchableOpacity></View>
+                                <View style={CardStyle.buttonStyle}><TouchableOpacity><Text style={CardStyle.buttonText}>9.15 am</Text></TouchableOpacity></View>
+                                <View style={CardStyle.buttonStyle}><TouchableOpacity><Text style={CardStyle.buttonText}>9.15 am</Text></TouchableOpacity></View>
+                                <View style={CardStyle.buttonStyle}><TouchableOpacity><Text style={CardStyle.buttonText}>9.15 am</Text></TouchableOpacity></View>
                             </View>
                             </ScrollView>
                         </Card>
