@@ -14,8 +14,13 @@ export const URI = {
   signup: `${URI_PREFIX}/gen/v1/users/signup`, // For User registration
   otp: `${URI_PREFIX}/gen/v1/manage-otp`, // For Generate otp
 
-
-
-  
+  //------for UpdateUserProfile-----
+  uploadProfileImage: `${URI_PREFIX}/v1/inusers/upload/profile-image`, // For upload individual profile image
+  updateProfileData: `${URI_PREFIX}/v1/inusers`, // For Update individual profile data
+  retriveIndividualUserProfile: `${URI_PREFIX}/v1/inusers/{userProfilePk}`, // For Retrive Individual User's profile by user profile pk
+  getAttributeByName: `${URI_PREFIX}/gen/v1/get-attribute-by-name/{attributeName}`, // get Attribute By AttributeName
+  fetchCountries: `${URI_PREFIX}/gen/v1/inusers/countries`, // fetch country
+  fetchStatesByCountry: `${URI_PREFIX}/gen/v1/inusers/{country Id}/status`, // fetch States by Country
 
 }
+

@@ -92,7 +92,7 @@ class Update_User_Profile extends Component {
                 value={userDetails.age} />
         </View>);
         } else {
-            dobArea = (<View><Text>Date Picker</Text></View>);
+            dobArea = (<View style={{ flex:1,marginBottom:1 }}><Text>Date Picker(DD/MM/YY)</Text></View>);
         }
 
         const row1 = (<View style={UpdateUserProfileStyle.bloodheightweight}>

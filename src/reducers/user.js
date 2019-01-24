@@ -11,8 +11,8 @@ const initialState = {
     confirmpassword: "",
     token: '',
     roleName: '',
-    emailAddress: "arup.roy@parmancs.com",
-    contactNo: '9547074718',
+    emailAddress: "",
+    contactNo: '',
     medicalHistory: {},
 
     addresses: [],
@@ -23,7 +23,7 @@ const initialState = {
     orders: [],
     userPicSrc: '',
     commonData: "",
-    name: "Arup Kumar Roy",
+    name: "",
     userOTP: '',
     //---User Details-----//
     fieldsEditable: false, // for making input fields editable
@@ -76,11 +76,11 @@ const initialState = {
         displayValue: "AB-"
       }
     ],
-    weight:'55',
-    height:'167',
-    gender: 'M',
-    age:'25',
-    maritalStatus:'single',
+    weight:'',
+    height:'',
+    gender: '',
+    age:'',
+    maritalStatus:'',
 
     profileCompletion: '',
 

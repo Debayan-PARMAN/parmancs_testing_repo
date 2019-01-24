@@ -64,7 +64,7 @@ class User_Profile extends Component {
         </View>);
         
         const DOBArea = (<View style={UserProfileStyle.EmailAgeBloodWeight}>
-            <Text style={UserProfileStyle.EmailText}>Date of Birth</Text>
+            <Text style={UserProfileStyle.EmailText}>Date of Birth(DD/MM/YY)</Text>
             <TextInput
                 style={UserProfileStyle.EmailTextInput}
                 placeholder="Enter Age Hare!"
