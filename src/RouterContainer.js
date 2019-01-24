@@ -20,7 +20,7 @@ const RootStack = createStackNavigator({
   Specialitis: ROUTES.SPECIALITIS,
 },
   {
-    initialRouteName: 'UserProfile',
+    initialRouteName: 'Home',
   });
 
 export default AppContainer = createAppContainer(RootStack);

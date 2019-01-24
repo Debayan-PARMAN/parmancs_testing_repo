@@ -5,7 +5,7 @@ import UserProfileStyle from '../styelsheets/UserProfileStyle';
 import Doctor_Address from '../components/DoctorAddress';
 import { CardStyle } from '../styelsheets/CardStyle';
 import ToggleSwitch from 'toggle-switch-react-native';
-import Status_Indicator from '../components/StatusIndicator'; 
+import Status_Indicator from '../components/StatusIndicator';
 //import CalendarStrip from 'react-native-calendar-strip-slide-navigation';
 //import Svg, {Use,Image,} from 'react-native-svg';
 
@@ -28,14 +28,14 @@ export default class Book_Appoinment_Second extends Component {
     onToggle = () => {
         console.log('Toggle Triggered');
     }
-    
+
     render() {
 
         return (
             <View style={LoginStyles.mainWrapper}>
                 <ScrollView>
                     <KeyboardAvoidingView style={LoginStyles.mainWrapper} behavior="padding" enabled>
-                        <Status_Indicator/>
+                        <Status_Indicator />
                         <View style={CardStyle.mainContainer}>
                             <View style={CardStyle.flex}>
                                 <Text style={CardStyle.name}>Dr. Name</Text>
@@ -44,18 +44,18 @@ export default class Book_Appoinment_Second extends Component {
                                 <Text style={CardStyle.specialization}>Specialization</Text>
                             </View>
                         </View>
-                        
-                            
+
+
                         <Doctor_Address />
 
-                        <View style={{paddingLeft:10, paddingRight:10,}}>
-                        <Text>Date & Time - Jan 28, 2019 3pm</Text>
+                        <View style={{ paddingLeft: 10, paddingRight: 10, }}>
+                            <Text>Date & Time - Jan 28, 2019 3pm</Text>
                         </View>
-                        
+
                         <View style={UserProfileStyle.EmailAgeBloodWeight}>
-                        <View style={{flex:1, flexDirection:"row"}}>
-                                <View style={{ flex: 1, justifyContent: 'flex-start', }}><Text style={{ marginTop:30, }}>Patient Details</Text></View>
-                                <View style={{ flex: 1, justifyContent: 'flex-end', alignItems:'flex-end', }}>
+                            <View style={{ flex: 1, flexDirection: "row" }}>
+                                <View style={{ flex: 1, justifyContent: 'flex-start', }}><Text style={{ marginTop: 30, }}>Patient Details</Text></View>
+                                <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('BookAppoinment')}><Text>Edit</Text></TouchableOpacity>
                                 </View>
                             </View>
@@ -63,8 +63,8 @@ export default class Book_Appoinment_Second extends Component {
                                 style={UserProfileStyle.EmailTextInput}
                                 placeholder="Patient name"
                                 editable={false}
-                                //onChangeText={text => this.setState({ text })}
-                                //value={this.state.text}
+                            //onChangeText={text => this.setState({ text })}
+                            //value={this.state.text}
                             />
                             <Text style={UserProfileStyle.EmailText}>Email</Text>
                             <TextInput
@@ -90,7 +90,7 @@ export default class Book_Appoinment_Second extends Component {
                             //onChangeText={text => this.setState({ text })}
                             //value={this.state.text}
                             />
-                            </View>
+                        </View>
                         <Text style={UserProfileStyle.GenderIama}>Gender</Text>
                         <View style={UserProfileStyle.Gender}>
                             <View style={UserProfileStyle.GenderMan}>
@@ -110,13 +110,13 @@ export default class Book_Appoinment_Second extends Component {
                                 </TouchableOpacity>
                             </View>
                         </View>
-                
-                        <TouchableOpacity onPress={() => console.log('Next Botton Tiggered')} >
-                            <View style={{ flex: 1, backgroundColor:'#707070', height:40, justifyContent:'center', marginTop:10,}}>
-                        <Text style={{textAlign:'center',color:'white',fontSize:25, fontWeight:'bold'}}>Confirm and proceed to pay</Text>
-                        </View>
+
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} >
+                            <View style={{ flex: 1, backgroundColor: '#707070', height: 40, justifyContent: 'center', marginTop: 10, }}>
+                                <Text style={{ textAlign: 'center', color: 'white', fontSize: 25, fontWeight: 'bold' }}>Confirm and proceed to pay</Text>
+                            </View>
                         </TouchableOpacity>
-                        
+
                     </KeyboardAvoidingView>
                 </ScrollView>
             </View>

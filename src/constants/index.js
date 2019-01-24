@@ -22,6 +22,8 @@ export const URI = {
   signup: `${URI_PREFIX}/gen/v1/users/signup`, // For User registration
   otp: `${URI_PREFIX}/gen/v1/manage-otp`, // For Generate otp
 
+  //=============== Check contact no==============
+  checkno: `${URI_PREFIX}/gen/v1/users/contactno`, // 
 
   findDoctors: `${URI_PREFIX}`, // For Search Doctor
 

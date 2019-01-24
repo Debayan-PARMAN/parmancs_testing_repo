@@ -138,7 +138,7 @@ export default class Address extends Component {
 
                             <View style={{ flex: 1, height: 40, marginTop: 10, flexDirection: 'row', justifyContent: 'center', }}>
                                 <View style={{ width: 120, height: 30, backgroundColor: '#972493', marginTop: 5, borderWidth: 1,borderRadius:3 }}>
-                                    <TouchableOpacity onPress={() => console.log('Men Botton Tiggered')} >
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} >
                                         <Text style={{ textAlign: 'center', alignItems: 'center', color: '#fff', justifyContent: 'center', marginTop: 3 }}>Add Address</Text>
                                     </TouchableOpacity>
                                 </View>

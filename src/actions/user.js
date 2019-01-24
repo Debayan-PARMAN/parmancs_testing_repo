@@ -46,6 +46,37 @@ export function userLoginFailure(error) {
   };
 }
 
+///////////////////////////////
+
+export function checkNoExits() {
+  console.log('check No Trigger');
+  return (dispatch, getState) => {
+    const { userDetails, otpActions } = getState().userState;
+    const contactNo = userDetails.userName;
+    dispatch({
+      type: USER_TYPE.CHECK_NUMBER
+    });
+    console.log(contactNo);
+    doGet(`${URI.otp}?q=${contactNo}`, dispatch)
+      .then(result => dispatch(checkNoExitsSuccess(result)))
+      .catch(error => dispatch(checkNoExitsFailure(error)));
+  };
+};
+
+export function checkNoExitsSuccess(payload) {
+  return {
+    type: USER_TYPE.CHECK_NUMBER_SUCCESS,
+    payload,
+  };
+}
+
+export function checkNoExitsFailure(error) {
+  return {
+    type: USER_TYPE.CHECK_NUMBER_FAILURE,
+    error,
+  };
+}
+
 // ================ For OTP ====================
 export function requestOTP() {
   return (dispatch, getState) => {

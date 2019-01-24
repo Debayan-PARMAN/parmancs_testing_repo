@@ -2,6 +2,8 @@ import { createReducer } from './utils';
 import { USER_TYPE } from '../constants/actionReducerConstants';
 
 const initialState = {
+  toggleEnabled: false,  
+  numberExits: false,
   userDetails: {
     userId: '',
     registrationProvider: "SBIS",
@@ -11,8 +13,8 @@ const initialState = {
     confirmpassword: "",
     token: '',
     roleName: '',
-    emailAddress: "arup.roy@parmancs.com",
-    contactNo: '9547074718',
+    emailAddress: "",
+    contactNo: '',
     medicalHistory: {},
 
     addresses: [],
@@ -23,7 +25,7 @@ const initialState = {
     orders: [],
     userPicSrc: '',
     commonData: "",
-    name: "Arup Kumar Roy",
+    name: "",
     userOTP: '',
     //---User Details-----//
     fieldsEditable: false, // for making input fields editable
@@ -76,11 +78,11 @@ const initialState = {
         displayValue: "AB-"
       }
     ],
-    weight:'55',
-    height:'167',
-    gender: 'M',
-    age:'25',
-    maritalStatus:'single',
+    weight:'',
+    height:'',
+    gender: '',
+    age:'',
+    maritalStatus:'',
 
     profileCompletion: '',
 
@@ -106,6 +108,9 @@ const initialState = {
     doctorAddress: [],
   },
 
+  ///////
+
+
 };
 
 const handlers = {
@@ -127,8 +132,8 @@ const handlers = {
     const { userDetails } = state;
     let successMessage = '';
     let failureMessage = '';
-    // console.log(action.payload.token);
-    // console.log(userDetails);
+    console.log(action.payload.token);
+    console.log(userDetails);
     if (action.payload.token) {
       successMessage = `${action.payload.username} has successfully signed in.`;
       userDetails.token = action.payload.token;
@@ -164,7 +169,6 @@ const handlers = {
     };
   },
   [USER_TYPE.SEND_OTP_FAILURE]: (_, action) => {
-    this.props.navigation.navigate('CreateAccount');
     return {
       loading: false,
       responseTriggerred: true,
@@ -241,6 +245,29 @@ const handlers = {
     };
   },
 
+  [USER_TYPE.CHECK_NUMBER]: () => {
+    return {
+      loading: true,
+      numberExits: false,
+    };
+  },
+  [USER_TYPE.CHECK_NUMBER_SUCCESS]: (state, action) => {
+    console.log(action.payload)
+    return {
+      loading: false,
+      numberExits: true,
+    };
+  },
+  [USER_TYPE.CHECK_NUMBER_FAILURE]: (_, action) => {
+    //this.props.navigation.navigate('CreateAccount');
+    return {
+      loading: false,
+      responseTriggerred: true,
+      numberExits: false,
+    };
+  },
+
 };
+
 
 export default createReducer(initialState, handlers);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { userLogin, updateState } from '../actions/user';
+import { userLogin, checkNoExits , updateState } from '../actions/user';
 
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
@@ -32,7 +32,16 @@ class LogIn extends Component {
 
         const { userDetails } = this.props.userState;
         userDetails[id] = value;
+        
+        if (id === "username" && id.length === 10){
+            console.log('check No Trigger');
+            console.log(value);
+            //this.props.checkNoExits();
+            this.props.updateState({toggleEnable: true});
 
+        }
+
+        
         this.props.updateState({ userDetails });
     }
 
@@ -54,7 +63,7 @@ class LogIn extends Component {
     }
 
     render() {
-        const { userDetails, showPassword, responseTriggerred, successMessage, failureMessage } = this.props.userState;
+        const { userDetails, showPassword, responseTriggerred, successMessage, failureMessage, toggleEnable } = this.props.userState;
 
 
         const passwordSection = (
@@ -106,7 +115,7 @@ class LogIn extends Component {
                     </View>
 
                     <View style={LoginStyles.textInput}>
-                        <Text style={FontStyles.font}>Email/Mobile number</Text>
+                        <Text style={FontStyles.font}>Mobile number</Text>
                         <TextInput
                             style={LoginStyles.textInput_pass_email}
                             placeholder="Type your Email/Mobile"
@@ -130,10 +139,12 @@ class LogIn extends Component {
                         <View style={LoginStyles.toggleButton_Main_Container}>
                             <View style={LoginStyles.toggleButton_Sub_Container}>
                                 <ToggleSwitch
-                                    isOn={showPassword}
+                                    //disabled={true}                                
+                                    isOn={false}
                                     onColor='#32CD32'
                                     offColor='#616264'
                                     size='small'
+                                
                                     onToggle={this.onToggle}
                                 />
                                 <Text style={FontStyles.font}>{showPassword ? 'Use Password' : 'Use OTP'}</Text>
@@ -216,7 +227,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    ...bindActionCreators({ userLogin, updateState }, dispatch)
+    ...bindActionCreators({ userLogin, checkNoExits, updateState }, dispatch)
 });
 
 

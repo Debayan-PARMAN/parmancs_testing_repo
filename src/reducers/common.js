@@ -66,7 +66,7 @@ const handlers = {
     },
     [COMMON_TYPE.GET_HOSPITALS_SUCCESS]: (state, action) => {
         const hospitallist = action.payload;
-        console.log(action.payload);
+        //console.log(action.payload);
 
         return {
             hospitallist,
@@ -87,7 +87,7 @@ const handlers = {
     },
     [COMMON_TYPE.GET_COUNTRIES_SUCCESS]: (state, action) => {
         const countries = action.payload;
-        console.log(action.payload);
+        //console.log(action.payload);
         return {
             countries,
             loading: false,

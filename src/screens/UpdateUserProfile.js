@@ -31,14 +31,14 @@ class Update_User_Profile extends Component {
     }
 
     onUpdateProfile = () => {
-        console.log('function triggered');
+        //console.log('function triggered');
         const { userDetails } = this.props.userState;
         userDetails.fieldsEditable = true;
         this.props.updateState({ userDetails });
     }
 
     onSaveUpdatedProfile = () => {
-        console.log('function triggered');
+        //console.log('function triggered');
         const { userDetails } = this.props.userState;
         userDetails.fieldsEditable = false;
         this.props.updateState({ userDetails });
@@ -169,6 +169,7 @@ class Update_User_Profile extends Component {
             <View style={{ width: 10, }}></View>
             <View style={UpdateUserProfileStyle.nextpagebutton}>
                 <TouchableOpacity onPress={() => console.log('Next Page Button tiggered')} >
+            
                     <Text style={UpdateUserProfileStyle.nextpagebuttonText}>Next Page</Text>
                 </TouchableOpacity>
             </View>
