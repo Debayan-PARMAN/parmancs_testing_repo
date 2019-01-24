@@ -10,6 +10,11 @@ import ADDADDRESS from '../screens/AddAddress';
 import CREATE_ACCOUNT from '../screens/CreateAccount';
 import DOCTOR_APPOINMENT from '../screens/DoctorAppoinment';
 import BOOK_APPOINMENT from '../screens/BookAppoinment';
+import BOOK_APPOINMENT_SECOND from '../screens/BookAppoinmentSecond';
+import FIND_DOCTOR from '../screens/FindDoctor';
+import SPECIALITIS from '../screens/Specialitis';
+
+
 
 
 // import USER_ADDRESS from '../screens/UserAddress';
@@ -37,6 +42,9 @@ export default ROUTES = {
   CREATE_ACCOUNT,
   DOCTOR_APPOINMENT,
   BOOK_APPOINMENT,
+  BOOK_APPOINMENT_SECOND,
+  FIND_DOCTOR,
+  SPECIALITIS,
   // USER_PROFILE,
   // USER_ADDRESS,
   // USER_MEDICAL_RECORDS,
