@@ -1,4 +1,4 @@
-{/*------Start Homepage Styles Hare-------*/ }
+{/*------Start Homepage Styles -------*/ }
 import { StyleSheet } from 'react-native';
 import styleConstants from '../constants/styleConstants';
 
@@ -65,24 +65,24 @@ export default HomeStyles = StyleSheet.create({
     off_h: {
         width: 320,
         height: 20,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     off_h_r: {
         width: 40,
         height: 25,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     off_h_r_i: {
         width: 15,
         height: 15,
         marginTop: 5,
-        marginLeft: 15
+        marginLeft: 15,
     },
 
     off_f: {
         width: 370,
         height: 40,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     off_txt_h: {
 

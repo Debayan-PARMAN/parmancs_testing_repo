@@ -15,6 +15,9 @@ const RootStack = createStackNavigator({
   CreateAccount: ROUTES.CREATE_ACCOUNT,
   DoctorAppoinment: ROUTES.DOCTOR_APPOINMENT,
   BookAppoinment: ROUTES.BOOK_APPOINMENT,
+  BookAppoinmentSecond: ROUTES.BOOK_APPOINMENT_SECOND,
+  FindDoctor: ROUTES.FIND_DOCTOR,
+  Specialitis: ROUTES.SPECIALITIS,
 },
   {
     initialRouteName: 'UserProfile',

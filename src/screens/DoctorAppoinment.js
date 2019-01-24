@@ -88,7 +88,7 @@ export default class Doctor_Appoinment extends Component {
                     <View style={{ flex: 1,}}>
                     <Text style={{ fontSize: 15 }}>Specialization</Text>
                     </View>
-                        <Doctor_Card/>
+                        <Doctor_Card />
                         <Doctor_Card />
                         <Doctor_Card />
                         <Doctor_Card />

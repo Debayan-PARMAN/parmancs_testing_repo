@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {AppRegistry, View } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import {LayoutStyles} from './styelsheets/MainStyle';
 import Footer from './components/Footer/Footer';
@@ -16,6 +15,5 @@ export default class MainApp extends Component {
     );
   }
 }
-
 
 AppRegistry.registerComponent(MainApp, () => MainApp);

@@ -9,7 +9,7 @@ import Status_Indicator from '../components/StatusIndicator';
 //import CalendarStrip from 'react-native-calendar-strip-slide-navigation';
 //import Svg, {Use,Image,} from 'react-native-svg';
 
-export default class Book_Appoinment extends Component {
+export default class Book_Appoinment_Second extends Component {
 
     static navigationOptions = {
         title: 'Book Appoinment',
@@ -26,8 +26,7 @@ export default class Book_Appoinment extends Component {
     };
 
     onToggle = () => {
-        this.props.navigation.navigate('BookAppoinmentSecond')
-    
+        console.log('Toggle Triggered');
     }
     
     render() {
@@ -52,47 +51,18 @@ export default class Book_Appoinment extends Component {
                         <View style={{paddingLeft:10, paddingRight:10,}}>
                         <Text>Date & Time - Jan 28, 2019 3pm</Text>
                         </View>
-                        <View style={{ flex: 1, marginTop: 3, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                            <View style={{ width: 150, height: 30, backgroundColor: '#972493', borderWidth: 1, }} >
-                                <TouchableOpacity onPress={() => console.log('First Consultation')}><Text style={{
-                                    fontFamily: 'Roboto',
-                                    fontSize: 15,
-                                    color: '#fff',
-                                    textAlign: "center",
-                                    justifyContent: 'center',
-                                    marginTop: 2
-                                }}>
-                                    First Consultation
-                               </Text></TouchableOpacity>
-                            </View>
-                            <View style={{ width: 150, height: 30, backgroundColor: '#ccc', borderWidth: 1, }} >
-                                <TouchableOpacity onPress={() => console.log('Follow Up')}><Text style={{
-                                    fontFamily: 'Roboto',
-                                    fontSize: 15,
-                                    color: '#972493',
-                                    textAlign: "center",
-                                    justifyContent: 'center',
-                                    marginTop: 2
-                                }}>
-                                    Follow Up
-                               </Text></TouchableOpacity>
-                            </View>
-                        </View>
+                        
                         <View style={UserProfileStyle.EmailAgeBloodWeight}>
                         <View style={{flex:1, flexDirection:"row"}}>
-                                <View style={{ flex: 1, justifyContent: 'flex-start', }}><Text style={{ marginTop:30, }}>Patient name</Text></View>
+                                <View style={{ flex: 1, justifyContent: 'flex-start', }}><Text style={{ marginTop:30, }}>Patient Details</Text></View>
                                 <View style={{ flex: 1, justifyContent: 'flex-end', alignItems:'flex-end', }}>
-                                <ToggleSwitch
-                                    //isOn={showPassword}
-                                    onColor='#32CD32'
-                                    offColor='#616264'
-                                    size='small'
-                                    onToggle={this.onToggle}
-                                /></View>
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('BookAppoinment')}><Text>Edit</Text></TouchableOpacity>
+                                </View>
                             </View>
                             <TextInput
                                 style={UserProfileStyle.EmailTextInput}
                                 placeholder="Patient name"
+                                editable={false}
                                 //onChangeText={text => this.setState({ text })}
                                 //value={this.state.text}
                             />
@@ -100,6 +70,7 @@ export default class Book_Appoinment extends Component {
                             <TextInput
                                 style={UserProfileStyle.EmailTextInput}
                                 placeholder="Patient email address"
+                                editable={false}
                             //onChangeText={text => this.setState({ text })}
                             //value={this.state.text}
                             />
@@ -107,6 +78,7 @@ export default class Book_Appoinment extends Component {
                             <TextInput
                                 style={UserProfileStyle.EmailTextInput}
                                 placeholder="Patient mobile number"
+                                editable={false}
                             //onChangeText={text => this.setState({ text })}
                             //value={this.state.text}
                             />
@@ -114,6 +86,7 @@ export default class Book_Appoinment extends Component {
                             <TextInput
                                 style={UserProfileStyle.EmailTextInput}
                                 placeholder="Approx age"
+                                editable={false}
                             //onChangeText={text => this.setState({ text })}
                             //value={this.state.text}
                             />
@@ -140,7 +113,7 @@ export default class Book_Appoinment extends Component {
                 
                         <TouchableOpacity onPress={() => console.log('Next Botton Tiggered')} >
                             <View style={{ flex: 1, backgroundColor:'#707070', height:40, justifyContent:'center', marginTop:10,}}>
-                        <Text style={{textAlign:'center',color:'white',fontSize:25, fontWeight:'bold'}}>Next</Text>
+                        <Text style={{textAlign:'center',color:'white',fontSize:25, fontWeight:'bold'}}>Confirm and proceed to pay</Text>
                         </View>
                         </TouchableOpacity>
                         
