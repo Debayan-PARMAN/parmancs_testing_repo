@@ -32,6 +32,7 @@ function doFetch(url, options, dispatch, settings){
   return fetch(url, options)
   .then(response => response.json())
   .catch((error) => {
+    console.log(error);
     console.log('From Utils',error);
   });
 }
