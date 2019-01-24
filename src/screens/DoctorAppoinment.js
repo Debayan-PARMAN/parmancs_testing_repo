@@ -63,7 +63,7 @@ export default class Doctor_Appoinment extends Component {
                                 />
                         </TouchableOpacity>
                     </View>
-                        <Doctor_Card/>
+                        <Doctor_Card />
                         <Doctor_Card />
                         <Doctor_Card />
                         <Doctor_Card />

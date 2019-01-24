@@ -7,6 +7,7 @@ import MainApp from './src/MainApp';
 // const initialState = {};
 // const store = configureStore(initialState);
 
+
   {/* <IntlProvider locale={localeData.locale} messages={localeData.messages}> */}
     // <MainApp />
   {/* </IntlProvider> */}

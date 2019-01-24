@@ -166,7 +166,7 @@ export const LoginStyles = StyleSheet.create({
   text_underline: {
     textDecorationLine: 'underline',
   },
-  
+
 });
 
 export const Button_fb_google = StyleSheet.create({
@@ -209,12 +209,12 @@ export const SignIn = StyleSheet.create({
 });
 
 export const Space = StyleSheet.create({
- space_20: {
+  space_20: {
     height: 20,
- },
+  },
   space_60: {
     height: 60,
- },
+  },
   space_30: {
     height: 30,
   },
