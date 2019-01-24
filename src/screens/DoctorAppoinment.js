@@ -3,6 +3,8 @@ import { View, Image, Text, Alert, TouchableOpacity, KeyboardAvoidingView, Scrol
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
 import { Card,} from 'react-native-elements'
 //import { URI } from '../constants';
+// import DateTimePicker from 'react-native-modal-datetime-picker';
+
 import GetDirection_Btn from '../components/Button/GetDirection_Button';
 import Doctor_Address from '../components/DoctorAddress'; 
 //import CalendarStrip from 'react-native-calendar-strip-slide-navigation';
@@ -24,10 +26,19 @@ export default class Doctor_Appoinment extends Component {
 
         },
     };
-    constructor(props) {
-        super(props)
-        this.state = { date: "2019-01-01" }
-    }
+    
+    // state = {
+    //     isDateTimePickerVisible: false,
+    // };
+
+    // _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+
+    // _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+    // _handleDatePicked = (date) => {
+    //     console.log('A date has been picked: ', date);
+    //     this._hideDateTimePicker();
+    // };
     render() {
             
         return (
@@ -62,6 +73,20 @@ export default class Doctor_Appoinment extends Component {
                                     onDateChange={(date) => { this.setState({ date: date }) }}
                                 />
                         </TouchableOpacity>
+                        {/* <DateTimePicker
+                            isVisible={this.state.isDateTimePickerVisible}
+                            onConfirm={this._handleDatePicked}
+                            onCancel={this._hideDateTimePicker}
+                        /> */}
+                    </View>
+                    <View style={{ height: 20 }}>
+                    </View>
+                    <View style={{flex:1, flexDirection:'row', paddingLeft:10, paddingRight:10 }}>
+                    <View style={{flex:1,}}>
+                    <Text style={{ fontSize: 20, fontWeight:'bold' }}>Dr. Name</Text>
+                    </View>
+                    <View style={{ flex: 1,}}>
+                    <Text style={{ fontSize: 15 }}>Specialization</Text>
                     </View>
                         <Doctor_Card />
                         <Doctor_Card />

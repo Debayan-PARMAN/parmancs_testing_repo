@@ -23,7 +23,7 @@ export const HeaderStyles = StyleSheet.create({
     backgroundColor: '#572a6f',
   }
 });
-
+ 
 export const FooterStyles = StyleSheet.create({
   container: {
     flex: 0.07,

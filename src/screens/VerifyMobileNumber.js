@@ -8,7 +8,6 @@ import { verifyOTP, updateState } from '../actions/user';
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google, Space } from '../styelsheets/MainStyle';
 
-
 class Verify_Mobile_Number extends Component {
     static navigationOptions = {
         title: 'MED-e-Pal',
