@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import Carousel from '../components/Carousel';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { getSpecialities, getCountries, getHospitals} from '../actions/common';
+
 import { View, ScrollView, Image, Text, Button, TouchableOpacity, TouchableHighlight } from 'react-native';
 import HomeStyles from '../styelsheets/HomeStyle';
 import Header_Component_Menu from '../components/Header/Header_Menu';
@@ -9,7 +14,13 @@ import Auto_Carousel from '../components/AutoCarousel';
 //import { bold } from 'ansi-colors';
 // import Flash_Screen from './src/components/FlashScreen';
 
-export default class Home_Screen extends Component {
+class Home_Screen extends Component {
+  componentDidMount(){
+    this.props.getSpecialities();
+    this.props.getCountries();
+    this.props.getHospitals();
+  }
+
   static navigationOptions = {
     title: 'MED-e-PAL',
     headerStyle: {
@@ -85,7 +96,7 @@ export default class Home_Screen extends Component {
           <View style={{ flex: 1, margin: (10) }}>
 
             <View style={HomeStyles.ser_parent} >
-              <TouchableOpacity onPress={() => console.log('Search Doctor')} >
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('FindDoctor')} >
                 <Image style={HomeStyles.ser_icon}
                   source={require('../../assets/images/search_doctor.png')} />
               </TouchableOpacity>
@@ -196,3 +207,17 @@ export default class Home_Screen extends Component {
     );
   }
 }
+
+Home_Screen.propTypes = {
+  common: PropTypes.object,
+}
+
+const mapStateToProps = state => ({
+  common: state.common
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  ...bindActionCreators({ getSpecialities, getCountries, getHospitals }, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home_Screen);

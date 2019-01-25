@@ -5,8 +5,9 @@ import { combineReducers } from 'redux';
 // import info from './info';
 // import activity from './activity';
 // import configuration from './configuration';
-// import common from './common';
+import common from './common';
 import userState from './user';
+import doctorState from './doctors';
 
 export default combineReducers({
   // nav,
@@ -14,6 +15,7 @@ export default combineReducers({
   // info,
   // activity,
   // configuration,
-  // common,
+  common,
   userState,
+  doctorState,
 });
