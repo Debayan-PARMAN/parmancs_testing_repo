@@ -18,6 +18,7 @@ const RootStack = createStackNavigator({
   BookAppoinmentSecond: ROUTES.BOOK_APPOINMENT_SECOND,
   FindDoctor: ROUTES.FIND_DOCTOR,
   Specialitis: ROUTES.SPECIALITIS,
+  SearchDoctor: ROUTES.SEARCH_DOCTOR,
 },
   {
     initialRouteName: 'Home',

@@ -9,7 +9,7 @@ import { View, Image, Text, Alert, Button, TextInput, ScrollView, ProgressBarAnd
 import { LoginStyles, FontStyles,} from '../styelsheets/MainStyle';
 import PasswordInputText from 'react-native-hide-show-password-input';
 
-class Create_Account extends Component {
+class OtpLogin extends Component {
     static navigationOptions = {
         title: 'Create Account',
         headerStyle: {
@@ -75,9 +75,9 @@ class Create_Account extends Component {
         if (responseTriggerred) {
             const message = userDetails.token ? successMessage : failureMessage;
             Alert.alert(
-                'Successfully Registered',
+                '',
                 message,
-                [{  
+                [{
                     text: 'Ok',
                     onPress: this.onCancelAlert,
                     style: 'cancel'
@@ -187,7 +187,7 @@ class Create_Account extends Component {
     }
 };
 
-Create_Account.propTypes = {
+OtpLogin.propTypes = {
     userDetails: PropTypes.object,
 }
 
@@ -199,4 +199,4 @@ const mapDispatchToProps = (dispatch) => ({
     ...bindActionCreators({ userRegistration, updateState }, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Create_Account);
+export default connect(mapStateToProps, mapDispatchToProps)(OtpLogin);

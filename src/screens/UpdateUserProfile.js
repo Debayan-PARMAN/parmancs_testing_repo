@@ -7,6 +7,7 @@ import { updateState } from '../actions/user';
 import { View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView, TouchableHighlight } from 'react-native';
 import UpdateUserProfileStyle from '../styelsheets/UpdateUserProfileStyle';
 import { KeyboardAvoidingView } from 'react-native';
+import DatePicker from 'react-native-datepicker';
 
 class Update_User_Profile extends Component {
 
@@ -43,7 +44,11 @@ class Update_User_Profile extends Component {
         userDetails.fieldsEditable = false;
         this.props.updateState({ userDetails });
     }
-    
+
+    constructor(props) {
+        super(props)
+        this.state = { date: "2019-01-01" }
+    }
     render() {
 
         const {userDetails} = this.props.userState;
@@ -92,7 +97,34 @@ class Update_User_Profile extends Component {
                 value={userDetails.age} />
         </View>);
         } else {
-            dobArea = (<View><Text>Date Picker</Text></View>);
+            dobArea = (<View style={{ flex: 1, marginBottom: 1 }}>
+                <Text>Date of Birth</Text><TouchableOpacity>
+                <DatePicker
+                    style={{ width: 200 }}
+                    date={this.state.date}
+                    mode="date"
+                    placeholder="select date"
+                    format="YYYY-MM-DD"
+                    minDate="2019-01-01"
+                    maxDate="2025-01-01"
+                    confirmBtnText="Confirm"
+                    cancelBtnText="Cancel"
+                    customStyles={{
+                        dateIcon: {
+                            position: 'absolute',
+                            left: 0,
+                            top: 4,
+                            marginLeft: 10,
+                            marginRight: 10,
+                        },
+                        dateInput: {
+                            marginLeft: 36,
+                        }
+                        // ... You can check the source to find the other keys.
+                    }}
+                    onDateChange={(date) => { this.setState({ date: date }) }}
+                />
+            </TouchableOpacity></View>);
         }
 
         const row1 = (<View style={UpdateUserProfileStyle.bloodheightweight}>
@@ -168,7 +200,7 @@ class Update_User_Profile extends Component {
             }
             <View style={{ width: 10, }}></View>
             <View style={UpdateUserProfileStyle.nextpagebutton}>
-                <TouchableOpacity onPress={() => console.log('Next Page Button tiggered')} >
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} >
             
                     <Text style={UpdateUserProfileStyle.nextpagebuttonText}>Next Page</Text>
                 </TouchableOpacity>

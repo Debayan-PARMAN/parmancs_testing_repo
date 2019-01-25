@@ -10,6 +10,7 @@ import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainSt
 import ToggleSwitch from 'toggle-switch-react-native';
 import SignIn_Btn from '../../src/components/Button/SignIn_Button';
 import PasswordInputText from 'react-native-hide-show-password-input';
+import LinearGradient from 'react-native-linear-gradient';
 // import AlertMessage from '../components/AlertMessage';
 
 //import { ScrollView } from 'react-native-gesture-handler';
@@ -68,14 +69,15 @@ class LogIn extends Component {
 
         const passwordSection = (
             <View style={LoginStyles.textInput}>
-
-                <PasswordInputText
-                    //style={LoginStyles.textInput_pass_email}
-                    //color="black"
+                <Text style={FontStyles.font}>Password</Text>
+                <TextInput
+                    style={LoginStyles.textInput_pass_email}
                     placeholder="Type your Password"
-                    secureTextEntry={true}
                     value={userDetails.password}
+                    secureTextEntry={true}
                     onChangeText={(e) => this.onValueChange(e, 'password')} />
+
+                
             </View>
         );
         const otpSection = (

@@ -26,7 +26,8 @@ export default class Book_Appoinment_Second extends Component {
     };
 
     onToggle = () => {
-        console.log('Toggle Triggered');
+        this.props.navigation.navigate('BookAppoinmentSecond')
+
     }
 
     render() {
@@ -51,69 +52,68 @@ export default class Book_Appoinment_Second extends Component {
                         <View style={{ paddingLeft: 10, paddingRight: 10, }}>
                             <Text>Date & Time - Jan 28, 2019 3pm</Text>
                         </View>
-
-                        <View style={UserProfileStyle.EmailAgeBloodWeight}>
-                            <View style={{ flex: 1, flexDirection: "row" }}>
-                                <View style={{ flex: 1, justifyContent: 'flex-start', }}><Text style={{ marginTop: 30, }}>Patient Details</Text></View>
+                      
+                        <View style={{ flex: 1 }}>
+                            <View style={{ flex: 1, flexDirection: "row", marginLeft: 10, marginRight: 10, }}>
+                                <View style={{ flex: 1, justifyContent: 'flex-start', }}><Text >Patient Details</Text></View>
                                 <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
-                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('BookAppoinment')}><Text>Edit</Text></TouchableOpacity>
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('BookAppoinment')}><Text>EDIT</Text></TouchableOpacity>
                                 </View>
                             </View>
+                            <View style={LoginStyles.textInput}>
+                                <View style={{ flex: 1, justifyContent: 'flex-start', }}><Text >Patient name</Text></View>    
                             <TextInput
-                                style={UserProfileStyle.EmailTextInput}
-                                placeholder="Patient name"
-                                editable={false}
-                            //onChangeText={text => this.setState({ text })}
-                            //value={this.state.text}
-                            />
-                            <Text style={UserProfileStyle.EmailText}>Email</Text>
-                            <TextInput
-                                style={UserProfileStyle.EmailTextInput}
-                                placeholder="Patient email address"
-                                editable={false}
-                            //onChangeText={text => this.setState({ text })}
-                            //value={this.state.text}
-                            />
-                            <Text style={UserProfileStyle.EmailText}>Mobile Number</Text>
-                            <TextInput
-                                style={UserProfileStyle.EmailTextInput}
-                                placeholder="Patient mobile number"
-                                editable={false}
-                            //onChangeText={text => this.setState({ text })}
-                            //value={this.state.text}
-                            />
-                            <Text style={UserProfileStyle.EmailText}>Age (in years) </Text>
-                            <TextInput
-                                style={UserProfileStyle.EmailTextInput}
-                                placeholder="Approx age"
-                                editable={false}
-                            //onChangeText={text => this.setState({ text })}
-                            //value={this.state.text}
-                            />
-                        </View>
-                        <Text style={UserProfileStyle.GenderIama}>Gender</Text>
-                        <View style={UserProfileStyle.Gender}>
-                            <View style={UserProfileStyle.GenderMan}>
-                                <TouchableOpacity onPress={() => console.log('Men Botton Tiggered')} >
-                                    <Text style={UserProfileStyle.GenderText}>Man</Text>
-                                </TouchableOpacity>
+                                    style={LoginStyles.textInput_pass_email}
+                                    placeholder="Patient name"
+                                    editable={false}
+                                //value={userDetails.username}
+                                //onChangeText={(e) => this.onValueChange(e, 'username')} 
+                                />
                             </View>
-                            <View style={UserProfileStyle.GenderMan}>
-                                <TouchableOpacity onPress={() => console.log('Women Botton Tiggered')} >
-                                    <Text style={UserProfileStyle.GenderText}>Woman</Text>
-                                </TouchableOpacity>
+                            <View style={LoginStyles.textInput}>
+                                <Text style={FontStyles.font}>Email</Text>
+                                <TextInput
+                                    style={LoginStyles.textInput_pass_email}
+                                    placeholder="Patient email address"
+                                    editable={false}
+                                //value={userDetails.username}
+                                //onChangeText={(e) => this.onValueChange(e, 'username')} 
+                                />
                             </View>
-
-                            <View style={UserProfileStyle.GenderMan}>
-                                <TouchableOpacity onPress={() => console.log('Others Botton Tiggered')} >
-                                    <Text style={UserProfileStyle.GenderText}>Others</Text>
-                                </TouchableOpacity>
+                            <View style={LoginStyles.textInput}>
+                                <Text style={FontStyles.font}>Mobile number</Text>
+                                <TextInput
+                                    style={LoginStyles.textInput_pass_email}
+                                    placeholder="Patient Mobile number"
+                                    editable={false}
+                                //value={userDetails.username}
+                                //onChangeText={(e) => this.onValueChange(e, 'username')} 
+                                />
                             </View>
+                            <View style={LoginStyles.textInput}>
+                                <Text style={FontStyles.font}>Age (in year)</Text>
+                                <TextInput
+                                    style={LoginStyles.textInput_pass_email}
+                                    placeholder="Approx age"
+                                    editable={false}
+                                //value={userDetails.username}
+                                //onChangeText={(e) => this.onValueChange(e, 'username')}
+                                />
+                            <Text style={FontStyles.font}>Gender</Text>
+                            <TextInput
+                                style={LoginStyles.textInput_pass_email}
+                                placeholder="Gender"
+                                editable={false}
+                            //value={userDetails.username}
+                            //onChangeText={(e) => this.onValueChange(e, 'username')}
+                            />
+                            </View>
+                            
                         </View>
 
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} >
                             <View style={{ flex: 1, backgroundColor: '#707070', height: 40, justifyContent: 'center', marginTop: 10, }}>
-                                <Text style={{ textAlign: 'center', color: 'white', fontSize: 25, fontWeight: 'bold' }}>Confirm and proceed to pay</Text>
+                                <Text style={{ textAlign: 'center', color: 'white', fontSize: 20, fontWeight: 'bold' }}>Confirm and process to pay</Text>
                             </View>
                         </TouchableOpacity>
 

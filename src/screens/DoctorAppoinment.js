@@ -61,8 +61,8 @@ export default class Doctor_Appoinment extends Component {
                                     }}
                                     onDateChange={(date) => { this.setState({ date: date }) }}
                                 />
-                            </TouchableOpacity>
-                        </View>
+                        </TouchableOpacity>
+                    </View>
                         <Doctor_Card />
                         <Doctor_Card />
                         <Doctor_Card />

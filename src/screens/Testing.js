@@ -1,65 +1,42 @@
-import React, { Component } from 'react';
-import { Platform, View, Image, Text, Alert, TouchableOpacity, TextInput, CheckBox, Button, ScrollView, Picker } from 'react-native';
-import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
-//import Footer from './components/Footer/Footer';
-//import ImageSlider from 'react-native-image-slider';
-import Footer_Component from '../components/Footer/Footer';
-import Greeting from '../screens/UserProfile';
-import ImagePicker from 'react-native-image-picker';
-import Drop_Down from '../components/DropDown';
+import React from 'react';
+import { Text, View } from 'react-native';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import LinearGradient from 'react-native-linear-gradient';
 
-export default class Test_Page extends Component {
-
-
+class HomeScreen extends React.Component {
     render() {
         return (
-            <View style={{ flex: 1, }}>
-                <View style={LoginStyles.button}>
-                    <View style={{ flex: 0.7, }}>
-                    </View>
-                    <View style={{ flex: 1, }}>
-                        <Button onPress={() => this.props.navigation.navigate('CreateAccount')}
-                            style={FontStyles.font}
-                            //onPress={this.onSubmit}
-                            title="Create Account"
-                            color="#AA8CC5"
-                            width="10"
-                        />
-                    </View>
-                    <View style={{ flex: 0.7, }}>
-                    </View>
-                </View>
-                <View style={LoginStyles.button}>
-                    <View style={{ flex: 0.7, }}>
-                    </View>
-                    <View style={{ flex: 1, }}>
-                        <Button onPress={() => this.props.navigation.navigate('DoctorAppoinment')}
-                            style={FontStyles.font}
-                            //onPress={this.onSubmit}
-                            title="Doctor Appoinment"
-                            color="#AA8CC5"
-                            width="10"
-                        />
-                    </View>
-                    <View style={{ flex: 0.7, }}>
-                    </View>
-                </View>
-                <View style={LoginStyles.button}>
-                    <View style={{ flex: 0.7, }}>
-                    </View>
-                    <View style={{ flex: 1, }}>
-                        <Button onPress={() => this.props.navigation.navigate('BookAppoinment')}
-                            style={FontStyles.font}
-                            //onPress={this.onSubmit}
-                            title="Book Appoinment"
-                            color="#AA8CC5"
-                            width="10"
-                        />
-                    </View>
-                    <View style={{ flex: 0.7, }}>
-                    </View>
-                </View>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ color: 'red', justifyContent: 'center', alignItems: 'center' }}>Home!</Text>
             </View>
         );
     }
 }
+
+class SettingsScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ color: 'green', justifyContent: 'center', alignItems: 'center' }}>Settings!</Text>
+            </View>
+        );
+    }
+}
+class AnotherScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ color: 'green', justifyContent: 'center', alignItems: 'center' }}>Another!</Text>
+            </View>
+        );
+    }
+}
+
+const TabNavigator = createBottomTabNavigator({
+    Home: { screen: HomeScreen },
+    Settings: { screen: SettingsScreen },
+    Another: { screen: AnotherScreen },
+});
+
+
+export default createAppContainer(TabNavigator);

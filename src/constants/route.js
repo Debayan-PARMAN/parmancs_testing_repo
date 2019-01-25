@@ -13,6 +13,7 @@ import BOOK_APPOINMENT from '../screens/BookAppoinment';
 import BOOK_APPOINMENT_SECOND from '../screens/BookAppoinmentSecond';
 import FIND_DOCTOR from '../screens/FindDoctor';
 import SPECIALITIS from '../screens/Specialitis';
+import SEARCH_DOCTOR from '../screens/SearchDoctor';
 
 
 
@@ -45,6 +46,8 @@ export default ROUTES = {
   BOOK_APPOINMENT_SECOND,
   FIND_DOCTOR,
   SPECIALITIS,
+  SEARCH_DOCTOR,
+
   // USER_PROFILE,
   // USER_ADDRESS,
   // USER_MEDICAL_RECORDS,

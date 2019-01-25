@@ -78,6 +78,7 @@ const handlers = {
             loading: false,
         };
     },
+    //////////////Countries//////////////////////
 
     [COMMON_TYPE.GET_COUNTRIES]: () => {
         return {

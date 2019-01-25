@@ -79,7 +79,7 @@ export default class Book_Appoinment extends Component {
                             </View>
                         </View>
                         <View style={{flex:1}}>
-                            <View style={{ flex: 1, flexDirection: "row" }}>
+                            <View style={{ flex: 1, flexDirection: "row", marginLeft:10, marginRight:10, }}>
                                 <View style={{ flex: 1, justifyContent: 'flex-start', }}><Text >Patient name</Text></View>
                                 <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'flex-end', }}>
                                     <ToggleSwitch
@@ -90,30 +90,58 @@ export default class Book_Appoinment extends Component {
                                         onToggle={this.onToggle}/>
                                 </View>
                             </View>
-                            <View style={{flex:1}}>
+                            <View style={LoginStyles.textInput}>
                             <TextInput
-                            style={{}}
-                            placeholder="Patient name"
-                            />
+                                    style={LoginStyles.textInput_pass_email}
+                                    placeholder="Patient name"
+                                    //value={userDetails.username}
+                                    //onChangeText={(e) => this.onValueChange(e, 'username')} 
+                                    />
+                            </View>
+                            <View style={LoginStyles.textInput}>
+                                <Text style={FontStyles.font}>Email</Text>
+                                <TextInput
+                                    style={LoginStyles.textInput_pass_email}
+                                    placeholder="Patient email address"
+                                    //value={userDetails.username}
+                                    //onChangeText={(e) => this.onValueChange(e, 'username')} 
+                                    />
+                            </View>
+                            <View style={LoginStyles.textInput}>
+                                <Text style={FontStyles.font}>Mobile number</Text>
+                                <TextInput
+                                    style={LoginStyles.textInput_pass_email}
+                                    placeholder="Patient Mobile number"
+                                    //value={userDetails.username}
+                                    //onChangeText={(e) => this.onValueChange(e, 'username')} 
+                                    />
+                            </View>
+                            <View style={LoginStyles.textInput}>
+                                <Text style={FontStyles.font}>Age (in year)</Text>
+                                <TextInput
+                                    style={LoginStyles.textInput_pass_email}
+                                    placeholder="Approx age"
+                                    //value={userDetails.username}
+                                    //onChangeText={(e) => this.onValueChange(e, 'username')}
+                                     />
                             </View>
                             
-
-                        <Text style={UserProfileStyle.GenderIama}>Gender</Text>
-                        <View style={UserProfileStyle.Gender}>
-                            <View style={UserProfileStyle.GenderMan}>
+                            <Text style={{fontFamily: 'Roboto', fontSize: 16, marginTop: 20, marginLeft: 10}}>Gender</Text>
+                            <View style={{flex: 1, height: 50, marginTop: 10, flexDirection: 'row', justifyContent: 'center',}}>
+                            <View style={{ flex:1, justifyContent:'center', backgroundColor:'#ccc',marginLeft:20,marginRight:20,}}>
                                 <TouchableOpacity onPress={() => console.log('Men Botton Tiggered')} >
-                                    <Text style={UserProfileStyle.GenderText}>Man</Text>
+                                    <Text style={{textAlign:'center',}}>Man</Text>
                                 </TouchableOpacity>
                             </View>
-                            <View style={UserProfileStyle.GenderMan}>
+                                <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#ccc', marginLeft: 20, marginRight: 20,}}>
                                 <TouchableOpacity onPress={() => console.log('Women Botton Tiggered')} >
-                                    <Text style={UserProfileStyle.GenderText}>Woman</Text>
+                                        <Text style={{ textAlign: 'center',}}>Woman</Text>
                                 </TouchableOpacity>
                             </View>
 
-                            <View style={UserProfileStyle.GenderMan}>
+                                <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#ccc', marginLeft: 20, marginRight: 20,}}>
                                 <TouchableOpacity onPress={() => console.log('Others Botton Tiggered')} >
-                                    <Text style={UserProfileStyle.GenderText}>Others</Text>
+                                        <Text style={{ textAlign: 'center',}}>Others</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
