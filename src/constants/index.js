@@ -32,3 +32,5 @@ export const URI = {
 
   // ------- Search for Doctor----------------
   findDoctors: `${URI_PREFIX}`, // For Search Doctor
+  
+}

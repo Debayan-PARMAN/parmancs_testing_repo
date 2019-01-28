@@ -70,7 +70,8 @@ class User_Profile extends Component {
                 placeholder="Enter Age Hare!"
                 onChangeText={(e) => this.onValueChange(e, 'age')}
                 value={userDetails.age}
-            /></View>);
+            />
+            </View>);
 
         const heightBloodGroupWeightArea = (<View style={UserProfileStyle.AgeBloodWeight}>
             <View style={UserProfileStyle.AgeBloodWeightHorizontalAlignment} >

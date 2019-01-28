@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import LinearGradient from 'react-native-linear-gradient';
+
 
 class HomeScreen extends React.Component {
     render() {
@@ -9,6 +11,7 @@ class HomeScreen extends React.Component {
                 <Text style={{ color: 'red', justifyContent: 'center', alignItems: 'center' }}>Home!</Text>
             </View>
         );
+
     }
 }
 
@@ -21,6 +24,7 @@ class SettingsScreen extends React.Component {
         );
     }
 }
+
 class AnotherScreen extends React.Component {
     render() {
         return (

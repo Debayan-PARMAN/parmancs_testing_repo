@@ -17,7 +17,7 @@ export default HomeStyles = StyleSheet.create({
     signinbtn: {
         width: 150,
         height: 40,
-        backgroundColor: '#972493',
+        //backgroundColor: '#972493',
         borderRadius: 5,
         borderWidth: 1,
         borderColor: '#000'

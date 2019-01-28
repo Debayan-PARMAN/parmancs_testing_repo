@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Image, Text, Alert, TouchableOpacity, KeyboardAvoidingView, ScrollView, Button, AppRegistry, } from 'react-native';
 import { LoginStyles, FontStyles, Button_fb_google } from '../styelsheets/MainStyle';
-import { Card,} from 'react-native-elements'
+import { Card, } from 'react-native-elements'
 //import { URI } from '../constants';
 import GetDirection_Btn from '../components/Button/GetDirection_Button';
-import Doctor_Address from '../components/DoctorAddress'; 
+import Doctor_Address from '../components/DoctorAddress';
 //import CalendarStrip from 'react-native-calendar-strip-slide-navigation';
 import Doctor_Card from '../components/DoctorCard';
 import DatePicker from 'react-native-datepicker';
@@ -29,13 +29,13 @@ export default class Doctor_Appoinment extends Component {
         this.state = { date: "2019-01-01" }
     }
     render() {
-            
+
         return (
             <View style={LoginStyles.mainWrapper}>
                 <ScrollView>
                     <KeyboardAvoidingView style={LoginStyles.mainWrapper} behavior="padding" enabled>
-                    <View>
-                        <TouchableOpacity>
+                        <View>
+                            <TouchableOpacity>
                                 <DatePicker
                                     style={{ width: 200 }}
                                     date={this.state.date}
@@ -68,7 +68,7 @@ export default class Doctor_Appoinment extends Component {
                         <Doctor_Card />
                         <Doctor_Card />
 
-                   </KeyboardAvoidingView> 
+                    </KeyboardAvoidingView>
                 </ScrollView>
             </View>
         );

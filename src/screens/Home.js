@@ -10,6 +10,7 @@ import HomeStyles from '../styelsheets/HomeStyle';
 import Header_Component_Menu from '../components/Header/Header_Menu';
 import Header_SearchButton from '../components/Header/Header_SearchButton';
 import Auto_Carousel from '../components/AutoCarousel';
+import {LinearGradient} from 'expo';
 //import Footer_Component from '../components/Footer/Footer';
 //import { bold } from 'ansi-colors';
 // import Flash_Screen from './src/components/FlashScreen';
@@ -25,6 +26,9 @@ class Home_Screen extends Component {
     title: 'MED-e-PAL',
     headerStyle: {
       backgroundColor: '#572a6f',
+    },
+    LinearGradient: {
+      colors: [ '#a25ca8', '#582491'],
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -50,12 +54,17 @@ class Home_Screen extends Component {
 
         {/*--- SignIn/CreateAccount Start ---*/}
         <View style={HomeStyles.signin}>
+            <LinearGradient
+              colors={['#a25ca8', '#582491']}
+              style={HomeStyles.signinbtn}>
             <TouchableHighlight
-              style={HomeStyles.signinbtn}
+              
               onPress={() => this.props.navigation.navigate('Login')}
-              underlayColor='#fff'>
+              //underlayColor='#fff'
+              >
               <Text style={[HomeStyles.signinbtnText]}>Sign In</Text>
             </TouchableHighlight>
+            </LinearGradient>
           <View style={{ width: 10, }}>
           </View>
             <TouchableHighlight
@@ -165,7 +174,7 @@ class Home_Screen extends Component {
 
           <View style={{ flex: 1, marginTop: (10), marginLeft: 10 }}>
             <View style={HomeStyles.ser_parent} >
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Testing')} >
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('UpdateUserProfile')} >
                 <Image style={HomeStyles.ser_icon}
                   source={require('../../assets/images/coding.png')} />
               </TouchableOpacity>
@@ -175,22 +184,22 @@ class Home_Screen extends Component {
             </View>
             <View style={HomeStyles.ser_parent} >
                 <View style={HomeStyles.ser_parent} >
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('UserProfile')} >
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('DoctorAppoinment')} >
                     <Image style={HomeStyles.ser_icon}
                       source={require('../../assets/images/coding.png')} />
                   </TouchableOpacity>
                   <Text style={HomeStyles.ser_text}>
-                    UserProfile
+                    Doctor Appointments
                   </Text>
             </View>
             </View>
             <View style={HomeStyles.ser_parent} >
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('UpdateUserProfile')} >
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('BookAppoinment')} >
                   <Image style={HomeStyles.ser_icon}
                     source={require('../../assets/images/coding.png')} />
                 </TouchableOpacity>
                 <Text style={HomeStyles.ser_text}>
-                  UpdateUserProfile
+                  BookAppoinment
                   </Text>
             </View>
           </View>
